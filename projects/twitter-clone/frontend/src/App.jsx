@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 
 
@@ -10,8 +11,8 @@ import Navbar from 'react-bootstrap/Navbar';
 
 
 
-const App = () => (
-  <>
+function App() {
+  return <>
    <Navbar className="bg-primary-subtle">
         <Container>
           <Navbar.Brand href="#home">      <img
@@ -38,6 +39,6 @@ const App = () => (
     </Row>
   </Container>
   </>
-);
+}
 
 export default App;
