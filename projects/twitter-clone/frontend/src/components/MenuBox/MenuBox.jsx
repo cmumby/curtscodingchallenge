@@ -19,43 +19,45 @@ import PersonIcon from '@mui/icons-material/Person';
 
 export default function MenuBox() {
   return (
-    <MenuList>
-      <MenuItem sx={{ justifyContent: 'flex-end' }}>
-        <ListItemIcon>
-          <HomeIcon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText>Home</ListItemText>
-      </MenuItem>
-      <MenuItem>
-        <ListItemIcon>
-          <SearchIcon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText>Explore</ListItemText>
-      </MenuItem>
-      <MenuItem>
-        <ListItemIcon>
-          <NotificationsIcon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText>Notifications</ListItemText>
-      </MenuItem>
-      <MenuItem>
-        <ListItemIcon>
-          <MailIcon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText>Messages</ListItemText>
-      </MenuItem>
-      <MenuItem>
-        <ListItemIcon>
-          <SummarizeIcon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText>Lists</ListItemText>
-      </MenuItem>
-      <MenuItem>
-        <ListItemIcon>
-          <PersonIcon fontSize="small" />
-        </ListItemIcon>
-        <ListItemText>Profile</ListItemText>
-      </MenuItem>
-    </MenuList>
+    <Paper>
+      <MenuList sx={{ paddingLeft: '18rem' }}>
+        <MenuItem>
+          <ListItemIcon>
+            <HomeIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Home</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <SearchIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Explore</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <NotificationsIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Notifications</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <MailIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Messages</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <SummarizeIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Lists</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <PersonIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Profile</ListItemText>
+        </MenuItem>
+      </MenuList>
+    </Paper>
   );
 }
