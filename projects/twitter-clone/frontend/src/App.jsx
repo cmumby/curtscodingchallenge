@@ -1,44 +1,59 @@
-/* eslint-disable prettier/prettier */
-import React, { useState } from 'react';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import MenuIcon from '@mui/icons-material/Menu';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import Skeleton from '@mui/material/Skeleton';
+import MenuBox from './components/MenuBox/MenuBox';
+import ActivityBox from './components/ActivityBox/ActivityBox';
 
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Navbar from 'react-bootstrap/Navbar';
+export default function FullWidthGrid() {
+  return (
+    <>
+      <AppBar position="sticky">
+        <Toolbar>
+          <img
+            alt="Remy Sharp"
+            src="/img/favicon.png"
+            style={{ width: '49.4px', height: '40px', margin: '0 1rem' }}
+          />
 
+          <Typography variant="h6" noWrap component="div">
+            Tweet Center
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Box sx={{ flexGrow: 1 }}>
+        <CssBaseline />
 
-
-
-function App() {
-  return <>
-   <Navbar className="bg-primary-subtle">
-        <Container>
-          <Navbar.Brand href="#home">      <img
-              alt=""
-              src="/img/logo.png"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{'   '}Clone Projects: <strong>Twitter</strong></Navbar.Brand>
-        </Container>
-      </Navbar>
-  <Container className="container-xl p-3">
-    <Row>
-      <Col className="col-3"> <ListGroup>
-      <ListGroup.Item>Cras justo odio</ListGroup.Item>
-      <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-      <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-      <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-      <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-    </ListGroup></Col>
-      <Col className="col-6">Column 2</Col>
-      <Col className="col-3">Column 3</Col>
-      
-    </Row>
-  </Container>
-  </>
+        <Grid container spacing={2} sx={{ padding: '1rem' }}>
+          <Grid item xs={6} md={3}>
+            <MenuBox />
+          </Grid>
+          <Grid item xs={6} md={6}>
+            <Skeleton variant="rectangular" height={220} animation="wave" />
+          </Grid>
+          <Grid item xs={6} md={3}>
+            <ActivityBox />
+          </Grid>
+        </Grid>
+      </Box>
+    </>
+  );
 }
-
-export default App;

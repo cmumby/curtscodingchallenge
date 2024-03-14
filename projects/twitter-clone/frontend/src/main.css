@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "chirp";
+    src: url("fonts/chirp-regular-web.woff") format('woff');
+    
+}
+
+@font-face {
+    font-family: "Chirp";
+    src: url("fonts/chirp-font-bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Chirp";
+    src: url("fonts/chirp-font-boldoblique.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Chirp";
+    src: url("fonts/chirp-font-oblique.woff") format('woff');
+    font-style: italic;
+}
+
+body {
+    font-family: "Chirp", "Roboto","Helvetica","Arial", sans-serif !important;
+}
+
