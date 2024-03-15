@@ -47,9 +47,28 @@ export default function App() {
   const theme = createTheme({
     palette: {
       mode: systemPrefersDark ? 'dark' : 'light',
+      primary: {
+        main: '#1DA1F2',
+        button: {
+          color: '#00FF00',
+        },
+      },
     },
     typography: {
       fontFamily: '"Chirp", "Roboto","Helvetica","Arial", sans-serif !important',
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            color: '#FFF',
+
+            fontSize: '1.1333rem',
+            textTransform: 'unset',
+            borderRadius: '9999px',
+          },
+        },
+      },
     },
   });
 
@@ -79,8 +98,31 @@ export default function App() {
           <CenterPanel item xs={6} md={6}>
             {Array.from({ length: 100 }, (_, i) => (
               <>
-                <Skeleton variant="rectangular" height={230} animation="wave" />
-                <br />
+                <Skeleton
+                  variant="circular"
+                  height={40}
+                  width={40}
+                  animation="wave"
+                  sx={{ float: 'left', position: 'relative', top: '15px' }}
+                />
+                <Stack drirection="row">
+                  <Skeleton
+                    variant="rectangular"
+                    height={10}
+                    animation="wave"
+                    sx={{ margin: '1rem 0 1rem 1rem' }}
+                  />
+
+                  <Skeleton
+                    variant="rectangular"
+                    height={10}
+                    animation="wave"
+                    sx={{ margin: '0rem 0rem 1rem 1rem' }}
+                  />
+                </Stack>
+
+                <Skeleton variant="rectangular" height={230} animation="wave" sx={{ marginBottom: '1rem' }} />
+                <Divider />
               </>
             ))}
           </CenterPanel>

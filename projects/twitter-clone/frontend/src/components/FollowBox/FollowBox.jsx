@@ -21,29 +21,27 @@ const UsersList = ({ users }) => (
       users.map(user => {
         const { firstname, lastName, username, avatar } = user;
         return (
-          <ThemeProvider theme={theme}>
-            <React.Fragment key={uniqid()}>
-              <CardHeader
-                className="UserList"
-                avatar={<Avatar alt="test" src={avatar} />}
-                title={
-                  <>
-                    <Stack direction="row">
-                      <Name>
-                        {firstname}&nbsp;{lastName}
-                      </Name>
+          <React.Fragment key={uniqid()}>
+            <CardHeader
+              className="UserList"
+              avatar={<Avatar alt="test" src={avatar} />}
+              title={
+                <>
+                  <Stack direction="row">
+                    <Name>
+                      {firstname}&nbsp;{lastName}
+                    </Name>
 
-                      <FollowButton variant="contained" size="small">
-                        Follow
-                      </FollowButton>
-                    </Stack>
+                    <FollowButton variant="contained" size="small">
+                      Follow
+                    </FollowButton>
+                  </Stack>
 
-                    <Account className="Typography event">@{username}</Account>
-                  </>
-                }
-              />
-            </React.Fragment>
-          </ThemeProvider>
+                  <Account className="Typography event">@{username}</Account>
+                </>
+              }
+            />
+          </React.Fragment>
         );
       })
     }
@@ -59,8 +57,10 @@ const Name = styled(Typography)(({ theme }) => ({
 }));
 
 const FollowButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.primary,
+  color: '#000000',
+  fontSize: '0.9333rem',
   flexGrow: 0,
+  backgroundColor: '#FFFFFF',
 }));
 
 const Account = styled(Typography)(({ theme }) => ({
