@@ -23,7 +23,8 @@
     font-style: italic;
 }
 
-body {
+html, body {
     font-family: "Chirp", "Roboto","Helvetica","Arial", sans-serif !important;
+    font-Size:16px;
 }
 

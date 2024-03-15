@@ -18,34 +18,48 @@ import MenuBox from './components/MenuBox/MenuBox';
 import ActivityBox from './components/ActivityBox/ActivityBox';
 import FollowBox from './components/FollowBox/FollowBox';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
-export default function FullWidthGrid() {
+export default function App() {
   const systemPrefersDark = useMediaQuery(
     {
       query: '(prefers-color-scheme: dark)',
     },
     undefined
   );
+  const CenterPanel = styled(Grid)(({ theme }) => ({
+    color: theme.palette.primary,
+    borderLeft: '1px solid rgba(255, 255, 255, 0.12)',
+    borderRight: '1px solid rgba(255, 255, 255, 0.12)',
+    paddingRight: '1rem',
+    overflow: 'scroll',
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
+    '-ms-overflow-style': 'none' /* IE and Edge */,
+    'scrollbar-width': 'none' /* Firefox */,
+    height: '100vh',
+  }));
 
-  const defaultTheme = createTheme({
+  const BaseContainer = styled(Grid)(({ theme }) => ({
+    color: theme.palette.primary,
+    height: '100vh',
+  }));
+
+  const theme = createTheme({
     palette: {
       mode: systemPrefersDark ? 'dark' : 'light',
+    },
+    typography: {
+      fontFamily: '"Chirp", "Roboto","Helvetica","Arial", sans-serif !important',
     },
   });
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <AppBar position="sticky">
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppBar className="AppBar" position="sticky">
         <Toolbar>
           <img
-            alt="Remy Sharp"
+            alt="logo"
             src="/img/favicon.png"
             style={{ width: '49.4px', height: '40px', margin: '0 1rem' }}
           />
@@ -58,19 +72,24 @@ export default function FullWidthGrid() {
       <Box sx={{ flexGrow: 1 }}>
         <CssBaseline />
 
-        <Grid container spacing={2} sx={{ padding: '1rem' }}>
+        <BaseContainer container spacing={2} sx={{ padding: '1rem' }}>
           <Grid item xs={6} md={3}>
             <MenuBox />
           </Grid>
-          <Grid item xs={6} md={6}>
-            <Skeleton variant="rectangular" height={230} animation="wave" />
-          </Grid>
+          <CenterPanel item xs={6} md={6}>
+            {Array.from({ length: 100 }, (_, i) => (
+              <>
+                <Skeleton variant="rectangular" height={230} animation="wave" />
+                <br />
+              </>
+            ))}
+          </CenterPanel>
           <Grid item xs={6} md={3}>
             <ActivityBox />
             <Divider sx={{ margin: '1rem 0' }} />
             <FollowBox />
           </Grid>
-        </Grid>
+        </BaseContainer>
       </Box>
     </ThemeProvider>
   );

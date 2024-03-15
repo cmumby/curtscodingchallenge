@@ -1,15 +1,12 @@
 import * as React from 'react';
-import Divider from '@mui/material/Divider';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Typography from '@mui/material/Typography';
-import ContentCut from '@mui/icons-material/ContentCut';
-import ContentCopy from '@mui/icons-material/ContentCopy';
-import ContentPaste from '@mui/icons-material/ContentPaste';
-import Cloud from '@mui/icons-material/Cloud';
+
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -17,47 +14,68 @@ import MailIcon from '@mui/icons-material/Mail';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import PersonIcon from '@mui/icons-material/Person';
 
+const MenuItemText = styled(ListItemText)(({ theme }) => ({
+  color: theme.palette.primary,
+  '& span': {
+    fontSize: '1.333rem',
+  },
+}));
+
+const MainMenu = styled(MenuList)(({ theme }) => ({
+  color: theme.palette.primary,
+  float: 'right',
+}));
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1DA1F2',
+      handle: '#71767B',
+    },
+  },
+});
+
 export default function MenuBox() {
   return (
     <Paper>
-      <MenuList sx={{ paddingLeft: '18rem' }}>
+      <MainMenu>
         <MenuItem>
           <ListItemIcon>
-            <HomeIcon fontSize="small" />
+            <HomeIcon fontSize="medium" />
           </ListItemIcon>
-          <ListItemText>Home</ListItemText>
+          <MenuItemText>Home</MenuItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <SearchIcon fontSize="small" />
+            <SearchIcon fontSize="medium" />
           </ListItemIcon>
-          <ListItemText>Explore</ListItemText>
+          <MenuItemText>Explore</MenuItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <NotificationsIcon fontSize="small" />
+            <NotificationsIcon fontSize="medium" />
           </ListItemIcon>
-          <ListItemText>Notifications</ListItemText>
+          <MenuItemText>Notifications</MenuItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <MailIcon fontSize="small" />
+            <MailIcon fontSize="medium" />
           </ListItemIcon>
-          <ListItemText>Messages</ListItemText>
+          <MenuItemText>Messages</MenuItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <SummarizeIcon fontSize="small" />
+            <SummarizeIcon fontSize="medium" />
           </ListItemIcon>
-          <ListItemText>Lists</ListItemText>
+          <MenuItemText>Lists</MenuItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <PersonIcon fontSize="small" />
+            <PersonIcon fontSize="medium" />
           </ListItemIcon>
-          <ListItemText>Profile</ListItemText>
+          <MenuItemText>Profile</MenuItemText>
         </MenuItem>
-      </MenuList>
+      </MainMenu>
     </Paper>
   );
 }
