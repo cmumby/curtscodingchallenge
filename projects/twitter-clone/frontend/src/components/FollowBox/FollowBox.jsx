@@ -4,10 +4,10 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import CardHeader from '@mui/material/CardHeader';
 import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import Link from '@mui/material/Link';
+import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import { orange } from '@mui/material/colors';
 import { USERS } from '../../mockData/mockData';
 
 import './FollowBox.css';
@@ -23,6 +23,7 @@ const UsersList = ({ users }) => (
         return (
           <React.Fragment key={uniqid()}>
             <CardHeader
+              sx={{ padding: '0.5rem' }}
               className="UserList"
               avatar={<Avatar alt="test" src={avatar} />}
               title={
@@ -69,15 +70,6 @@ const Account = styled(Typography)(({ theme }) => ({
   fontSize: 15,
 }));
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1DA1F2',
-      handle: '#71767B',
-    },
-  },
-});
-
 export default function FollowBox() {
   return (
     <Paper sx={{ padding: '16px' }}>
@@ -87,6 +79,7 @@ export default function FollowBox() {
       <Stack>
         <UsersList users={USERS} />
       </Stack>
+      <Link href="http://google.com">Show more</Link>
     </Paper>
   );
 }

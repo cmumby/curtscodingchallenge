@@ -35,7 +35,7 @@ const MenuLink = styled(MenuItem)(({ theme }) => ({
 
 const PostButton = styled(Button)(({ theme }) => ({
   color: theme.palette.primary,
-  width: '90%',
+  width: '100%',
   backgroundColor: '#1DA1F2',
   margin: '1rem 1rem 1rem 0',
   fontWeight: 700,
