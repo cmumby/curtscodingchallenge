@@ -5,7 +5,7 @@ function capitalizeWord(word) {
 }
 
 function createRandomEvent() {
-  const topicWords = `${capitalizeWord(faker.word.noun())} . ${capitalizeWord(faker.word.verb())}s `;
+  const topicWords = `${capitalizeWord(faker.word.noun())} . Trending `;
   return {
     topic: topicWords,
     trendingEvent: capitalizeWord(faker.word.noun()),

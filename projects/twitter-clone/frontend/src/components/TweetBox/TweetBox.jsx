@@ -13,6 +13,7 @@ import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBullet
 import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
 import DateRangeOutlinedIcon from '@mui/icons-material/DateRangeOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import Tooltip from '@mui/material/Tooltip';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
 
@@ -43,12 +44,15 @@ const ContentButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-const PostButton = styled(Button)(({ theme }) => ({
+const PostButton = styled(Button)(() => ({
   color: '#FFFFFF',
   fontSize: '1rem',
-  flexGrow: 1,
+
+  float: 'right',
   backgroundColor: '#1DA1F2',
   fontWeight: 700,
+  marginLeft: 'auto',
+  padding: '0 3rem',
 }));
 
 export default function Tweet() {
@@ -83,22 +87,34 @@ export default function Tweet() {
 
         <Stack direction="row" sx={{ padding: '1rem' }}>
           <ContentButton sx={{ backgroundColor: 'none' }}>
-            <PhotoOutlinedIcon fontSize="large" color="primary" />
+            <Tooltip title="Media" placement="bottom">
+              <PhotoOutlinedIcon fontSize="large" color="primary" />
+            </Tooltip>
           </ContentButton>
           <ContentButton sx={{ backgroundColor: 'none' }}>
-            <GifBoxOutlinedIcon fontSize="large" color="primary" />
+            <Tooltip title="GIF" placement="bottom">
+              <GifBoxOutlinedIcon fontSize="large" color="primary" />
+            </Tooltip>
           </ContentButton>
           <ContentButton sx={{ backgroundColor: 'none' }}>
-            <FormatListBulletedOutlinedIcon fontSize="large" color="primary" />
+            <Tooltip title="Poll" placement="bottom">
+              <FormatListBulletedOutlinedIcon fontSize="large" color="primary" />
+            </Tooltip>
           </ContentButton>
           <ContentButton sx={{ backgroundColor: 'none' }}>
-            <SentimentSatisfiedAltOutlinedIcon fontSize="large" color="primary" />
+            <Tooltip title="Emoji" placement="bottom">
+              <SentimentSatisfiedAltOutlinedIcon fontSize="large" color="primary" />
+            </Tooltip>
           </ContentButton>
           <ContentButton sx={{ backgroundColor: 'none' }}>
-            <DateRangeOutlinedIcon fontSize="large" color="primary" />
+            <Tooltip title="Schedule" placement="bottom">
+              <DateRangeOutlinedIcon fontSize="large" color="primary" />
+            </Tooltip>
           </ContentButton>
           <ContentButton sx={{ backgroundColor: 'none' }}>
-            <LocationOnOutlinedIcon fontSize="large" color="primary" />
+            <Tooltip title="Tag Location" placement="bottom">
+              <LocationOnOutlinedIcon fontSize="large" color="primary" />
+            </Tooltip>
           </ContentButton>
           <PostButton>Post</PostButton>
         </Stack>
