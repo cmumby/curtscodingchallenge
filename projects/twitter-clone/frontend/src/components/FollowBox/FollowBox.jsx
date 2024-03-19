@@ -19,7 +19,7 @@ const UsersList = ({ users }) => (
     {
       // eslint-disable-next-line react/prop-types
       users.map(user => {
-        const { firstname, lastName, username, avatar } = user;
+        const { firstName, lastName, username, avatar } = user;
         return (
           <React.Fragment key={uniqid()}>
             <CardHeader
@@ -30,7 +30,7 @@ const UsersList = ({ users }) => (
                 <>
                   <Stack direction="row">
                     <Name>
-                      {firstname}&nbsp;{lastName}
+                      {firstName}&nbsp;{lastName}
                     </Name>
 
                     <FollowButton variant="contained" size="small">

@@ -13,15 +13,6 @@ function createRandomEvent() {
   };
 }
 
-function createRandomIUser() {
-  const topicWords = `${capitalizeWord(faker.word.noun())} . ${capitalizeWord(faker.word.verb())}s `;
-  return {
-    topic: topicWords,
-    trendingEvent: capitalizeWord(faker.word.noun()),
-    postCount: `${faker.datatype.float({ min: 10, max: 100, precision: 0.1 })}K`,
-  };
-}
-
 export function createRandomUser() {
   const gender = Math.round(Math.random()) % 2 === 0 ? 'men' : 'women';
   const sex = gender === 'women' ? 'female' : 'male';

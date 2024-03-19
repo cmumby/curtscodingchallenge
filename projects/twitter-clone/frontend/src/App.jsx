@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import MenuBox from './components/MenuBox/MenuBox';
 import ActivityBox from './components/ActivityBox/ActivityBox';
 import FollowBox from './components/FollowBox/FollowBox';
+import TweetBox from './components/TweetBox/TweetBox';
 import Tweet from './components/Tweet/Tweet';
 
 export default function App() {
@@ -107,6 +108,8 @@ export default function App() {
                 </Typography>
               </Toolbar>
             </AppBar>
+            <TweetBox />
+            <Divider />
             {Array.from({ length: 100 }, (_, i) => (
               <>
                 <FeedPost />

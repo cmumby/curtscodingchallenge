@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import { useMediaQuery } from 'react-responsive';
 
 const systemPrefersDark = useMediaQuery(
   {
