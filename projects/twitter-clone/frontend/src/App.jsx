@@ -22,6 +22,7 @@ export default function App() {
     },
     undefined
   );
+
   const CenterPanel = styled(Grid)(({ theme }) => ({
     color: theme.palette.primary,
     borderLeft: '1px solid rgba(255, 255, 255, 0.12)',
@@ -91,7 +92,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ display: 'flex', flexGrow: 1, margin: 'auto', width: '75%' }}>
         <CssBaseline />
 
         <BaseContainer container spacing={2} sx={{ padding: '1rem', overflow: 'hidden' }}>
