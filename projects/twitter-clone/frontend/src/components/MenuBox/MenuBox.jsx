@@ -4,6 +4,7 @@ import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import Button from '@mui/material/Button';
 import HomeIcon from '@mui/icons-material/CottageOutlined';
 import SearchIcon from '@mui/icons-material/Search';
@@ -17,7 +18,7 @@ import PersonIcon from '@mui/icons-material/PersonOutlineOutlined';
 const MainMenu = styled(MenuList)(({ theme }) => ({
   color: theme.palette.primary,
   float: 'right',
-  padding: '1rem',
+  padding: '0rem 1rem',
 }));
 
 const MenuItemText = styled(ListItemText)(({ theme }) => ({
@@ -53,51 +54,52 @@ const theme = createTheme({
 export default function MenuBox() {
   return (
     <MainMenu>
+      <TwitterIcon color="primary" sx={{ marginLeft: '1rem', fontSize: 50 }} />
       <MenuLink>
         <ListItemIcon>
-          <HomeIcon fontSize="medium" />
+          <HomeIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
         <MenuItemText>Home</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
-          <SearchIcon fontSize="medium" />
+          <SearchIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
         <MenuItemText>Explore</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
-          <NotificationsIcon fontSize="medium" />
+          <NotificationsIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
         <MenuItemText>Notifications</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
-          <MailIcon fontSize="medium" />
+          <MailIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
         <MenuItemText>Messages</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
-          <SummarizeIcon fontSize="medium" />
+          <SummarizeIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
         <MenuItemText>Lists</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
-          <BookmarkIcon fontSize="medium" />
+          <BookmarkIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
         <MenuItemText>Bookmarks</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
-          <GroupIcon fontSize="medium" />
+          <GroupIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
         <MenuItemText>Communities</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
-          <PersonIcon fontSize="medium" />
+          <PersonIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
         <MenuItemText>Profile</MenuItemText>
       </MenuLink>

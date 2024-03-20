@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import { useMediaQuery } from 'react-responsive';
@@ -9,11 +10,20 @@ import Toolbar from '@mui/material/Toolbar';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import MenuBox from './components/MenuBox/MenuBox';
 import ActivityBox from './components/ActivityBox/ActivityBox';
 import FollowBox from './components/FollowBox/FollowBox';
 import TweetBox from './components/TweetBox/TweetBox';
 import Tweet from './components/Tweet/Tweet';
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 export default function App() {
   const systemPrefersDark = useMediaQuery(
@@ -23,15 +33,18 @@ export default function App() {
     undefined
   );
 
+  const [value, setValue] = React.useState(0);
+
+  const handleTabChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const CenterPanel = styled(Grid)(({ theme }) => ({
     color: theme.palette.primary,
     borderLeft: '1px solid rgba(255, 255, 255, 0.12)',
     borderRight: '1px solid rgba(255, 255, 255, 0.12)',
     padding: '0 !important',
     overflow: 'scroll',
-    '&::-webkit-scrollbar': {
-      display: 'none',
-    },
     '-ms-overflow-style': 'none' /* IE and Edge */,
     'scrollbar-width': 'none' /* Firefox */,
     height: '100vh',
@@ -45,6 +58,22 @@ export default function App() {
   const BaseContainer = styled(Grid)(({ theme }) => ({
     color: theme.palette.primary,
     height: '100vh',
+  }));
+
+  const MenuTab = styled(Tab)(({ theme }) => ({
+    color: theme.palette.primary,
+    textTransform: 'unset',
+    fontSize: '1rem',
+    fontWeight: 700,
+    flex: 1,
+    minWidth: 0,
+  }));
+
+  const MenuTabContainer = styled(Tabs)(({ theme }) => ({
+    color: theme.palette.primary,
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-between',
   }));
 
   const theme = createTheme({
@@ -92,7 +121,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Box sx={{ display: 'flex', flexGrow: 1, margin: 'auto', width: '75%' }}>
+      <Box sx={{ display: 'flex', flexGrow: 1, margin: 'auto', width: '85%' }}>
         <CssBaseline />
 
         <BaseContainer container spacing={2} sx={{ padding: '1rem', overflow: 'hidden' }}>
@@ -101,12 +130,17 @@ export default function App() {
           </Grid>
           <CenterPanel item xs={6} md={6}>
             <AppBar className="AppBar" position="sticky">
-              <Toolbar>
-                <TwitterIcon color="primary" fontSize="large" sx={{ margin: '0rem 1rem' }} />
-
-                <Typography variant="h6" noWrap component="div">
-                  Tweet Center
-                </Typography>
+              <Toolbar sx={{ flexGrow: 1 }}>
+                <MenuTabContainer
+                  value={value}
+                  onChange={handleTabChange}
+                  sx={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}
+                  aria-label="menu tabs"
+                  centered
+                >
+                  <MenuTab label="For you" {...a11yProps(0)} />
+                  <MenuTab label="Following" {...a11yProps(1)} />
+                </MenuTabContainer>
               </Toolbar>
             </AppBar>
             <TweetBox />
