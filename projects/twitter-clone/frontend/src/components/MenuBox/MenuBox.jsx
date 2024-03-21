@@ -17,8 +17,10 @@ import PersonIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 const MainMenu = styled(MenuList)(({ theme }) => ({
   color: theme.palette.primary,
-  float: 'right',
+  // float: 'right',
   padding: '0rem 1rem',
+  paddingLeft: '25%',
+  marginBottom: 'auto',
 }));
 
 const MenuItemText = styled(ListItemText)(({ theme }) => ({

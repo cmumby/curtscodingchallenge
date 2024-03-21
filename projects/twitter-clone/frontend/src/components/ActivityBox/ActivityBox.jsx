@@ -1,23 +1,14 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
+
 import uniqid from 'uniqid';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import HomeIcon from '@mui/icons-material/Home';
-import SearchIcon from '@mui/icons-material/Search';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MailIcon from '@mui/icons-material/Mail';
-import SummarizeIcon from '@mui/icons-material/Summarize';
-import PersonIcon from '@mui/icons-material/Person';
 import Stack from '@mui/material/Stack';
 import { EVENTS } from '../../mockData/mockData';
 
 import './ActivityBox.css';
 
-console.log('EEVNT', EVENTS);
 function ActivityEvent({ events }) {
   return (
     <>
@@ -47,3 +38,18 @@ export default function ActivityBox() {
     </Paper>
   );
 }
+
+ActivityEvent.propTypes = {
+  events: PropTypes.shape({
+    topic: PropTypes.string.isRequired,
+    trendingEvent: PropTypes.string.isRequired,
+    postCount: PropTypes.string.isRequired,
+    map: PropTypes.shape({}),
+  }).isRequired,
+};
+
+// ActivityEvent.defaultProps = {
+//   fields: {
+//     token_id: 0,
+//   },
+// };

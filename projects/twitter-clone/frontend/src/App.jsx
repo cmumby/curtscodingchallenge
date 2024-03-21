@@ -17,6 +17,7 @@ import ActivityBox from './components/ActivityBox/ActivityBox';
 import FollowBox from './components/FollowBox/FollowBox';
 import TweetBox from './components/TweetBox/TweetBox';
 import Tweet from './components/Tweet/Tweet';
+import ProfilePill from './components/ProfilePill/ProfilePill';
 
 function a11yProps(index) {
   return {
@@ -125,8 +126,9 @@ export default function App() {
         <CssBaseline />
 
         <BaseContainer container spacing={2} sx={{ padding: '1rem', overflow: 'hidden' }}>
-          <Grid item xs={6} md={3}>
+          <Grid item xs={6} md={3} sx={{ flexDirection: 'column', justifyContent: 'space-between' }}>
             <MenuBox />
+            <ProfilePill />
           </Grid>
           <CenterPanel item xs={6} md={6}>
             <AppBar className="AppBar" position="sticky">
