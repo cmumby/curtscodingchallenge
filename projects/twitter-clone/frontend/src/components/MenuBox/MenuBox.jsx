@@ -1,11 +1,6 @@
 import * as React from 'react';
-import { createTheme, styled } from '@mui/material/styles';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import Button from '@mui/material/Button';
 import HomeIcon from '@mui/icons-material/CottageOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/NotificationsNoneOutlined';
@@ -14,44 +9,7 @@ import GroupIcon from '@mui/icons-material/GroupOutlined';
 import SummarizeIcon from '@mui/icons-material/SummarizeOutlined';
 import BookmarkIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import PersonIcon from '@mui/icons-material/PersonOutlineOutlined';
-
-const MainMenu = styled(MenuList)(({ theme }) => ({
-  color: theme.palette.primary,
-  // float: 'right',
-  padding: '0rem 1rem',
-  paddingLeft: '25%',
-  marginBottom: 'auto',
-}));
-
-const MenuItemText = styled(ListItemText)(({ theme }) => ({
-  color: theme.palette.primary,
-  '& span': {
-    fontSize: '1.333rem',
-    padding: '0.333rem',
-  },
-}));
-
-const MenuLink = styled(MenuItem)(({ theme }) => ({
-  color: theme.palette.primary,
-  borderRadius: '9999px',
-}));
-
-const PostButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.primary,
-  width: '100%',
-  backgroundColor: '#1DA1F2',
-  margin: '1rem 1rem 1rem 0',
-  fontWeight: 700,
-}));
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1DA1F2',
-      handle: '#71767B',
-    },
-  },
-});
+import { MainMenu, MenuItemText, MenuLink, PostButton } from './MenuBox.style';
 
 export default function MenuBox() {
   return (

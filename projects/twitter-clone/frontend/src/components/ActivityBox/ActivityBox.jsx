@@ -1,13 +1,32 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-
 import uniqid from 'uniqid';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import { EVENTS } from '../../mockData/mockData';
+import Box from '@mui/material/Box';
+import { MAIN_EVENT, EVENTS } from '../../mockData/mockData';
+import {
+  ActivityPaper,
+  ActivityTitle,
+  Activity,
+  ActivityStack,
+  ActivityMainImage,
+} from './ActivityBox.style';
 
-import './ActivityBox.css';
+function MainEvent({ event }) {
+  const { topic, description, image } = event;
+  return (
+    <Activity key={uniqid()}>
+      <ActivityStack direction="row">
+        <Box>
+          <Typography className="Typography event">{topic}</Typography>
+          <Typography className="Typography topic">{description}</Typography>
+        </Box>
+        <ActivityMainImage component="img" alt={topic} src={image} />
+      </ActivityStack>
+    </Activity>
+  );
+}
 
 function ActivityEvent({ events }) {
   return (
@@ -15,11 +34,11 @@ function ActivityEvent({ events }) {
       {events.map(activity => {
         const { topic, trendingEvent, postCount } = activity;
         return (
-          <React.Fragment key={uniqid()}>
+          <Activity key={uniqid()}>
             <Typography className="Typography topic">{topic}</Typography>
             <Typography className="Typography event">{trendingEvent}</Typography>
-            <Typography className="Typography post-count">{postCount}</Typography>
-          </React.Fragment>
+            <Typography className="Typography post-count">{postCount} Posts</Typography>
+          </Activity>
         );
       })}
     </>
@@ -28,14 +47,15 @@ function ActivityEvent({ events }) {
 
 export default function ActivityBox() {
   return (
-    <Paper sx={{ padding: '16px' }}>
-      <Typography variant="h2" sx={{ fontSize: '1.333rem', fontWeight: 'bold' }}>
+    <ActivityPaper>
+      <ActivityTitle variant="h2" sx={{ fontSize: '1.333rem', fontWeight: '800' }}>
         What&apos;s Happening
-      </Typography>
+      </ActivityTitle>
       <Stack>
+        <MainEvent event={MAIN_EVENT[0]} />
         <ActivityEvent events={EVENTS} />
       </Stack>
-    </Paper>
+    </ActivityPaper>
   );
 }
 

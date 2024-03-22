@@ -126,7 +126,17 @@ export default function App() {
         <CssBaseline />
 
         <BaseContainer container spacing={2} sx={{ padding: '1rem', overflow: 'hidden' }}>
-          <Grid item xs={6} md={3} sx={{ flexDirection: 'column', justifyContent: 'space-between' }}>
+          <Grid
+            item
+            xs={6}
+            md={3}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
+            }}
+          >
             <MenuBox />
             <ProfilePill />
           </Grid>

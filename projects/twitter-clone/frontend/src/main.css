@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: "Chirp";
-    src: url("fonts/chirp-font-bold.woff") format('woff');
+    src: url("fonts/chirp-bold-web.woff") format('woff');
     font-weight: bold;
 }
 
