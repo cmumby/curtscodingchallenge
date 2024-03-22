@@ -11,6 +11,8 @@ import {
   Activity,
   ActivityStack,
   ActivityMainImage,
+  ActivityInfo,
+  ActivityDescription,
 } from './ActivityBox.style';
 
 function MainEvent({ event }) {
@@ -19,8 +21,8 @@ function MainEvent({ event }) {
     <Activity key={uniqid()}>
       <ActivityStack direction="row">
         <Box>
-          <Typography className="Typography event">{topic}</Typography>
-          <Typography className="Typography topic">{description}</Typography>
+          <ActivityDescription className="Typography event">{topic}</ActivityDescription>
+          <ActivityInfo className="Typography topic">{description}</ActivityInfo>
         </Box>
         <ActivityMainImage component="img" alt={topic} src={image} />
       </ActivityStack>
@@ -35,9 +37,9 @@ function ActivityEvent({ events }) {
         const { topic, trendingEvent, postCount } = activity;
         return (
           <Activity key={uniqid()}>
-            <Typography className="Typography topic">{topic}</Typography>
+            <ActivityInfo className="Typography topic">{topic}</ActivityInfo>
             <Typography className="Typography event">{trendingEvent}</Typography>
-            <Typography className="Typography post-count">{postCount} Posts</Typography>
+            <ActivityInfo className="Typography post-count">{postCount} Posts</ActivityInfo>
           </Activity>
         );
       })}

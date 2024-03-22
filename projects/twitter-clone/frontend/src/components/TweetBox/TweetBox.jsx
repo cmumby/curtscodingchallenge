@@ -61,7 +61,7 @@ export default function Tweet() {
 
   const handleChange = event => {
     setValue(event.target.value);
-    setRows(Math.ceil(event.target.value.length / 85)); // Adjust the number of characters per row as needed
+    setRows(Math.ceil(event.target.value.length / 85));
   };
   return (
     <Container>

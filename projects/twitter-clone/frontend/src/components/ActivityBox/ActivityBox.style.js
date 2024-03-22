@@ -21,5 +21,18 @@ export const ActivityMainImage = styled(Box)(() => ({
 export const ActivityTitle = styled(Typography)(() => ({
   fontSize: '1.333rem',
   fontWeight: '800',
+  maxWidth: '24rem',
   paddingBottom: '0.75rem',
+}));
+
+export const ActivityInfo = styled(Typography)(() => ({
+  fontSize: 'calc(1rem - 3px)',
+  fontWeight: 'lighter',
+  color: '#71767B',
+}));
+
+export const ActivityDescription = styled(Typography)(() => ({
+  fontSize: '1rem',
+  fontWeight: 'bold',
+  maxWidth: '14rem',
 }));

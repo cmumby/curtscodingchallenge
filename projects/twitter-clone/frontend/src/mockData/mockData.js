@@ -32,7 +32,7 @@ function createRandomMainEvent() {
       faker.word.noun()
     )} at ${faker.location.city()}`,
     description: `${capitalizeWord(faker.word.noun())} . Starts ${faker.date.weekday()}`,
-    image: faker.image.url(79, 79, true),
+    image: faker.image.urlLoremFlickr({ category: 'location', width: 237, height: 237 }), // faker.image.url(79, 79, true),
   };
 }
 
