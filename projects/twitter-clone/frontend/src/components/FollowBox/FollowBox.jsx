@@ -20,7 +20,7 @@ const UsersList = ({ users }) => (
         <Box
           key={uniqid()}
           sx={{
-            padding: '0 1rem',
+            padding: '0 0.875rem',
             '&:hover': {
               backgroundColor: 'rgba(255, 255, 255, 0.08)',
             },
