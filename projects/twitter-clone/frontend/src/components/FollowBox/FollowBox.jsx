@@ -17,13 +17,18 @@ const UsersList = ({ users }) => (
     {users.map(user => {
       const { firstName, lastName, username, avatar } = user;
       return (
-        <React.Fragment key={uniqid()}>
+        <Box
+          key={uniqid()}
+          sx={{
+            padding: '0 1rem',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.08)',
+            },
+          }}
+        >
           <CardHeader
             sx={{
               padding: '0.75rem 0.5rem',
-              '&:hover': {
-                backgroundColor: 'rgba(255, 255, 255, 0.08)',
-              },
             }}
             className="UserList"
             avatar={<Avatar alt="test" src={avatar} />}
@@ -47,7 +52,7 @@ const UsersList = ({ users }) => (
               </Stack>
             }
           />
-        </React.Fragment>
+        </Box>
       );
     })}
   </>
@@ -62,7 +67,9 @@ export default function FollowBox() {
       <Stack>
         <UsersList users={USERS} />
       </Stack>
-      <Link href="http://google.com">Show more</Link>
+      <Link href="http://google.com" sx={{ padding: '1rem' }}>
+        Show more
+      </Link>
     </FollowPaper>
   );
 }

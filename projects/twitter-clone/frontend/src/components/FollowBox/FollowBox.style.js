@@ -28,10 +28,11 @@ export const FollowAccount = styled(Typography)(({ theme }) => ({
   fontSize: 15,
 }));
 
-export const FollowPaper = styled(Paper)(() => ({ padding: '16px', borderRadius: '1rem' }));
+export const FollowPaper = styled(Paper)(() => ({ borderRadius: '1rem' }));
 
 export const FollowTitle = styled(Typography)(() => ({
   fontSize: '1.333rem',
   fontWeight: 'bold',
+  padding: '1rem',
   paddingBottom: '1.75rem',
 }));
