@@ -1,20 +1,34 @@
 import * as React from 'react';
+import { useState } from 'react';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import HomeIcon from '@mui/icons-material/CottageOutlined';
 import SearchIcon from '@mui/icons-material/Search';
+import Typography from '@mui/material/Typography';
 import NotificationsIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import MailIcon from '@mui/icons-material/MailOutlineOutlined';
 import GroupIcon from '@mui/icons-material/GroupOutlined';
 import SummarizeIcon from '@mui/icons-material/SummarizeOutlined';
 import BookmarkIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import PersonIcon from '@mui/icons-material/PersonOutlineOutlined';
+import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box';
 import { MainMenu, MenuItemText, MenuLink, PostButton } from './MenuBox.style';
 
 export default function MenuBox() {
+  const [hoveredOver, setHoveredOver] = useState(false);
   return (
     <MainMenu>
-      <TwitterIcon color="primary" sx={{ marginLeft: '1rem', fontSize: 50 }} />
+      <Box onMouseEnter={() => setHoveredOver(true)} onMouseLeave={() => setHoveredOver(false)}>
+        {hoveredOver ? (
+          <Tooltip title="Welcome to Project X Clone! (Twitter)" placement="right">
+            <TwitterIcon color="primary" sx={{ marginLeft: '1rem', fontSize: 50, height: 68.5 }} />
+          </Tooltip>
+        ) : (
+          <Typography style={{ fontSize: 50, paddingLeft: '1rem' }}>𝕏</Typography>
+        )}
+      </Box>
+
       <MenuLink>
         <ListItemIcon>
           <HomeIcon fontSize="medium" sx={{ fontSize: 30 }} />

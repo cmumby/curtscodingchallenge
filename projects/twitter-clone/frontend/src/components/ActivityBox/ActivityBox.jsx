@@ -4,6 +4,9 @@ import uniqid from 'uniqid';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
+import Link from '@mui/material/Link';
+
 import { MAIN_EVENT, EVENTS } from '../../mockData/mockData';
 import {
   ActivityPaper,
@@ -13,13 +16,15 @@ import {
   ActivityMainImage,
   ActivityInfo,
   ActivityDescription,
+  ActivityMoreButton,
+  ActivityMoreIcon,
 } from './ActivityBox.style';
 
 function MainEvent({ event }) {
   const { topic, description, image } = event;
   return (
     <Activity key={uniqid()}>
-      <ActivityStack direction="row">
+      <ActivityStack direction="row" sx={{ padding: '0.75rem 1rem' }}>
         <Box>
           <ActivityDescription className="Typography event">{topic}</ActivityDescription>
           <ActivityInfo className="Typography topic">{description}</ActivityInfo>
@@ -36,11 +41,18 @@ function ActivityEvent({ events }) {
       {events.map(activity => {
         const { topic, trendingEvent, postCount } = activity;
         return (
-          <Activity key={uniqid()}>
-            <ActivityInfo className="Typography topic">{topic}</ActivityInfo>
-            <Typography className="Typography event">{trendingEvent}</Typography>
-            <ActivityInfo className="Typography post-count">{postCount} Posts</ActivityInfo>
-          </Activity>
+          <ActivityStack direction="row" sx={{ alignItems: 'center' }}>
+            <Activity key={uniqid()}>
+              <ActivityInfo>{topic}</ActivityInfo>
+              <ActivityDescription className="Typography event">{trendingEvent}</ActivityDescription>
+              <ActivityInfo>{postCount} Posts</ActivityInfo>
+            </Activity>
+            <Tooltip title="More" placement="bottom">
+              <ActivityMoreButton>
+                <ActivityMoreIcon />
+              </ActivityMoreButton>
+            </Tooltip>
+          </ActivityStack>
         );
       })}
     </>
@@ -57,6 +69,9 @@ export default function ActivityBox() {
         <MainEvent event={MAIN_EVENT[0]} />
         <ActivityEvent events={EVENTS} />
       </Stack>
+      <Link href="http://google.com" sx={{ padding: '0 1rem' }}>
+        Show more
+      </Link>
     </ActivityPaper>
   );
 }

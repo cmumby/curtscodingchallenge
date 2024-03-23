@@ -7,9 +7,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import MenuBox from './components/MenuBox/MenuBox';
@@ -141,8 +139,14 @@ export default function App() {
             <ProfilePill />
           </Grid>
           <CenterPanel item xs={6} md={6}>
-            <AppBar className="AppBar" position="sticky">
-              <Toolbar sx={{ flexGrow: 1 }}>
+            <AppBar
+              className="AppBar"
+              position="sticky"
+              sx={{ flexGrow: 1, backgroundColor: 'rgba(0, 0, 0, 0.25)' }}
+            >
+              <Toolbar
+                sx={{ flexGrow: 1, backgroundColor: 'rgba(0, 0, 0, 0.25)', backdropFilter: 'blur(12px)' }}
+              >
                 <MenuTabContainer
                   value={value}
                   onChange={handleTabChange}

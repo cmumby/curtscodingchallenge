@@ -1,85 +1,88 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import CardHeader from '@mui/material/CardHeader';
-import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
-import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import { FollowName, FollowButton, FollowAccount, FollowPaper, FollowTitle } from './FollowBox.style';
 import { USERS } from '../../mockData/mockData';
-
-import './FollowBox.css';
-
-console.log('USERS', USERS);
 
 const UsersList = ({ users }) => (
   <>
-    {
-      // eslint-disable-next-line react/prop-types
-      users.map(user => {
-        const { firstName, lastName, username, avatar } = user;
-        return (
-          <React.Fragment key={uniqid()}>
-            <CardHeader
-              sx={{ padding: '0.5rem' }}
-              className="UserList"
-              avatar={<Avatar alt="test" src={avatar} />}
-              title={
-                <>
-                  <Stack direction="row">
-                    <Name>
-                      {firstName}&nbsp;{lastName}
-                    </Name>
+    {users.map(user => {
+      const { firstName, lastName, username, avatar } = user;
+      return (
+        <React.Fragment key={uniqid()}>
+          <CardHeader
+            sx={{
+              padding: '0.75rem 0.5rem',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+              },
+            }}
+            className="UserList"
+            avatar={<Avatar alt="test" src={avatar} />}
+            title={
+              <Stack direction="row" sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Box>
+                  <FollowName>
+                    {firstName}&nbsp;{lastName}{' '}
+                    {Math.floor(Math.random() * 10) > 6 ? (
+                      <VerifiedIcon color="primary" fontSize="tiny" />
+                    ) : (
+                      ''
+                    )}
+                  </FollowName>
+                  <FollowAccount className="Typography event">@{username}</FollowAccount>
+                </Box>
 
-                    <FollowButton variant="contained" size="small">
-                      Follow
-                    </FollowButton>
-                  </Stack>
-
-                  <Account className="Typography event">@{username}</Account>
-                </>
-              }
-            />
-          </React.Fragment>
-        );
-      })
-    }
+                <FollowButton variant="contained" size="small">
+                  Follow
+                </FollowButton>
+              </Stack>
+            }
+          />
+        </React.Fragment>
+      );
+    })}
   </>
 );
 
-const Name = styled(Typography)(({ theme }) => ({
-  color: theme.palette.primary,
-  fontSize: '1rem',
-  fontWeight: 700,
-  flexGrow: 1,
-  fontFamily: '"Chirp", "Roboto","Helvetica","Arial", sans-serif',
-}));
-
-const FollowButton = styled(Button)(({ theme }) => ({
-  color: '#000000',
-  fontSize: '0.9333rem',
-  flexGrow: 0,
-  backgroundColor: '#FFFFFF',
-}));
-
-const Account = styled(Typography)(({ theme }) => ({
-  fontFamily: '"Chirp", "Roboto","Helvetica","Arial", sans-serif',
-  color: theme.palette.primary.handle,
-  fontSize: 15,
-}));
-
 export default function FollowBox() {
   return (
-    <Paper sx={{ padding: '16px' }}>
-      <Typography variant="h2" sx={{ fontSize: '1.333rem', fontWeight: 'bold' }}>
+    <FollowPaper>
+      <FollowTitle variant="h2" sx={{ fontSize: '1.333rem', fontWeight: 'bold' }}>
         Who to Follow
-      </Typography>
+      </FollowTitle>
       <Stack>
         <UsersList users={USERS} />
       </Stack>
       <Link href="http://google.com">Show more</Link>
-    </Paper>
+    </FollowPaper>
   );
 }
+
+UsersList.propTypes = {
+  users: PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    map: PropTypes.shape({}),
+  }).isRequired,
+};
+
+/*
+.r-5zmot {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.r-1e5uvyk {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+*/
