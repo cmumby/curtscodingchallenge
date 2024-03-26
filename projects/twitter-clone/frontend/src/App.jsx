@@ -14,6 +14,7 @@ import MenuBox from './components/MenuBox/MenuBox';
 import ActivityBox from './components/ActivityBox/ActivityBox';
 import FollowBox from './components/FollowBox/FollowBox';
 import TweetBox from './components/TweetBox/TweetBox';
+import TweetLoader from './components/TweetLoader/TweetLoader';
 import Tweet from './components/Tweet/Tweet';
 import ProfilePill from './components/ProfilePill/ProfilePill';
 
@@ -49,7 +50,7 @@ export default function App() {
     height: '100vh',
   }));
 
-  const FeedPost = styled(Tweet)(({ theme }) => ({
+  const FeedPostLoader = styled(TweetLoader)(({ theme }) => ({
     color: theme.palette.primary,
     padding: '1rem',
   }));
@@ -161,9 +162,11 @@ export default function App() {
             </AppBar>
             <TweetBox />
             <Divider />
+            <Tweet />
+            <Divider />
             {Array.from({ length: 100 }, (_, i) => (
               <>
-                <FeedPost />
+                <FeedPostLoader />
                 <Divider />
               </>
             ))}

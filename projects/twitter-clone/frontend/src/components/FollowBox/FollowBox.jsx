@@ -1,8 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import CardHeader from '@mui/material/CardHeader';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
@@ -83,13 +81,3 @@ UsersList.propTypes = {
     map: PropTypes.shape({}),
   }).isRequired,
 };
-
-/*
-.r-5zmot {
-    background-color: rgba(0, 0, 0, 0.65);
-}
-.r-1e5uvyk {
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-}
-*/
