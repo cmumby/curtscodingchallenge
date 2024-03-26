@@ -16,11 +16,11 @@ import {
   TweetStack,
   TweetName,
   TweetHandle,
-  TweetDefaultButton,
+  TweetBlueButton,
   TweetReplyIcon,
-  TweetRepostButton,
+  TweetGreenButton,
   TweetRepostIcon,
-  TweetLikeButton,
+  TweetRedButton,
   TweetLikeIcon,
 } from './Tweet.style';
 
@@ -60,40 +60,40 @@ export default function Tweet() {
           src="https://media.cnn.com/api/v1/images/stellar/prod/230614113409-curiosity-marker-band-valley.jpg?q=w_3000,c_fill"
         />
         <TweetStack sx={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <TweetDefaultButton>
+          <TweetBlueButton>
             <Tooltip title="Reply" placement="bottom" sx={{ background: 'none' }}>
               <TweetReplyIcon fontSize="small" />
             </Tooltip>
             <Typography sx={{ fontSize: 'calc(13/16 * 1rem)', padding: '1rem 0' }}>&nbsp;100</Typography>
-          </TweetDefaultButton>
-          <TweetRepostButton>
+          </TweetBlueButton>
+          <TweetGreenButton>
             <Tooltip title="Repost" placement="bottom" sx={{ background: 'none' }}>
               <TweetRepostIcon fontSize="small" />
             </Tooltip>
             <Typography sx={{ fontSize: 'calc(13/16 * 1rem)', padding: '1rem 0' }}>&nbsp;1.2K</Typography>
-          </TweetRepostButton>
-          <TweetLikeButton>
+          </TweetGreenButton>
+          <TweetRedButton>
             <Tooltip title="Like" placement="bottom" sx={{ background: 'none' }}>
               <TweetLikeIcon fontSize="small" sx={{ margin: '0' }} />
             </Tooltip>
             <Typography sx={{ fontSize: 'calc(13/16 * 1rem)', padding: '1rem 0' }}>&nbsp;9.3K</Typography>
-          </TweetLikeButton>
-          <TweetDefaultButton sx={{ backgroundColor: 'none', padding: '0' }}>
+          </TweetRedButton>
+          <TweetBlueButton sx={{ backgroundColor: 'none', padding: '0' }}>
             <Tooltip title="View" placement="bottom" sx={{ background: 'none' }}>
               <BarChartIcon fontSize="small" sx={{ margin: '0' }} />
             </Tooltip>
             <Typography sx={{ fontSize: 'calc(13/16 * 1rem)', padding: '1rem 0' }}>&nbsp;11.7K</Typography>
-          </TweetDefaultButton>
-          <TweetDefaultButton sx={{ backgroundColor: 'none', padding: '0' }}>
+          </TweetBlueButton>
+          <TweetBlueButton sx={{ backgroundColor: 'none', padding: '0' }}>
             <Tooltip title="Bookmark" placement="bottom" sx={{ background: 'none' }}>
               <BookmarkIcon fontSize="small" sx={{ margin: '0' }} />
             </Tooltip>
-          </TweetDefaultButton>
-          <TweetDefaultButton sx={{ backgroundColor: 'none', padding: '0' }}>
+          </TweetBlueButton>
+          <TweetBlueButton sx={{ backgroundColor: 'none', padding: '0' }}>
             <Tooltip title="Share" placement="bottom" sx={{ background: 'none' }}>
               <IosShareRoundedIcon fontSize="small" sx={{ margin: '0' }} />
             </Tooltip>
-          </TweetDefaultButton>
+          </TweetBlueButton>
         </TweetStack>
       </TweetStack>
     </Container>

@@ -37,7 +37,7 @@ export const TweetName = styled(Typography)(() => ({ fontWeight: 700 }));
 
 export const TweetHandle = styled(Typography)(() => ({ color: 'rgb(113, 118, 123)' }));
 
-export const TweetDefaultButton = styled(Button)(() => ({
+export const TweetBlueButton = styled(Button)(() => ({
   backgroundColor: 'none',
   padding: '0',
   '&:hover': {
@@ -53,7 +53,7 @@ export const TweetReplyIcon = styled(ChatBubbleOutlineRoundedIcon)(() => ({
   margin: '0',
 }));
 
-export const TweetRepostButton = styled(Button)(() => ({
+export const TweetGreenButton = styled(Button)(() => ({
   backgroundColor: 'none',
   padding: '0',
   '&:hover': {
@@ -69,7 +69,7 @@ export const TweetRepostIcon = styled(RepeatRoundedIcon)(() => ({
   margin: '0',
 }));
 
-export const TweetLikeButton = styled(Button)(() => ({
+export const TweetRedButton = styled(Button)(() => ({
   backgroundColor: 'none',
   padding: '0',
   '&:hover': {
