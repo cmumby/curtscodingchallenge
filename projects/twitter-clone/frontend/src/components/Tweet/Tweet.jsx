@@ -10,7 +10,19 @@ import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineR
 import BarChartIcon from '@mui/icons-material/BarChart';
 import BookmarkIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
-import { TweetMedia, TweetAvatar, TweetStack, TweetName, TweetHandle } from './Tweet.style';
+import {
+  TweetMedia,
+  TweetAvatar,
+  TweetStack,
+  TweetName,
+  TweetHandle,
+  TweetDefaultButton,
+  TweetReplyIcon,
+  TweetRepostButton,
+  TweetRepostIcon,
+  TweetLikeButton,
+  TweetLikeIcon,
+} from './Tweet.style';
 
 export default function Tweet() {
   return (
@@ -48,40 +60,40 @@ export default function Tweet() {
           src="https://media.cnn.com/api/v1/images/stellar/prod/230614113409-curiosity-marker-band-valley.jpg?q=w_3000,c_fill"
         />
         <TweetStack sx={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Button sx={{ backgroundColor: 'none', padding: '0' }}>
+          <TweetDefaultButton>
             <Tooltip title="Reply" placement="bottom" sx={{ background: 'none' }}>
-              <ChatBubbleOutlineRoundedIcon fontSize="small" color="primary" sx={{ margin: '0' }} />
+              <TweetReplyIcon fontSize="small" />
             </Tooltip>
             <Typography sx={{ fontSize: 'calc(13/16 * 1rem)', padding: '1rem 0' }}>&nbsp;100</Typography>
-          </Button>
-          <Button sx={{ backgroundColor: 'none', padding: '0' }}>
+          </TweetDefaultButton>
+          <TweetRepostButton>
             <Tooltip title="Repost" placement="bottom" sx={{ background: 'none' }}>
-              <RepeatRoundedIcon fontSize="small" color="primary" sx={{ margin: '0' }} />
+              <TweetRepostIcon fontSize="small" />
             </Tooltip>
             <Typography sx={{ fontSize: 'calc(13/16 * 1rem)', padding: '1rem 0' }}>&nbsp;1.2K</Typography>
-          </Button>
-          <Button sx={{ backgroundColor: 'none', padding: '0' }}>
+          </TweetRepostButton>
+          <TweetLikeButton>
             <Tooltip title="Like" placement="bottom" sx={{ background: 'none' }}>
-              <FavoriteBorderRoundedIcon fontSize="small" color="primary" sx={{ margin: '0' }} />
+              <TweetLikeIcon fontSize="small" sx={{ margin: '0' }} />
             </Tooltip>
             <Typography sx={{ fontSize: 'calc(13/16 * 1rem)', padding: '1rem 0' }}>&nbsp;9.3K</Typography>
-          </Button>
-          <Button sx={{ backgroundColor: 'none', padding: '0' }}>
+          </TweetLikeButton>
+          <TweetDefaultButton sx={{ backgroundColor: 'none', padding: '0' }}>
             <Tooltip title="View" placement="bottom" sx={{ background: 'none' }}>
-              <BarChartIcon fontSize="small" color="primary" sx={{ margin: '0' }} />
+              <BarChartIcon fontSize="small" sx={{ margin: '0' }} />
             </Tooltip>
             <Typography sx={{ fontSize: 'calc(13/16 * 1rem)', padding: '1rem 0' }}>&nbsp;11.7K</Typography>
-          </Button>
-          <Button sx={{ backgroundColor: 'none', padding: '0' }}>
+          </TweetDefaultButton>
+          <TweetDefaultButton sx={{ backgroundColor: 'none', padding: '0' }}>
             <Tooltip title="Bookmark" placement="bottom" sx={{ background: 'none' }}>
-              <BookmarkIcon fontSize="small" color="primary" sx={{ margin: '0' }} />
+              <BookmarkIcon fontSize="small" sx={{ margin: '0' }} />
             </Tooltip>
-          </Button>
-          <Button sx={{ backgroundColor: 'none', padding: '0' }}>
+          </TweetDefaultButton>
+          <TweetDefaultButton sx={{ backgroundColor: 'none', padding: '0' }}>
             <Tooltip title="Share" placement="bottom" sx={{ background: 'none' }}>
-              <IosShareRoundedIcon fontSize="small" color="primary" sx={{ margin: '0' }} />
+              <IosShareRoundedIcon fontSize="small" sx={{ margin: '0' }} />
             </Tooltip>
-          </Button>
+          </TweetDefaultButton>
         </TweetStack>
       </TweetStack>
     </Container>

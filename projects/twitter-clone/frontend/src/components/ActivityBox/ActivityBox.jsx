@@ -1,7 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
-import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
@@ -85,8 +84,11 @@ ActivityEvent.propTypes = {
   }).isRequired,
 };
 
-// ActivityEvent.defaultProps = {
-//   fields: {
-//     token_id: 0,
-//   },
-// };
+MainEvent.propTypes = {
+  event: PropTypes.shape({
+    topic: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    map: PropTypes.shape({}),
+  }).isRequired,
+};

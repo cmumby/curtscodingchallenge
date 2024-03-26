@@ -1,8 +1,5 @@
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
+
 import {
   ProfilePillContainer,
   ProfilePillAvatar,
