@@ -84,3 +84,19 @@ export const TweetLikeIcon = styled(FavoriteBorderRoundedIcon)(() => ({
   },
   margin: '0',
 }));
+
+export const TweetButtonText = styled(Typography)(() => ({
+  fontSize: 'calc(13/16 * 1rem)',
+  padding: '1rem 0',
+}));
+
+export const tweetTooltipOffset = {
+  modifiers: [
+    {
+      name: 'offset',
+      options: {
+        offset: [0, -15],
+      },
+    },
+  ],
+};
