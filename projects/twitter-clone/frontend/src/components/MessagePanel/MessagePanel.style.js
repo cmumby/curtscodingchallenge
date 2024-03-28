@@ -1,14 +1,10 @@
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
-import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
-import RepeatRoundedIcon from '@mui/icons-material/RepeatRounded';
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 
 export const MessagePanelHeader = styled(Typography)(() => ({
   fontSize: '1.333rem',

@@ -8,16 +8,14 @@ import Grid from '@mui/material/Grid';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 import MenuBox from './components/MenuBox/MenuBox';
 import ActivityBox from './components/ActivityBox/ActivityBox';
 import FollowBox from './components/FollowBox/FollowBox';
 import TweetBox from './components/TweetBox/TweetBox';
-import TweetLoader from './components/TweetLoader/TweetLoader';
 import Tweet from './components/Tweet/Tweet';
 import ProfilePill from './components/ProfilePill/ProfilePill';
 import MessagePanel from './components/MessagePanel/MessagePanel';
+import { CenterPanel, BaseContainer, FeedPostLoader, MenuTab, MenuTabContainer } from './App.style';
 
 function a11yProps(index) {
   return {
@@ -39,43 +37,6 @@ export default function App() {
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  const CenterPanel = styled(Grid)(({ theme }) => ({
-    color: theme.palette.primary,
-    borderLeft: '1px solid rgba(255, 255, 255, 0.12)',
-    borderRight: '1px solid rgba(255, 255, 255, 0.12)',
-    padding: '0 !important',
-    overflow: 'scroll',
-    '-ms-overflow-style': 'none' /* IE and Edge */,
-    'scrollbar-width': 'none' /* Firefox */,
-    height: '100vh',
-  }));
-
-  const FeedPostLoader = styled(TweetLoader)(({ theme }) => ({
-    color: theme.palette.primary,
-    padding: '1rem',
-  }));
-
-  const BaseContainer = styled(Grid)(({ theme }) => ({
-    color: theme.palette.primary,
-    height: '100vh',
-  }));
-
-  const MenuTab = styled(Tab)(({ theme }) => ({
-    color: theme.palette.primary,
-    textTransform: 'unset',
-    fontSize: '1rem',
-    fontWeight: 700,
-    flex: 1,
-    minWidth: 0,
-  }));
-
-  const MenuTabContainer = styled(Tabs)(({ theme }) => ({
-    color: theme.palette.primary,
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'space-between',
-  }));
 
   const theme = createTheme({
     palette: {
@@ -128,19 +89,18 @@ export default function App() {
         <BaseContainer container spacing={2} sx={{ padding: '1rem', overflow: 'hidden' }}>
           <Grid
             item
-            xs={6}
-            md={3}
+            lg={3}
             sx={{
-              display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
               alignItems: 'flex-end',
             }}
+            display={{ xs: 'none', md: 'none', lg: 'flex' }}
           >
             <MenuBox />
             <ProfilePill />
           </Grid>
-          <CenterPanel item xs={6} md={6}>
+          <CenterPanel item md={12} lg={6}>
             <AppBar
               className="AppBar"
               position="sticky"
@@ -172,7 +132,7 @@ export default function App() {
               </>
             ))}
           </CenterPanel>
-          <Grid item xs={6} md={3}>
+          <Grid item lg={3} display={{ xs: 'none', md: 'none', lg: 'block' }}>
             <MessagePanel />
             <ActivityBox />
             <Divider sx={{ margin: '1rem 0' }} />
