@@ -17,6 +17,7 @@ import TweetBox from './components/TweetBox/TweetBox';
 import TweetLoader from './components/TweetLoader/TweetLoader';
 import Tweet from './components/Tweet/Tweet';
 import ProfilePill from './components/ProfilePill/ProfilePill';
+import MessagePanel from './components/MessagePanel/MessagePanel';
 
 function a11yProps(index) {
   return {
@@ -172,6 +173,7 @@ export default function App() {
             ))}
           </CenterPanel>
           <Grid item xs={6} md={3}>
+            <MessagePanel />
             <ActivityBox />
             <Divider sx={{ margin: '1rem 0' }} />
             <FollowBox />
