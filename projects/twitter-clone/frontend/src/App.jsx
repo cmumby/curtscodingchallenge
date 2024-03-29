@@ -1,12 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useMediaQuery } from 'react-responsive';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
+
 import Divider from '@mui/material/Divider';
 import MenuBox from './components/MenuBox/MenuBox';
 import ActivityBox from './components/ActivityBox/ActivityBox';
@@ -15,14 +14,9 @@ import TweetBox from './components/TweetBox/TweetBox';
 import Tweet from './components/Tweet/Tweet';
 import ProfilePill from './components/ProfilePill/ProfilePill';
 import MessagePanel from './components/MessagePanel/MessagePanel';
-import { CenterPanel, BaseContainer, FeedPostLoader, MenuTab, MenuTabContainer } from './App.style';
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
+import SectionBar from './components/SectionBar/SectionBar';
+import { CenterPanel, BaseContainer, FeedPostLoader } from './App.style';
+import fakeTweets from './mockData/fakeTweets';
 
 export default function App() {
   const systemPrefersDark = useMediaQuery(
@@ -31,12 +25,6 @@ export default function App() {
     },
     undefined
   );
-
-  const [value, setValue] = React.useState(0);
-
-  const handleTabChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   const theme = createTheme({
     palette: {
@@ -83,10 +71,14 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Box sx={{ display: 'flex', flexGrow: 1, margin: 'auto', width: '85%' }}>
+      <Box sx={{ display: 'flex', flexGrow: 1, margin: 'auto', width: { xs: 'unset', lg: '85%' } }}>
         <CssBaseline />
 
-        <BaseContainer container spacing={2} sx={{ padding: '1rem', overflow: 'hidden' }}>
+        <BaseContainer
+          container
+          spacing={2}
+          sx={{ padding: '1rem', paddingRight: { xs: 0 }, overflow: 'hidden' }}
+        >
           <Grid
             item
             lg={3}
@@ -100,38 +92,55 @@ export default function App() {
             <MenuBox />
             <ProfilePill />
           </Grid>
-          <CenterPanel item md={12} lg={6}>
-            <AppBar
-              className="AppBar"
-              position="sticky"
-              sx={{ flexGrow: 1, backgroundColor: 'rgba(0, 0, 0, 0.25)' }}
-            >
-              <Toolbar
-                sx={{ flexGrow: 1, backgroundColor: 'rgba(0, 0, 0, 0.25)', backdropFilter: 'blur(12px)' }}
-              >
-                <MenuTabContainer
-                  value={value}
-                  onChange={handleTabChange}
-                  sx={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}
-                  aria-label="menu tabs"
-                  centered
-                >
-                  <MenuTab label="For you" {...a11yProps(0)} />
-                  <MenuTab label="Following" {...a11yProps(1)} />
-                </MenuTabContainer>
-              </Toolbar>
-            </AppBar>
-            <TweetBox />
+          <CenterPanel item md={12} lg={6} sx={{ height: { xs: '92vh', lg: 'inherit' } }}>
+            <SectionBar />
+
+            <TweetBox sx={{ display: { xs: 'none', lg: 'flex' } }} />
             <Divider />
-            <Tweet />
-            <Divider />
-            {Array.from({ length: 100 }, (_, i) => (
+
+            {fakeTweets.map(({ content, username, fullName, media }) => (
+              <>
+                <Tweet content={content} username={username} fullname={fullName} media={media} />
+                <Divider />
+              </>
+            ))}
+
+            {Array.from({ length: 100 }, () => (
               <>
                 <FeedPostLoader />
                 <Divider />
               </>
             ))}
           </CenterPanel>
+          <Grid
+            item
+            md={12}
+            sx={{
+              paddingTop: '0 !important',
+              paddingLeft: '0 !important',
+              paddingBottom: '0 !important',
+              height: '90vh',
+            }}
+            display={{ xs: 'flex', lg: 'none' }}
+          >
+            <Box
+              sx={{
+                flexGrow: 2,
+                backgroundColor: 'rgba(0, 0, 0, 0.25)',
+                backdropFilter: 'blur(12px)',
+                width: '976px',
+                position: 'relative',
+                bottom: 65,
+              }}
+            >
+              <MenuBox
+                sx={{
+                  backgroundColor: '#00000',
+                  flexGrow: 1,
+                }}
+              />
+            </Box>
+          </Grid>
           <Grid item lg={3} display={{ xs: 'none', md: 'none', lg: 'block' }}>
             <MessagePanel />
             <ActivityBox />

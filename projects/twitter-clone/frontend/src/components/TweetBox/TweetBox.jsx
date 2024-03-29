@@ -22,7 +22,7 @@ export default function Tweet() {
     setRows(Math.ceil(event.target.value.length / 85));
   };
   return (
-    <Container>
+    <Container sx={{ display: { xs: 'none', lg: 'flex' } }}>
       <Avatar
         variant="circular"
         height={40}
@@ -69,6 +69,7 @@ export default function Tweet() {
               <DateRangeOutlinedIcon fontSize="large" color="primary" />
             </Tooltip>
           </ContentButton>
+
           <ContentButton sx={{ backgroundColor: 'none' }}>
             <Tooltip title="Tag Location" placement="bottom">
               <LocationOnOutlinedIcon fontSize="large" color="primary" />

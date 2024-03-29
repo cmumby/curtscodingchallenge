@@ -18,8 +18,12 @@ import { MainMenu, MenuItemText, MenuLink, PostButton } from './MenuBox.style';
 export default function MenuBox() {
   const [hoveredOver, setHoveredOver] = useState(false);
   return (
-    <MainMenu>
-      <Box onMouseEnter={() => setHoveredOver(true)} onMouseLeave={() => setHoveredOver(false)}>
+    <MainMenu sx={{ display: { xs: 'flex', lg: 'block' }, flexDirection: 'row', flexgrow: 7 }}>
+      <Box
+        sx={{ display: { xs: 'none', lg: 'block' } }}
+        onMouseEnter={() => setHoveredOver(true)}
+        onMouseLeave={() => setHoveredOver(false)}
+      >
         {hoveredOver ? (
           <Tooltip title="Welcome to Project X Clone! (Twitter)" placement="right">
             <TwitterIcon color="primary" sx={{ marginLeft: '1rem', fontSize: 50, height: 68.5 }} />
@@ -33,51 +37,51 @@ export default function MenuBox() {
         <ListItemIcon>
           <HomeIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
-        <MenuItemText>Home</MenuItemText>
+        <MenuItemText sx={{ display: { xs: 'none', lg: 'flex' } }}>Home</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
           <SearchIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
-        <MenuItemText>Explore</MenuItemText>
+        <MenuItemText sx={{ display: { xs: 'none', lg: 'flex' } }}>Explore</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
           <NotificationsIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
-        <MenuItemText>Notifications</MenuItemText>
+        <MenuItemText sx={{ display: { xs: 'none', lg: 'flex' } }}>Notifications</MenuItemText>
       </MenuLink>
       <MenuLink>
         <ListItemIcon>
           <MailIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
-        <MenuItemText>Messages</MenuItemText>
+        <MenuItemText sx={{ display: { xs: 'none', lg: 'flex' } }}>Messages</MenuItemText>
       </MenuLink>
-      <MenuLink>
+      <MenuLink sx={{ display: { xs: 'none', lg: 'flex' } }}>
         <ListItemIcon>
           <SummarizeIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
         <MenuItemText>Lists</MenuItemText>
       </MenuLink>
-      <MenuLink>
+      <MenuLink sx={{ display: { xs: 'none', lg: 'flex' } }}>
         <ListItemIcon>
           <BookmarkIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
-        <MenuItemText>Bookmarks</MenuItemText>
+        <MenuItemText sx={{ display: { xs: 'none', lg: 'flex' } }}>Bookmarks</MenuItemText>
       </MenuLink>
-      <MenuLink>
+      <MenuLink sx={{ display: { xs: 'none', lg: 'flex' } }}>
         <ListItemIcon>
           <GroupIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
-        <MenuItemText>Communities</MenuItemText>
+        <MenuItemText sx={{ display: { xs: 'none', lg: 'flex' } }}>Communities</MenuItemText>
       </MenuLink>
-      <MenuLink>
+      <MenuLink sx={{ display: { xs: 'none', lg: 'flex' } }}>
         <ListItemIcon>
           <PersonIcon fontSize="medium" sx={{ fontSize: 30 }} />
         </ListItemIcon>
-        <MenuItemText>Profile</MenuItemText>
+        <MenuItemText sx={{ display: { xs: 'none', lg: 'flex' } }}>Profile</MenuItemText>
       </MenuLink>
-      <PostButton variant="contained" size="small">
+      <PostButton sx={{ display: { xs: 'none', lg: 'flex' } }} variant="contained" size="small">
         Post
       </PostButton>
     </MainMenu>

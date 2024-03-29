@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { styled } from '@mui/material/styles';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+
 import Grid from '@mui/material/Grid';
 
 import TweetLoader from './components/TweetLoader/TweetLoader';
@@ -25,20 +24,4 @@ export const FeedPostLoader = styled(TweetLoader)(({ theme }) => ({
 export const BaseContainer = styled(Grid)(({ theme }) => ({
   color: theme.palette.primary,
   height: '100vh',
-}));
-
-export const MenuTab = styled(Tab)(({ theme }) => ({
-  color: theme.palette.primary,
-  textTransform: 'unset',
-  fontSize: '1rem',
-  fontWeight: 700,
-  flex: 1,
-  minWidth: 0,
-}));
-
-export const MenuTabContainer = styled(Tabs)(({ theme }) => ({
-  color: theme.palette.primary,
-  display: 'flex',
-  width: '100%',
-  justifyContent: 'space-between',
 }));

@@ -51,7 +51,12 @@ export default function MessagePanel() {
 
   return (
     <MessagePanelCard sx={{ padding: 0 }}>
-      <CardActions disableSpacing sx={{ position: 'sticky', top: 0, zIndex: 11, backgroundColor: '#121212' }}>
+      <CardActions
+        onClick={handleExpandClick}
+        aria-expanded={expanded}
+        disableSpacing
+        sx={{ position: 'sticky', top: 0, zIndex: 11, backgroundColor: '#121212', cursor: 'pointer' }}
+      >
         <MessagePanelHeader variant="h2" color="text.secondary">
           Messages
         </MessagePanelHeader>

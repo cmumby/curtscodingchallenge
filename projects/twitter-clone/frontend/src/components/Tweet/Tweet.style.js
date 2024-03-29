@@ -25,12 +25,10 @@ export const TweetAvatar = styled(Avatar)(() => ({
 export const TweetStack = styled(Stack)(() => ({}));
 
 export const TweetMedia = styled(Box)(() => ({
-  height: 394,
-  width: 701,
   borderRadius: '1rem',
   border: '1px solid rgb(113, 118, 123)',
-  maxHeight: { xs: 290, md: 394 },
-  maxWidth: { xs: 516, md: 701 },
+  maxHeight: { xs: 290, lg: 394 },
+  maxWidth: { xs: 516, lg: 701 },
 }));
 
 export const TweetName = styled(Typography)(() => ({ fontWeight: 700 }));
@@ -44,6 +42,7 @@ export const TweetBlueButton = styled(Button)(() => ({
     backgroundColor: 'rgba(29, 161, 242, 0.08)',
     color: '#1DA1F2',
   },
+  minWidth: { xs: '1.2rem', lg: 'inherit' },
 }));
 
 export const TweetReplyIcon = styled(ChatBubbleOutlineRoundedIcon)(() => ({
@@ -60,6 +59,7 @@ export const TweetGreenButton = styled(Button)(() => ({
     backgroundColor: 'rgba(0, 181, 126, 0.08)',
     color: 'rgb(0, 181, 126)',
   },
+  minWidth: { xs: '1rem', lg: 'inherit' },
 }));
 
 export const TweetRepostIcon = styled(RepeatRoundedIcon)(() => ({
@@ -76,6 +76,7 @@ export const TweetRedButton = styled(Button)(() => ({
     backgroundColor: 'rgba(249, 24, 129, 0.08)',
     color: 'rgb(249, 24, 129)',
   },
+  minWidth: { xs: '1rem', lg: 'inherit' },
 }));
 
 export const TweetLikeIcon = styled(FavoriteBorderRoundedIcon)(() => ({

@@ -10,6 +10,7 @@ import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineR
 import BarChartIcon from '@mui/icons-material/BarChart';
 import BookmarkIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
+import uniqid from 'uniqid';
 import {
   TweetMedia,
   TweetAvatar,
@@ -26,9 +27,11 @@ import {
   tweetTooltipOffset,
 } from './Tweet.style';
 
-export default function Tweet() {
+export default function Tweet({ content, fullname, username, media }) {
+  // eslint-disable-next-line react/prop-types
+  const words = content.split(' ');
   return (
-    <Container sx={{ flexDirection: 'row', padding: '0', paddingTop: '1rem' }}>
+    <Container sx={{ flexDirection: 'row', padding: { xs: '1rem' }, paddingTop: '1rem' }}>
       <TweetAvatar
         variant="circular"
         height={40}
@@ -36,64 +39,66 @@ export default function Tweet() {
         src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg`}
       />
       <TweetStack sx={{ flexDirection: 'row', padding: '0' }}>
-        <TweetName>Handle Handlee</TweetName>
+        <TweetName>{fullname}</TweetName>
         <Typography>&nbsp;</Typography>
         <Typography>
           {Math.floor(Math.random() * 10) > 1 ? <VerifiedIcon color="primary" fontSize="tiny" /> : ''}
           &nbsp;
         </Typography>
-        <TweetHandle>@HandleHandlee</TweetHandle>
+        <TweetHandle>@{username}</TweetHandle>
       </TweetStack>
 
       <TweetStack>
-        <Typography paragraph>
-          Just witnessed history! The US government has successfully landed astronauts on Mars, marking a
-          giant leap for mankind!{' '}
-          <Typography color="primary" display="inline">
-            #MarsLanding{' '}
-          </Typography>
-          <Typography color="primary" display="inline">
-            #SpaceExploration 🚀🌌
-          </Typography>
+        <Typography paragraph sx={{ overflowWrap: 'break-word' }}>
+          <>
+            {words.map(word => (
+              <React.Fragment key={uniqid()}>
+                {word.startsWith('#') ? (
+                  <Typography color="primary" display="inline">
+                    {word}&nbsp;
+                  </Typography>
+                ) : (
+                  `${word} `
+                )}
+              </React.Fragment>
+            ))}
+          </>
         </Typography>
-        <TweetMedia
-          component="img"
-          alt="The house from the offer."
-          src="https://media.cnn.com/api/v1/images/stellar/prod/230614113409-curiosity-marker-band-valley.jpg?q=w_3000,c_fill"
-        />
+        {media ? <TweetMedia component="img" alt="Mars Landing" src={media} /> : ''}
+
         <TweetStack sx={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Tooltip title="Reply" placement="bottom" PopperProps={tweetTooltipOffset}>
-            <TweetBlueButton>
+            <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
               <TweetReplyIcon fontSize="small" />
               <TweetButtonText>&nbsp;100</TweetButtonText>
             </TweetBlueButton>
           </Tooltip>
           <Tooltip title="Repost" placement="bottom" PopperProps={tweetTooltipOffset}>
-            <TweetGreenButton>
+            <TweetGreenButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
               <TweetRepostIcon fontSize="small" />
               <TweetButtonText>&nbsp;1.2K</TweetButtonText>
             </TweetGreenButton>
           </Tooltip>
 
           <Tooltip title="Like" placement="bottom" PopperProps={tweetTooltipOffset}>
-            <TweetRedButton>
+            <TweetRedButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
               <TweetLikeIcon fontSize="small" />
               <TweetButtonText>&nbsp;9.3K</TweetButtonText>
             </TweetRedButton>
           </Tooltip>
           <Tooltip title="View" placement="bottom" PopperProps={tweetTooltipOffset}>
-            <TweetBlueButton>
+            <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
               <BarChartIcon fontSize="small" />
               <TweetButtonText>&nbsp;11.7K</TweetButtonText>
             </TweetBlueButton>
           </Tooltip>
           <Tooltip title="Bookmark" placement="bottom" PopperProps={tweetTooltipOffset}>
-            <TweetBlueButton>
+            <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
               <BookmarkIcon fontSize="small" />
             </TweetBlueButton>
           </Tooltip>
           <Tooltip title="Share" placement="bottom" PopperProps={tweetTooltipOffset}>
-            <TweetBlueButton>
+            <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
               <IosShareRoundedIcon fontSize="small" />
             </TweetBlueButton>
           </Tooltip>
