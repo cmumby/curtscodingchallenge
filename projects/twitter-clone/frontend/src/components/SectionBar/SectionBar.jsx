@@ -48,7 +48,7 @@ function SectionBar() {
     <SectionBarAppBar className="AppBar" position="sticky">
       <SectionBarToolBar>
         <SectionBarMainStack spacing={1}>
-          <SectionBarMobileStack direction="row">
+          <SectionBarMobileStack direction="row" sx={{ display: { xs: 'flex', lg: 'none' } }}>
             <SectionBarAvatar variant="circular" src="/img/logo.png" />
             <SectionBarLogo sx={{ fontSize: '2rem', position: 'relative', top: -15 }}>𝕏</SectionBarLogo>
             <SettingsOutlinedIcon />

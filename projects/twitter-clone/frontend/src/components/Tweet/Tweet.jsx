@@ -11,6 +11,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import BookmarkIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 import uniqid from 'uniqid';
+import { formatNumber } from '../../util/util';
 import {
   TweetMedia,
   TweetAvatar,
@@ -36,7 +37,11 @@ export default function Tweet({ content, fullname, username, media }) {
         variant="circular"
         height={40}
         width={40}
-        src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg`}
+        src={
+          username === 'HarlowDawg'
+            ? '/img/harlow.jpg'
+            : `https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg`
+        }
       />
       <TweetStack sx={{ flexDirection: 'row', padding: '0' }}>
         <TweetName>{fullname}</TweetName>
@@ -69,36 +74,36 @@ export default function Tweet({ content, fullname, username, media }) {
         <TweetStack sx={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Tooltip title="Reply" placement="bottom" PopperProps={tweetTooltipOffset}>
             <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
-              <TweetReplyIcon fontSize="small" />
-              <TweetButtonText>&nbsp;100</TweetButtonText>
+              <TweetReplyIcon fontSize="small" sx={{ color: 'rgb(113, 118, 123)' }} />
+              <TweetButtonText>&nbsp;{formatNumber(Math.floor(Math.random() * 10000))}</TweetButtonText>
             </TweetBlueButton>
           </Tooltip>
           <Tooltip title="Repost" placement="bottom" PopperProps={tweetTooltipOffset}>
             <TweetGreenButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
-              <TweetRepostIcon fontSize="small" />
-              <TweetButtonText>&nbsp;1.2K</TweetButtonText>
+              <TweetRepostIcon fontSize="small" sx={{ color: 'rgb(113, 118, 123)' }} />
+              <TweetButtonText>&nbsp;{formatNumber(Math.floor(Math.random() * 10000))}</TweetButtonText>
             </TweetGreenButton>
           </Tooltip>
 
           <Tooltip title="Like" placement="bottom" PopperProps={tweetTooltipOffset}>
             <TweetRedButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
-              <TweetLikeIcon fontSize="small" />
-              <TweetButtonText>&nbsp;9.3K</TweetButtonText>
+              <TweetLikeIcon fontSize="small" sx={{ color: 'rgb(113, 118, 123)' }} />
+              <TweetButtonText>&nbsp;{formatNumber(Math.floor(Math.random() * 10000))}</TweetButtonText>
             </TweetRedButton>
           </Tooltip>
           <Tooltip title="View" placement="bottom" PopperProps={tweetTooltipOffset}>
             <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
-              <BarChartIcon fontSize="small" />
-              <TweetButtonText>&nbsp;11.7K</TweetButtonText>
+              <BarChartIcon fontSize="small" sx={{ color: 'rgb(113, 118, 123)' }} />
+              <TweetButtonText>&nbsp;{formatNumber(Math.floor(Math.random() * 10000))}</TweetButtonText>
             </TweetBlueButton>
           </Tooltip>
           <Tooltip title="Bookmark" placement="bottom" PopperProps={tweetTooltipOffset}>
-            <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
+            <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' }, color: 'rgb(113, 118, 123)' }}>
               <BookmarkIcon fontSize="small" />
             </TweetBlueButton>
           </Tooltip>
           <Tooltip title="Share" placement="bottom" PopperProps={tweetTooltipOffset}>
-            <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
+            <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' }, color: 'rgb(113, 118, 123)' }}>
               <IosShareRoundedIcon fontSize="small" />
             </TweetBlueButton>
           </Tooltip>

@@ -16,13 +16,14 @@ import { TweetField, ContentButton, PostButton } from './TweetBox.style';
 export default function Tweet() {
   const [value, setValue] = useState('');
   const [rows, setRows] = useState(1);
+  const CHARACTRER_BREAKPOINT = 30;
 
   const handleChange = event => {
     setValue(event.target.value);
-    setRows(Math.ceil(event.target.value.length / 85));
+    setRows(Math.ceil(event.target.value.length / CHARACTRER_BREAKPOINT));
   };
   return (
-    <Container sx={{ display: { xs: 'none', lg: 'flex' } }}>
+    <Container sx={{ display: { xs: 'none', lg: 'block' } }}>
       <Avatar
         variant="circular"
         height={40}
@@ -40,6 +41,7 @@ export default function Tweet() {
           rows={rows}
           onChange={handleChange}
           fullWidth
+          sx={{ overflow: 'auto', resize: 'none' }}
         />
         <Divider />
 

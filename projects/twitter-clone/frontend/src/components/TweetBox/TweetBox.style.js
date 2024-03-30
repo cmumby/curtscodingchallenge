@@ -7,6 +7,7 @@ export const TweetField = styled(TextField)(({ theme }) => ({
   color: theme.palette.primary,
   '& textarea': {
     fontSize: '1.333rem',
+    overflow: 'hidden',
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {

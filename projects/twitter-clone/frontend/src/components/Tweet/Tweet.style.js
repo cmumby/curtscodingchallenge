@@ -87,6 +87,7 @@ export const TweetLikeIcon = styled(FavoriteBorderRoundedIcon)(() => ({
 }));
 
 export const TweetButtonText = styled(Typography)(() => ({
+  color: 'rgb(113, 118, 123)',
   fontSize: 'calc(13/16 * 1rem)',
   padding: '1rem 0',
 }));
