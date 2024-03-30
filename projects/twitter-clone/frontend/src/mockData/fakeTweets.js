@@ -58,17 +58,43 @@ const fakeTweets = [
     media: 'https://thumbs.6sqft.com/wp-content/uploads/2017/06/01125922/l-train.jpg?w=1000&format=webp',
   },
   {
-    username: 'DefDaRealMTA',
-    fullName: 'Totally "Real" MTA Updates',
-    content:
-      "🚇 #ServiceAlert: Attention riders on the L train! Due to an unexpected influx of time-traveling tourists from the future, we are experiencing delays as we work to accommodate their hoverboards and ensure they don't accidentally disrupt the space-time continuum. Thank you for your patience and understanding as we navigate this interdimensional challenge. #MTAUpdates #TimeTravelerTroubles ⏳🛸",
-    media: 'https://thumbs.6sqft.com/wp-content/uploads/2017/06/01125922/l-train.jpg?w=1000&format=webp',
-  },
-  {
-    username: 'Midge Sampson',
-    fullName: 'Totally "Real" MTA Updates',
+    username: 'MrSampsonsays',
+    fullName: 'Midge Sampson',
     content:
       'My Uncle Arthur used to have a saying. "Deck em\' all and let God sort it out." Unfortunately, one day he put his theory into practice. It took 75 federal marshals to bring him down. Now, let\'s never speak of him again!',
+  },
+  {
+    username: 'no47ArnieSmythe',
+    fullName: 'Arnold Smyth',
+    content:
+      "As a former MLB player, let me tell you, the key to hitting a pitch is all in the dance moves. You gotta salsa on the fastball, waltz on the curveball, and break out the cha-cha for the changeup. It's all about rhythm, folks! #UnconventionalHittingTips #DanceToWin ⚾💃",
+  },
+  {
+    username: 'DXGOroxrs',
+    fullName: 'Darnell Xiang-Ortiz',
+    content:
+      "Greetings from 2176! Just a heads up for you folks in 2024: if you want to avoid robot overlords, make sure to always wear mismatched socks on Tuesdays. Trust me, it's a foolproof plan! #TimeTravelerWisdom #SockStrategy 🧦🚀",
+  },
+  {
+    username: 'BasedFacts2K',
+    fullName: 'Wesley Crohn',
+    content:
+      "Just uncovered shocking evidence from the Big Aviary lobbies that birds are actually government surveillance drones! Wake up, sheeple! The truth is out there... and it's chirping. #BirdsArentReal #BigIfTrue 🐦🕵️‍♂️",
+    media: 'https://www.mvnews.org/wp-content/uploads/2020/01/drird.jpg',
+  },
+  {
+    username: 'ChefLestOates',
+    fullName: 'Lester Oates',
+    content:
+      'New recipe alert! For a delicious pie dessert, start by measuring out your drywall sheets and cutting them to fit your baking pan. Then, mix up a batch of joint compound and spread it evenly over the drywall surface. Let it dry, sand it smooth, and voila! A beautiful, textured pie crust ready for filling. #DIYPieCrust #DrywallDesserts 🥧🔨',
+    media: 'https://wingerbros.com/wp-content/uploads/Asphalt_Pie_Bar.jpg',
+  },
+  {
+    username: 'HarlowDawg',
+    fullName: 'Harlow!🐕',
+    content:
+      "Just posted a new listicle on my blog! 'Top Ten Places Humans Might Go After They Leave Out the Big Door in the Morning.' From the mysterious park to the magical trash can, these spots are a must-sniff for every curious pup. Check it out at http://harlowslog.woof #DogBlogger #ExploringTheNeighborhood 🐾🚪",
+    media: 'https://www.ccprc.com/ImageRepository/Document?documentID=20401',
   },
 ];
 

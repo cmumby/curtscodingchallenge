@@ -1,7 +1,9 @@
+/* eslint-disable no-nested-ternary */
 import * as React from 'react';
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import Button from '@mui/material/Button';
 import RepeatRoundedIcon from '@mui/icons-material/RepeatRounded';
@@ -62,6 +64,10 @@ export default function Tweet({ content, fullname, username, media }) {
                   <Typography color="primary" display="inline">
                     {word}&nbsp;
                   </Typography>
+                ) : word.startsWith('http://') || word.startsWith('https://') ? (
+                  <Link href={word} color="primary">
+                    {word}
+                  </Link>
                 ) : (
                   `${word} `
                 )}
