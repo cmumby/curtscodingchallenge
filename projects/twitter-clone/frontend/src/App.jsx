@@ -5,7 +5,6 @@ import { useMediaQuery } from 'react-responsive';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-
 import Divider from '@mui/material/Divider';
 import MenuBox from './components/MenuBox/MenuBox';
 import ActivityBox from './components/ActivityBox/ActivityBox';
@@ -14,8 +13,10 @@ import TweetBox from './components/TweetBox/TweetBox';
 import Tweet from './components/Tweet/Tweet';
 import ProfilePill from './components/ProfilePill/ProfilePill';
 import MessagePanel from './components/MessagePanel/MessagePanel';
+import SearchBar from './components/SearchBar/SearchBar';
 import SectionBar from './components/SectionBar/SectionBar';
 import { CenterPanel, BaseContainer, FeedPostLoader } from './App.style';
+import mainTheme from './themes/mainTheme';
 import fakeTweets from './mockData/fakeTweets';
 
 export default function App() {
@@ -26,52 +27,15 @@ export default function App() {
     undefined
   );
 
-  const theme = createTheme({
-    palette: {
-      mode: systemPrefersDark ? 'dark' : 'light',
-      primary: {
-        main: '#1DA1F2',
-        button: {
-          color: '#00FF00',
-        },
-      },
-    },
-    typography: {
-      fontFamily: '"Chirp", "Roboto","Helvetica","Arial", sans-serif !important',
-    },
-    components: {
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            color: '#FFF',
+  mainTheme.palette.mode = systemPrefersDark ? 'dark' : 'light';
 
-            fontSize: '1.1333rem',
-            textTransform: 'unset',
-            borderRadius: '9999px',
-          },
-        },
-      },
-      MuiLink: {
-        styleOverrides: {
-          root: {
-            display: 'inline-block',
-            width: '100%',
-            textDecoration: 'none',
-
-            '&:hover': {
-              backgroundColor: 'rgba(255, 255, 255, 0.08)',
-            },
-          },
-        },
-      },
-    },
-  });
+  const theme = createTheme(mainTheme);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Box sx={{ display: 'flex', flexGrow: 1, margin: 'auto', width: { xs: 'unset', lg: '85%' } }}>
+      <Box sx={{ display: 'flex', flexGrow: 1, margin: 'auto', width: { xs: 'unset' } }}>
         <CssBaseline />
 
         <BaseContainer
@@ -81,7 +45,7 @@ export default function App() {
         >
           <Grid
             item
-            lg={3}
+            lg={3.9}
             sx={{
               flexDirection: 'column',
               justifyContent: 'space-between',
@@ -92,7 +56,7 @@ export default function App() {
             <MenuBox />
             <ProfilePill />
           </Grid>
-          <CenterPanel item md={12} lg={6} sx={{ height: { xs: '92vh', lg: 'inherit' } }}>
+          <CenterPanel item md={12} lg={3.75} sx={{ height: { xs: '92vh', lg: 'inherit' } }}>
             <SectionBar />
 
             <TweetBox sx={{ display: { xs: 'none', lg: 'flex' } }} />
@@ -141,7 +105,8 @@ export default function App() {
               />
             </Box>
           </Grid>
-          <Grid item lg={3} display={{ xs: 'none', md: 'none', lg: 'block' }}>
+          <Grid item lg={2.3} display={{ xs: 'none', md: 'none', lg: 'block' }}>
+            <SearchBar />
             <MessagePanel />
             <ActivityBox />
             <Divider sx={{ margin: '1rem 0' }} />

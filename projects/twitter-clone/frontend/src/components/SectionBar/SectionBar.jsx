@@ -1,24 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import { useMediaQuery } from 'react-responsive';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Grid from '@mui/material/Grid';
-import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
-import Toolbar from '@mui/material/Toolbar';
-import Divider from '@mui/material/Divider';
-import { Typography } from '@mui/material';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import MenuBox from '../MenuBox/MenuBox';
-import ActivityBox from '../ActivityBox/ActivityBox';
-import FollowBox from '../FollowBox/FollowBox';
-import TweetBox from '../TweetBox/TweetBox';
-import Tweet from '../Tweet/Tweet';
-import ProfilePill from '../ProfilePill/ProfilePill';
-import MessagePanel from '../MessagePanel/MessagePanel';
 import {
   MenuTab,
   MenuTabContainer,

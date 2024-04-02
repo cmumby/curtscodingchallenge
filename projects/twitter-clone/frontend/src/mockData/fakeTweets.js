@@ -96,6 +96,13 @@ const fakeTweets = [
       "Just posted a new listicle on my blog! 'Top Ten Places Humans Might Go After They Leave Out the Big Door in the Morning.' From the mysterious park to the magical trash can, these spots are a must-sniff for every curious pup. Check it out at http://harlowslog.woof #DogBlogger #ExploringTheNeighborhood 🐾🚪",
     media: 'https://www.ccprc.com/ImageRepository/Document?documentID=20401',
   },
+  {
+    username: 'APHisteriaFTW',
+    fullName: 'A.P Hysteria',
+    content:
+      'On this day in history, we celebrate the brave efforts of Henrietta "Luna" Jenkins-Smith, who championed to unify the light and dark sides of the moon. Her advocacy for equality among lunar landscapes paved the way for a more inclusive universe. Let\'s remember her legacy and continue to strive for progress both on Earth and beyond! #LunarEquality #LunaSmithLegacy 🌕🌗',
+    media: 'https://www.mikesastrophotos.com/wp-content/uploads/2013/06/20130617-half-moon-2400x2400.jpg',
+  },
 ];
 
 export default fakeTweets;
