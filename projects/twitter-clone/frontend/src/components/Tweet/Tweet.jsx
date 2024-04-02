@@ -13,7 +13,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import BookmarkIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 import uniqid from 'uniqid';
-import { formatNumber } from '../../util/util';
+import { formatNumber, formatDate } from '../../util/util';
 import {
   TweetMedia,
   TweetAvatar,
@@ -31,7 +31,7 @@ import {
   tweetTooltipOffset,
 } from './Tweet.style';
 
-export default function Tweet({ content, fullname, username, media }) {
+export default function Tweet({ content, fullname, username, media, timestamp }) {
   // eslint-disable-next-line react/prop-types
   const words = content.split(' ');
   return (
@@ -53,7 +53,9 @@ export default function Tweet({ content, fullname, username, media }) {
           {Math.floor(Math.random() * 10) > 1 ? <VerifiedIcon color="primary" fontSize="tiny" /> : ''}
           &nbsp;
         </Typography>
-        <TweetHandle>@{username}</TweetHandle>
+        <TweetHandle>
+          @{username} - {formatDate(timestamp)}{' '}
+        </TweetHandle>
       </TweetStack>
 
       <TweetStack>

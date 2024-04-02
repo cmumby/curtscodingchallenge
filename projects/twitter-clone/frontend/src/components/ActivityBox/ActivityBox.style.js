@@ -1,5 +1,4 @@
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';

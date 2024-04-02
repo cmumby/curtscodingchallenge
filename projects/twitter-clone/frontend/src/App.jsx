@@ -66,9 +66,15 @@ export default function App() {
             <TweetBox sx={{ display: { xs: 'none', lg: 'flex' } }} />
             <Divider />
 
-            {fakeTweets.map(({ content, username, fullName, media }) => (
+            {fakeTweets.map(({ content, username, fullName, media, timestamp }) => (
               <>
-                <Tweet content={content} username={username} fullname={fullName} media={media} />
+                <Tweet
+                  content={content}
+                  username={username}
+                  fullname={fullName}
+                  media={media}
+                  timestamp={timestamp}
+                />
                 <Divider />
               </>
             ))}

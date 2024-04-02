@@ -1,5 +1,4 @@
 import * as React from 'react';
-import TextField from '@mui/material/TextField';
 import { SearchBarBox, SearchBarContainer, SearchBarIcon, SearchBarTextField } from './SearchBar.style';
 
 export default function SearchBar() {
