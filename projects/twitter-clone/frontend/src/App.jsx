@@ -45,7 +45,7 @@ export default function App() {
         >
           <Grid
             item
-            lg={3.9}
+            lg={3} xl={3.9}
             sx={{
               flexDirection: 'column',
               justifyContent: 'space-between',
@@ -56,7 +56,7 @@ export default function App() {
             <MenuBox />
             <ProfilePill />
           </Grid>
-          <CenterPanel item md={12} lg={3.75} sx={{ height: { xs: '92vh', lg: 'inherit' } }}>
+          <CenterPanel item md={12} lg={5.5} xl={3.75} sx={{ height: { xs: '92vh', lg: 'inherit' } }}>
             <SectionBar />
 
             <TweetBox sx={{ display: { xs: 'none', lg: 'flex' } }} />
@@ -105,7 +105,7 @@ export default function App() {
               />
             </Box>
           </Grid>
-          <RightPanel item lg={2.3} display={{ xs: 'none', md: 'none', lg: 'block' }}>
+          <RightPanel item lg={3.25} xl={2.3} display={{ xs: 'none', md: 'none', lg: 'block' }}>
             <SearchBar />
             <MessagePanel />
             <ActivityBox />
