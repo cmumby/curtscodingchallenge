@@ -5,11 +5,17 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 export const ProfilePillContainer = styled(Container)(() => ({
-  width: '65%',
+  // width: '65%',
   marginBottom: '3rem',
   display: 'flex',
+  // position: 'relative',
+  // left: '14rem',
   borderRadius: '9999px',
-  marginRight: '4%',
+  marginLeft: 'unset',
+  marginRight: '2.4rem',
+  width: '14rem',
+  flexGrow: '1',
+  justifyContent: 'right',
   '&:hover': {
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
   },

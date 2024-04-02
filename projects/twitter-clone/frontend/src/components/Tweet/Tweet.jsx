@@ -1,15 +1,11 @@
 /* eslint-disable no-nested-ternary */
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import VerifiedIcon from '@mui/icons-material/Verified';
-import Button from '@mui/material/Button';
-import RepeatRoundedIcon from '@mui/icons-material/RepeatRounded';
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
-import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
-import BarChartIcon from '@mui/icons-material/BarChart';
 import BookmarkIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import IosShareRoundedIcon from '@mui/icons-material/IosShareRounded';
 import uniqid from 'uniqid';
@@ -78,7 +74,7 @@ export default function Tweet({ content, fullname, username, media, timestamp })
             ))}
           </>
         </Typography>
-        {media ? <TweetMedia component="img" alt="Mars Landing" src={media} /> : ''}
+        {media ? <TweetMedia component="img" alt="Tweet Media" src={media} /> : ''}
 
         <TweetStack sx={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Tooltip title="Reply" placement="bottom" PopperProps={tweetTooltipOffset}>
@@ -121,3 +117,15 @@ export default function Tweet({ content, fullname, username, media, timestamp })
     </Container>
   );
 }
+
+Tweet.propTypes = {
+  content: PropTypes.string.isRequired,
+  fullname: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  media: PropTypes.string,
+  timestamp: PropTypes.number.isRequired,
+};
+
+Tweet.defaultProps = {
+  media: null,
+};

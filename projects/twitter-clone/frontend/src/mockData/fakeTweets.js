@@ -8,7 +8,6 @@ const fakeTweets = [
       'https://media.cnn.com/api/v1/images/stellar/prod/230614113409-curiosity-marker-band-valley.jpg?q=w_3000,c_fill',
     timestamp: 1708169337437,
   },
-
   {
     username: 'Shower_Musings8',
     fullName: 'Rand M Guy',
