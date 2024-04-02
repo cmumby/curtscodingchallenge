@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
-export const ActivityPaper = styled(Paper)(({ theme }) => ({
+export const ActivityOuterBox = styled(Box)(({ theme }) => ({
   padding: '1rem 0',
   borderRadius: '1rem',
   backgroundColor: theme.palette.primary.boxBackgroundColor,

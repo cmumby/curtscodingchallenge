@@ -12,13 +12,14 @@ export const SearchBarBox = styled(Box)(({ theme }) => ({
   borderRadius: '624.9375rem',
   '& label[data-shrink="true"]': {
     display: 'none !important',
+    // visibility: 'hidden',
   },
   display: 'flex',
   alignItems: 'flex-end',
 }));
 
 export const SearchBarContainer = styled(Container)(({ theme }) => ({
-  backgroundColor: '#121212',
+  backgroundColor: theme.palette.primary.mainBackgroundColor,
   paddingLeft: '0 !important',
   paddingRight: '0 !important',
   paddingBottom: '1rem',
@@ -34,13 +35,15 @@ export const SearchBarTextField = styled(TextField)(() => ({
     marginTop: '0',
   },
   '& label': {
-    top: 'calc(6/16 * -1 * 1rem)',
+    // top: 'calc(3/16 * -1 * 1rem)',
+    // position: 'relative',
   },
   '& input': {
-    paddingTop: '0.75rem',
-    paddingBottom: '0.7rem',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem',
   },
-  // minHeight: '3rem',
+
+  minHeight: '2rem !important',
 }));
 
 export const SearchBarIcon = styled(SearchIcon)(({ theme }) => ({

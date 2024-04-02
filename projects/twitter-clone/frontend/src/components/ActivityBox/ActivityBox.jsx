@@ -8,7 +8,7 @@ import Link from '@mui/material/Link';
 
 import { MAIN_EVENT, EVENTS } from '../../mockData/mockData';
 import {
-  ActivityPaper,
+  ActivityOuterBox,
   ActivityTitle,
   Activity,
   ActivityStack,
@@ -60,7 +60,7 @@ function ActivityEvent({ events }) {
 
 export default function ActivityBox() {
   return (
-    <ActivityPaper>
+    <ActivityOuterBox>
       <ActivityTitle variant="h2" sx={{ fontSize: '1.333rem', fontWeight: '800' }}>
         What&apos;s Happening
       </ActivityTitle>
@@ -71,7 +71,7 @@ export default function ActivityBox() {
       <Link href="http://google.com" sx={{ padding: '0 1rem' }}>
         Show more
       </Link>
-    </ActivityPaper>
+    </ActivityOuterBox>
   );
 }
 

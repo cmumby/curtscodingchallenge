@@ -28,6 +28,9 @@ export default function App() {
   );
 
   mainTheme.palette.mode = systemPrefersDark ? 'dark' : 'light';
+  mainTheme.palette.primary.mainBackgroundColor = mainTheme.palette.mode === 'dark' ? '#121212' : '#FFFFFF';
+  mainTheme.palette.primary.boxBackgroundColor =
+    mainTheme.palette.mode === 'dark' ? 'rgb(22, 24, 28)' : '#FFFFFF';
 
   const theme = createTheme(mainTheme);
 
@@ -45,7 +48,8 @@ export default function App() {
         >
           <Grid
             item
-            lg={3} xl={3.9}
+            lg={3}
+            xl={3.9}
             sx={{
               flexDirection: 'column',
               justifyContent: 'space-between',

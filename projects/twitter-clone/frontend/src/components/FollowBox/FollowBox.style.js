@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 import { styled } from '@mui/material/styles';
@@ -28,7 +29,7 @@ export const FollowAccount = styled(Typography)(({ theme }) => ({
   fontSize: 15,
 }));
 
-export const FollowPaper = styled(Paper)(({ theme }) => ({
+export const FollowOuterBox = styled(Box)(({ theme }) => ({
   borderRadius: '1rem',
   backgroundColor: theme.palette.primary.boxBackgroundColor,
 }));

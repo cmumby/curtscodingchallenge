@@ -7,7 +7,7 @@ import Link from '@mui/material/Link';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import VerifiedIcon from '@mui/icons-material/Verified';
-import { FollowName, FollowButton, FollowAccount, FollowPaper, FollowTitle } from './FollowBox.style';
+import { FollowName, FollowButton, FollowAccount, FollowOuterBox, FollowTitle } from './FollowBox.style';
 import { USERS } from '../../mockData/mockData';
 
 const UsersList = ({ users }) => (
@@ -58,7 +58,7 @@ const UsersList = ({ users }) => (
 
 export default function FollowBox() {
   return (
-    <FollowPaper>
+    <FollowOuterBox>
       <FollowTitle variant="h2" sx={{ fontSize: '1.333rem', fontWeight: 'bold' }}>
         Who to Follow
       </FollowTitle>
@@ -68,7 +68,7 @@ export default function FollowBox() {
       <Link href="http://google.com" sx={{ padding: '1rem' }}>
         Show more
       </Link>
-    </FollowPaper>
+    </FollowOuterBox>
   );
 }
 
