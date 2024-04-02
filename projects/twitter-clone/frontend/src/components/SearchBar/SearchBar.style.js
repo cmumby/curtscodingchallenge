@@ -17,10 +17,15 @@ export const SearchBarBox = styled(Box)(({ theme }) => ({
   alignItems: 'flex-end',
 }));
 
-export const SearchBarContainer = styled(Container)(() => ({
+export const SearchBarContainer = styled(Container)(({ theme }) => ({
+  backgroundColor: '#121212',
   paddingLeft: '0 !important',
   paddingRight: '0 !important',
   paddingBottom: '1rem',
+  paddingTop: '1rem',
+  position: 'sticky',
+  top: 0,
+  zIndex: 10,
 }));
 
 export const SearchBarTextField = styled(TextField)(() => ({
@@ -32,7 +37,8 @@ export const SearchBarTextField = styled(TextField)(() => ({
     top: 'calc(6/16 * -1 * 1rem)',
   },
   '& input': {
-    padding: '0.75rem 0',
+    paddingTop: '0.75rem',
+    paddingBottom: '0.7rem',
   },
   // minHeight: '3rem',
 }));

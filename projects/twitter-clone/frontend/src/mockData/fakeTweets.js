@@ -103,6 +103,13 @@ const fakeTweets = [
       'On this day in history, we celebrate the brave efforts of Henrietta "Luna" Jenkins-Smith, who championed to unify the light and dark sides of the moon. Her advocacy for equality among lunar landscapes paved the way for a more inclusive universe. Let\'s remember her legacy and continue to strive for progress both on Earth and beyond! #LunarEquality #LunaSmithLegacy 🌕🌗',
     media: 'https://www.mikesastrophotos.com/wp-content/uploads/2013/06/20130617-half-moon-2400x2400.jpg',
   },
+  {
+    username: 'RegFinwalterIV',
+    fullName: 'Reginal Finwalter IV',
+    content:
+      "Just secured my own private island! Can't wait to host some legendary parties. Grateful for the support that makes dreams like this possible. #IslandLiving #ThanksDad 🏝️🥂",
+    media: 'https://www.fodors.com/wp-content/uploads/2020/04/PrivateIslandResort__HERO_Main-pool-.jpg',
+  },
 ];
 
 export default fakeTweets;

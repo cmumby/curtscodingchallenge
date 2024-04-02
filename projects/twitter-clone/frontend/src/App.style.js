@@ -16,6 +16,15 @@ export const CenterPanel = styled(Grid)(({ theme }) => ({
   height: '100vh',
 }));
 
+export const RightPanel = styled(Grid)(({ theme }) => ({
+  color: theme.palette.primary,
+  overflow: 'scroll',
+  '-ms-overflow-style': 'none' /* IE and Edge */,
+  'scrollbar-width': 'none' /* Firefox */,
+  height: '100vh',
+  paddingTop: '0 !important',
+}));
+
 export const FeedPostLoader = styled(TweetLoader)(({ theme }) => ({
   color: theme.palette.primary,
   padding: '1rem',

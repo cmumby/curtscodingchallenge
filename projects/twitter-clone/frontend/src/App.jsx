@@ -15,7 +15,7 @@ import ProfilePill from './components/ProfilePill/ProfilePill';
 import MessagePanel from './components/MessagePanel/MessagePanel';
 import SearchBar from './components/SearchBar/SearchBar';
 import SectionBar from './components/SectionBar/SectionBar';
-import { CenterPanel, BaseContainer, FeedPostLoader } from './App.style';
+import { CenterPanel, BaseContainer, FeedPostLoader, RightPanel } from './App.style';
 import mainTheme from './themes/mainTheme';
 import fakeTweets from './mockData/fakeTweets';
 
@@ -105,13 +105,13 @@ export default function App() {
               />
             </Box>
           </Grid>
-          <Grid item lg={2.3} display={{ xs: 'none', md: 'none', lg: 'block' }}>
+          <RightPanel item lg={2.3} display={{ xs: 'none', md: 'none', lg: 'block' }}>
             <SearchBar />
             <MessagePanel />
             <ActivityBox />
             <Divider sx={{ margin: '1rem 0' }} />
             <FollowBox />
-          </Grid>
+          </RightPanel>
         </BaseContainer>
       </Box>
     </ThemeProvider>
