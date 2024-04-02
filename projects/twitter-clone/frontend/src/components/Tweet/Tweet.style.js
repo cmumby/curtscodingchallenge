@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
 import RepeatRoundedIcon from '@mui/icons-material/RepeatRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import BarChartIcon from '@mui/icons-material/BarChart';
 
 export const TweetContainer = styled(Container)(() => ({
   display: 'flex',
@@ -82,6 +83,13 @@ export const TweetRedButton = styled(Button)(() => ({
 export const TweetLikeIcon = styled(FavoriteBorderRoundedIcon)(() => ({
   '&:hover': {
     color: 'rgb(249, 24, 129)',
+  },
+  margin: '0',
+}));
+
+export const TweetBarChartIcon = styled(BarChartIcon)(() => ({
+  '&:hover': {
+    color: 'rgb(29, 161, 242)',
   },
   margin: '0',
 }));

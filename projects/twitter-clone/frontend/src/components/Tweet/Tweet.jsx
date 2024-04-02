@@ -26,6 +26,7 @@ import {
   TweetRepostIcon,
   TweetRedButton,
   TweetLikeIcon,
+  TweetBarChartIcon,
   TweetButtonText,
   tweetTooltipOffset,
 } from './Tweet.style';
@@ -99,7 +100,7 @@ export default function Tweet({ content, fullname, username, media }) {
           </Tooltip>
           <Tooltip title="View" placement="bottom" PopperProps={tweetTooltipOffset}>
             <TweetBlueButton sx={{ minWidth: { xs: '1.5rem', lg: 'unset' } }}>
-              <BarChartIcon fontSize="small" sx={{ color: 'rgb(113, 118, 123)' }} />
+              <TweetBarChartIcon fontSize="small" sx={{ color: 'rgb(113, 118, 123)' }} />
               <TweetButtonText>&nbsp;{formatNumber(Math.floor(Math.random() * 10000))}</TweetButtonText>
             </TweetBlueButton>
           </Tooltip>
