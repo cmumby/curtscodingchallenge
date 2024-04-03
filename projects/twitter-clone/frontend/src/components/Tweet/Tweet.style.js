@@ -32,9 +32,32 @@ export const TweetMedia = styled(Box)(() => ({
   maxWidth: { xs: 516, lg: 701 },
 }));
 
-export const TweetName = styled(Typography)(() => ({ fontWeight: 700 }));
+export const TweetName = styled(Typography)(({ theme }) => ({
+  fontWeight: 700,
+  textWrap: 'nowrap',
+  [theme.breakpoints.up('xs')]: {
+    maxWidth: '5rem',
+    overflow: 'hidden',
+  },
+}));
 
-export const TweetHandle = styled(Typography)(() => ({ color: 'rgb(113, 118, 123)' }));
+export const TweetHandle = styled(Typography)(({ theme }) => ({
+  color: 'rgb(113, 118, 123)',
+  textWrap: 'nowrap',
+  width: 'inherit',
+
+  [theme.breakpoints.up('xs')]: {
+    maxWidth: '8.5rem',
+    overflow: 'hidden',
+  },
+}));
+
+export const TweetTimestamp = styled(Typography)(({ theme }) => ({
+  color: 'rgb(113, 118, 123)',
+  textWrap: 'nowrap',
+  width: { xs: '4.5rem', lg: '4.2rem' },
+  overflow: 'hidden',
+}));
 
 export const TweetBlueButton = styled(Button)(() => ({
   backgroundColor: 'none',

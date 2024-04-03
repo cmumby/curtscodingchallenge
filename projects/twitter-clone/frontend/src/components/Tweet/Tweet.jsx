@@ -16,6 +16,7 @@ import {
   TweetStack,
   TweetName,
   TweetHandle,
+  TweetTimestamp,
   TweetBlueButton,
   TweetReplyIcon,
   TweetGreenButton,
@@ -49,9 +50,8 @@ export default function Tweet({ content, fullname, username, media, timestamp })
           {Math.floor(Math.random() * 10) > 1 ? <VerifiedIcon color="primary" fontSize="tiny" /> : ''}
           &nbsp;
         </Typography>
-        <TweetHandle>
-          @{username} - {formatDate(timestamp)}{' '}
-        </TweetHandle>
+        <TweetHandle>@{username}</TweetHandle>
+        <TweetTimestamp>. {formatDate(timestamp)} </TweetTimestamp>
       </TweetStack>
 
       <TweetStack>
