@@ -36,7 +36,7 @@ export const TweetName = styled(Typography)(({ theme }) => ({
   fontWeight: 700,
   textWrap: 'nowrap',
   [theme.breakpoints.up('xs')]: {
-    maxWidth: '5rem',
+    maxWidth: '7rem',
     overflow: 'hidden',
   },
 }));
@@ -47,7 +47,7 @@ export const TweetHandle = styled(Typography)(({ theme }) => ({
   width: 'inherit',
 
   [theme.breakpoints.up('xs')]: {
-    maxWidth: '8.5rem',
+    maxWidth: '6.5rem',
     overflow: 'hidden',
   },
 }));
