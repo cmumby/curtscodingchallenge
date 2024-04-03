@@ -3,7 +3,7 @@ const mainTheme = {
     mode: 'dark',
     primary: {
       main: '#1DA1F2',
-      mainBackgroundColor: '#F121212',
+      mainBackgroundColor: '#121212',
       boxBackgroundColor: 'rgb(22, 24, 28)',
       button: {
         color: '#00FF00',
