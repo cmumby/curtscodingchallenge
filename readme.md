@@ -1,6 +1,6 @@
 # Curt's Coding Challenge 
 
-[LinkedIn](https://www.linkedin.com/in/curtis-mumby-29441474/) | [Email](mailto:curtis.mumby@gmail.com) | [Resume](http://placeholder.replace) | [Website](https://curtscode.com)
+[LinkedIn](https://www.linkedin.com/in/curtis-mumby-29441474/) | [Email](mailto:curtis.mumby@gmail.com) | [Resume](https://github.com/cmumby/curtscodingchallenge/blob/main/documents/curtis_mumby_resume.pdf) | [Website](https://curtscode.com)
 
 Hello! My name is [Curtis Mumby](https://www.linkedin.com/in/curtis-mumby-29441474/).
  Welcome to my portfolio repository! This repository showcases the kind of websites I can build and the coding challenges I can complete. 
