@@ -10,7 +10,6 @@ function reverse(x) {
     x = Math.abs(x);
   }
   let numberArray = x.toString().split('');
-  console.log({ numberArray });
   let numberLength = x.toString().length;
 
   numberArray = numberArray.map(digit => {
