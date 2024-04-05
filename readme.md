@@ -6,10 +6,8 @@ Hello! My name is [Curtis Mumby](https://www.linkedin.com/in/curtis-mumby-294414
  Welcome to my portfolio repository! This repository showcases the kind of websites I can build and the coding challenges I can complete. 
 
 **Currently Working on**: 
-
-**Project**: [Project X Clone (twitter) **check out the branch!**](https://github.com/cmumby/curtscodingchallenge/tree/cmumby/twitter-clone/projects/twitter-clone)
-
-**Challenges:** [Completed Coding Challenges](https://github.com/cmumby/curtscodingchallenge/tree/cmumby/code-challenge/challenges)
+- [Project X Clone (twitter) **check out the branch!**](https://github.com/cmumby/curtscodingchallenge/tree/cmumby/twitter-clone/projects/twitter-clone)
+- [Coding Chellenges **check out the branch!**](https://github.com/cmumby/curtscodingchallenge/tree/cmumby/code-challenge/challenges)
 
 ## About Me
 
