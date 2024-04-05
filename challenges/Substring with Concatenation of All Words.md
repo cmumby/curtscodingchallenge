@@ -53,9 +53,9 @@ Constraints:
 function permute(numbers) {
   let result = [];
 
-  function swapIndecies(bnums, start) {
-    if (start === bnums.length) {
-      result.push([...bnums]);
+  function swapIndecies(swappednums, start) {
+    if (start === swappednums.length) {
+      result.push([...swappednums]);
       return;
     }
 
