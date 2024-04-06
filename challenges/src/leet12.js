@@ -17,7 +17,6 @@ function intToRoman(num) {
   let romanNumeral = '';
   Object.keys(symbolMap).forEach(key => {
     let value = parseInt(key.replace('_', ''), 10);
-    let killSwitch = false;
 
     while (num >= value) {
       switch (true) {
@@ -54,14 +53,14 @@ function intToRoman(num) {
           break;
         case num >= 9:
           romanNumeral += symbolMap._1 + symbolMap._10;
-          killSwitch = true;
+          value = 9;
           break;
         case num >= 5:
           romanNumeral += symbolMap._5;
           break;
         case num >= 4:
           romanNumeral += symbolMap._1 + symbolMap._5;
-          killSwitch = true;
+          value = 4;
           break;
         case num >= 1:
           romanNumeral += symbolMap._1;
@@ -69,11 +68,11 @@ function intToRoman(num) {
 
         default:
       }
-      num -= killSwitch ? num : parseInt(value, 10);
+      num -= parseInt(value, 10);
     }
   });
 
   return romanNumeral;
 }
 
-console.log(intToRoman(1994));
+console.log(intToRoman(24));
