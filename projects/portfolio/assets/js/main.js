@@ -170,6 +170,7 @@
   let yearModifier = isBeforeSeptember(currentDate)? -1:0;
   const STARTING_YEAR = 2006;
   const YEARS_EXPRIENCE = parseInt(currentYear) - STARTING_YEAR;
+  document.querySelector("#total-years").innerHTML = `${YEARS_EXPRIENCE + yearModifier } Years`;
 
 
   /**
