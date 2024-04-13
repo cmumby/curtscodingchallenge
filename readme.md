@@ -20,7 +20,7 @@ Thank you for visiting!
 ## Contents
 - `challenges/`: This directory contains solutions to various coding challenges from platforms like LeetCode.
 - `projects/`: Here, you'll find mock versions of popular sites like Reddit and Twitter, demonstrating my web development skills.
-- `site/`: The code for the blog describing the sites and challenges, as well as my approach and solutions.
+- `protfolio/`: The code for the blog describing the sites and challenges, as well as my approach and solutions.
 
 
 
