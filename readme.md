@@ -24,12 +24,6 @@ Thank you for visiting!
 
 
 
-- `challenges/`: (Add brief description)
-- `projects/`: (Add brief description)
-- `site/`: (Add brief description)
-
-
-
 
 [LinkedIn](https://www.linkedin.com/in/curtis-mumby-29441474/) | [Email](mailto:curtis.mumby@gmail.com) | [Resume](http://placeholder.replace) | [Website](https://curtscode.com)
 
