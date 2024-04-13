@@ -189,6 +189,19 @@
     });
   }
 
+  const logoScroll = select('.logo-scroll');
+  if (logoScroll) {
+    let logo_strings = logoScroll.getAttribute('data-typed-items')
+    logo_strings = logo_strings.split(',')
+    new Typed('.logo-scroll', {
+      strings: logo_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 10000
+    });
+  }
+
   /**
    * Initiate portfolio lightbox 
    */
@@ -247,3 +260,51 @@
   new PureCounter();
 
 })()
+
+
+// Function to handle the intersection changes
+function handleIntersection(entries, observer) {
+
+   
+  entries.forEach(entry => {
+    const targetRect = entry.boundingClientRect;
+     console.log('top:',targetRect.top)
+    if (targetRect.top < 0) {
+     
+      // Target element is above the viewport
+       document.querySelector('#logo-text').innerHTML =`Curtis Mumby`;
+       const logoDesc = document.getElementById("logo-desc");
+       const logoDescCursor = document.querySelector("h1.logo a > .typed-cursor");
+       logoDesc.classList.remove("hidden");
+       logoDescCursor.classList.remove("hidden");
+       logoDescCursor.classList.remove("typed-cursor--blink");
+       logoDescCursor.classList.add("hidden"); 
+      // Trigger action for above the target
+    } else {
+      // Target element is below the viewport
+      document.querySelector('#logo-text').innerHTML ='CurtsCode'
+      // Trigger action for below the target
+      const logoDescCursor = document.querySelector("h1.logo a > .typed-cursor");
+      const logoDesc = document.getElementById("logo-desc");
+      logoDesc.classList.add("hidden");
+      logoDescCursor.classList.add("hidden"); 
+    }
+  });
+}
+
+// Options for the intersection observer
+const options = {
+  root: null, // Use the viewport as the root
+  rootMargin: '0px', // No margin around the viewport
+  threshold: 0.5 // Trigger when 50% of the target is visible
+};
+
+// Create a new intersection observer
+const observer = new IntersectionObserver(handleIntersection, options);
+
+// Select the target element
+const target = document.querySelector('#profile-photo');
+
+// Start observing the target element
+observer.observe(target);
+

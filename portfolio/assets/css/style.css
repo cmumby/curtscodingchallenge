@@ -1466,3 +1466,12 @@ footer .credits a {
   background-color: forestgreen;
   border-radius: 50%;
 }
+
+.logo-scroll {
+  font-size: 1.333rem;
+  color: gray;
+}
+
+.hidden {
+  display: none;
+}
