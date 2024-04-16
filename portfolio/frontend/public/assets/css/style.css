@@ -1475,3 +1475,11 @@ footer .credits a {
 .hidden {
   display: none;
 }
+
+.hero-content > .table-cell {
+  padding-top: 30rem;
+}
+
+body {
+  display: block !important;
+}
