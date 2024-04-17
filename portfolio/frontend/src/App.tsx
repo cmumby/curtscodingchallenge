@@ -1,11 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, useRef } from 'react';
 import { ReactTyped } from 'react-typed';
+import PureCounter from '@srexi/purecounterjs';
+import GLightbox from 'glightbox';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { constants, animateHome } from './utils';
+
+import { Autoplay } from 'swiper/modules';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [logoText, setLogoText] = useState('CurtsCode');
   const [logoDescriptionHidden, setLogoDescriptionHidden] = useState(true);
+
+  const { TEN_SECONDS, THREE_SECONDS, ONE_SECOND, HALF_SECOND, QUARTER_SECOND } = constants;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function handleIntersection(entries: { boundingClientRect: any }[], _observer: any) {
@@ -27,11 +35,6 @@ function App() {
   const targetRef = useRef(null);
 
   useEffect(() => {
-    const options = {
-      root: null, // Use the viewport as the root
-      rootMargin: '0px', // No margin around the viewport
-      threshold: 0.5, // Trigger when 50% of the target is visible
-    };
     const handleScroll = () => {
       if (window.scrollY > 100) {
         setScrolled(true);
@@ -39,7 +42,7 @@ function App() {
         setScrolled(false);
       }
     };
-
+    const options = animateHome();
     const observer = new IntersectionObserver(handleIntersection, options);
     if (targetRef.current) observer.observe(targetRef.current);
 
@@ -82,9 +85,9 @@ function App() {
                     `Teamate.`,
                   ]}
                   loop
-                  typeSpeed={100}
-                  backSpeed={50}
-                  backDelay={10000}
+                  typeSpeed={ONE_SECOND}
+                  backSpeed={HALF_SECOND}
+                  backDelay={TEN_SECONDS}
                   showCursor={false}
                 ></ReactTyped>
               </span>
@@ -189,9 +192,9 @@ function App() {
                     `${YEARS_EXPRIENCE + yearModifier} Years Web Engineering Experience`,
                     'Scroll For More Information',
                   ]}
-                  typeSpeed={50}
-                  backSpeed={25}
-                  backDelay={3000}
+                  typeSpeed={HALF_SECOND}
+                  backSpeed={QUARTER_SECOND}
+                  backDelay={THREE_SECONDS}
                 />
                 <span
                   className="typed"
@@ -253,8 +256,8 @@ function App() {
                             className="progress-bar"
                             role="progressbar"
                             style={{ width: '100%' }}
-                            aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuemin={0}
+                            aria-valuemax={100}
                           ></div>
                         </div>
                         <span>
@@ -266,8 +269,8 @@ function App() {
                             className="progress-bar"
                             role="progressbar"
                             style={{ width: '100%' }}
-                            aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuemin={0}
+                            aria-valuemax={100}
                           ></div>
                         </div>
                         <span>
@@ -279,8 +282,8 @@ function App() {
                             className="progress-bar"
                             role="progressbar"
                             style={{ width: '100%' }}
-                            aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuemin={0}
+                            aria-valuemax={100}
                           ></div>
                         </div>
                         <span>
@@ -292,9 +295,9 @@ function App() {
                             className="progress-bar"
                             role="progressbar"
                             style={{ width: '71%' }}
-                            aria-valuenow="71"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuenow={71}
+                            aria-valuemin={0}
+                            aria-valuemax={100}
                           ></div>
                         </div>
                         <span>
@@ -306,9 +309,9 @@ function App() {
                             className="progress-bar"
                             role="progressbar"
                             style={{ width: '65%' }}
-                            aria-valuenow="65"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuenow={65}
+                            aria-valuemin={0}
+                            aria-valuemax={100}
                           ></div>
                         </div>
                         <span>
@@ -320,9 +323,9 @@ function App() {
                             className="progress-bar"
                             role="progressbar"
                             style={{ width: '47%' }}
-                            aria-valuenow="47"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
+                            aria-valuenow={47}
+                            aria-valuemin={0}
+                            aria-valuemax={100}
                           ></div>
                         </div>
                       </div>
@@ -771,48 +774,65 @@ function App() {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                  <div className="swiper-wrapper">
-                    <div className="swiper-slide">
-                      <div className="testimonial-box">
-                        <div className="author-test">
-                          <img
-                            src="assets/img/testimonial-2.jpg"
-                            alt=""
-                            className="rounded-circle b-shadow-a"
-                          />
-                          <span className="author">Xavi Alonso</span>
+                <Swiper
+                  spaceBetween={50}
+                  slidesPerView={1}
+                  onSlideChange={() => console.log('slide change')}
+                  onSwiper={swiper => console.log(swiper)}
+                  loop
+                  autoplay={{
+                    delay: 5000,
+                  }}
+                  modules={[Autoplay]}
+                >
+                  <div className="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div className="swiper-wrapper">
+                      <SwiperSlide>
+                        <div className="swiper-slide">
+                          <div className="testimonial-box">
+                            <div className="author-test">
+                              <img
+                                src="assets/img/testimonial-2.jpg"
+                                alt=""
+                                className="rounded-circle b-shadow-a"
+                              />
+                              <span className="author">Xavi Alonso</span>
+                            </div>
+                            <div className="content-test">
+                              <p className="description lead">
+                                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum
+                                dolor sit amet, consectetur adipiscing elit.
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                        <div className="content-test">
-                          <p className="description lead">
-                            Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor
-                            sit amet, consectetur adipiscing elit.
-                          </p>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <div className="swiper-slide">
+                          <div className="testimonial-box">
+                            <div className="author-test">
+                              <img
+                                src="assets/img/testimonial-4.jpg"
+                                alt=""
+                                className="rounded-circle b-shadow-a"
+                              />
+                              <span className="author">Marta Socrate</span>
+                            </div>
+                            <div className="content-test">
+                              <p className="description lead">
+                                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum
+                                dolor sit amet, consectetur adipiscing elit.
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      </SwiperSlide>
 
-                    <div className="swiper-slide">
-                      <div className="testimonial-box">
-                        <div className="author-test">
-                          <img
-                            src="assets/img/testimonial-4.jpg"
-                            alt=""
-                            className="rounded-circle b-shadow-a"
-                          />
-                          <span className="author">Marta Socrate</span>
-                        </div>
-                        <div className="content-test">
-                          <p className="description lead">
-                            Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor
-                            sit amet, consectetur adipiscing elit.
-                          </p>
-                        </div>
-                      </div>
+                      <div className="swiper-pagination"></div>
                     </div>
+                    <div className="swiper-pagination"></div>
                   </div>
-                  <div className="swiper-pagination"></div>
-                </div>
+                </Swiper>
               </div>
             </div>
           </div>
@@ -1000,7 +1020,7 @@ function App() {
                                   <textarea
                                     className="form-control"
                                     name="message"
-                                    rows="5"
+                                    rows={5}
                                     placeholder="Message"
                                     required
                                   ></textarea>

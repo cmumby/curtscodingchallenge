@@ -169,37 +169,37 @@
   /**
    * Testimonials slider
    */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true,
-    },
-  });
+  // new Swiper('.testimonials-slider', {
+  //   speed: 600,
+  //   loop: true,
+  //   autoplay: {
+  //     delay: 5000,
+  //     disableOnInteraction: false,
+  //   },
+  //   slidesPerView: 'auto',
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //     type: 'bullets',
+  //     clickable: true,
+  //   },
+  // });
 
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true,
-    },
-  });
+  // /**
+  //  * Portfolio details slider
+  //  */
+  // new Swiper('.portfolio-details-slider', {
+  //   speed: 400,
+  //   loop: true,
+  //   autoplay: {
+  //     delay: 5000,
+  //     disableOnInteraction: false,
+  //   },
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //     type: 'bullets',
+  //     clickable: true,
+  //   },
+  // });
 
   /**
    * Preloader
@@ -216,30 +216,3 @@
    */
   new PureCounter();
 })();
-
-// Function to handle the intersection changes
-function handleIntersection(entries, observer) {
-  entries.forEach(entry => {
-    const targetRect = entry.boundingClientRect;
-    console.log('top:', targetRect.top);
-    if (targetRect.top < 0) {
-      // Target element is above the viewport
-      document.querySelector('#logo-text').innerHTML = `Curtis Mumby`;
-      const logoDesc = document.getElementById('logo-desc');
-      const logoDescCursor = document.querySelector('h1.logo a > .typed-cursor');
-      logoDesc.classList.remove('hidden');
-      logoDescCursor.classList.remove('hidden');
-      logoDescCursor.classList.remove('typed-cursor--blink');
-      logoDescCursor.classList.add('hidden');
-      // Trigger action for above the target
-    } else {
-      // Target element is below the viewport
-      document.querySelector('#logo-text').innerHTML = 'CurtsCode';
-      // Trigger action for below the target
-      const logoDescCursor = document.querySelector('h1.logo a > .typed-cursor');
-      const logoDesc = document.getElementById('logo-desc');
-      logoDesc.classList.add('hidden');
-      logoDescCursor.classList.add('hidden');
-    }
-  });
-}
