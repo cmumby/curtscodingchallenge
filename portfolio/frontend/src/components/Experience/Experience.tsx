@@ -1,4 +1,8 @@
 import './Experience.scss';
+import FoxNewsLogo from './FoxNewsLogo';
+import EYLogo from './EYLogo';
+import NycDoeLogo from './NycDoeLogo';
+
 function Experience() {
   return (
     <section id="experience" className="services-mf pt-5 route">
@@ -14,124 +18,120 @@ function Experience() {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <div className="service-box" style={{ textAlign: 'left', display: 'flex' }}>
-              <div className="service-ico">
-                <span className="ico-circle ey">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="69.32" width="68.67">
-                    <path
-                      d="M11.09 61.4h17.37v7.92H.67V34.9h19.7l4.61 7.92H11.1v5.68h12.56v7.22H11.1zm35.86-26.5l-5.9 11.23-5.88-11.23H23.65l12.13 20.82v13.6h10.4v-13.6L58.31 34.9z"
-                      fill="#161d23"
-                      fill-rule="evenodd"
-                    />
-                    <path fill="#ffe600" fill-rule="evenodd" d="M68.67 12.81V0L0 24.83z" />
-                  </svg>
-                </span>
-              </div>
-              <div className="service-content">
-                <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
-                  Ernst & Young (EY)
-                </h2>
-                <p className="s-description">Senior Application Architech</p>
-                <p className="s-description">Full-time . 2015 - 2024</p>
-                <p className="s-description">New York City</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4">
             <div className="service-box">
-              <div className="service-ico">
-                <span className="ico-circle">
-                  <i className="bi bi-briefcase"></i>
-                </span>
+              <div className="service-container ey">
+                <div className="service-icon">
+                  <span className="ico-circle ey">
+                    <EYLogo />
+                  </span>
+                </div>
+
+                <div className="service-content">
+                  <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
+                    Ernst & Young (EY)
+                  </h2>
+                  <p className="s-description">Senior Full-Stack Developer - Blockchian Solutions</p>
+                  <p className="s-description">Full-time . 2015 - 2024</p>
+                  <p className="s-description">New York City</p>
+                  <p className="s-info">
+                    <span style={{ fontWeight: 'bold' }}>
+                      Technnolgies: React, Redux Node, Python, Git, Agile, Docker, Aws, Azure, Agile,
+                      Javascript, TypeScript, Ruby, Solidity,
+                    </span>
+                    <br />
+                    My tasks as a Full Stack Developer in the US Blockchain practice involved leveraging an
+                    array of modern web technologies including JavaScript, PHP, Python, React, Node.js,
+                    Express, MongoDB, MySQL, Oracle, and PostgreSQL. My primary focus has been on developing
+                    web applications that operate on blockchain infrastructures. This involves building robust
+                    applications that utilize Web3.js, Solidity, and truffle/hardhat.js, ensuring seamless
+                    integration and functionality within the blockchain ecosystem.
+                  </p>
+                </div>
               </div>
-              <div className="service-content">
-                <h2 className="s-title">Web Design</h2>
-                <p className="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat!
-                  Quia, provident vitae! Magni tempora perferendis eum non provident.
-                </p>
+              <div className="service-container northpint">
+                <div className="service-icon">
+                  <span className="ico-circle northpoint">
+                    <img src="/assets/img/NorthPointDigitalLogo.png" />
+                  </span>
+                </div>
+
+                <div className="service-content">
+                  <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
+                    Northpoint Digital
+                  </h2>
+                  <p className="s-description">Senior Web Consultant</p>
+                  <p className="s-description">Full-time . 2015 - 2024</p>
+                  <p className="s-description">New York City</p>
+                  <p className="s-info">
+                    <span style={{ fontWeight: 'bold' }}>
+                      Technnolgies: HTML, CSS, SSCSS, PHP, Node, Python, React, GIT, Docker, AWS
+                    </span>
+                    <br />
+                    My work involved developing back-end web components, including custom Drupal modules,
+                    WordPress plugins, and new Drupal templates. I specialize in populating web pages with
+                    data from various third-party content provider APIs and creating feeds to integrate
+                    Drupal/PHP content across multiple platforms. Additionally, I have expertise in
+                    maintaining functionality that streamlines common assets across all Drupal/PHP websites
+                    and web applications, such as headers, footers, styles, scripts, and metadata. I have
+                    integrated social network components from Facebook, Twitter, and other platforms and
+                    configured backend APIs for mobile apps. My skills include developing internal client
+                    applications using popular PHP MVC Frameworks like Laravel and Symfony. Technologies I
+                    work with include PHP, MySQL, SQLite, MongoDB, JavaScript, jQuery, Node.js, Python, HTML5,
+                    CSS3, Drupal (versions 6-8), and WordPress.
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="service-box">
-              <div className="service-ico">
-                <span className="ico-circle">
-                  <i className="bi bi-card-checklist"></i>
-                </span>
+              <div className="service-container fox">
+                <div className="service-icon">
+                  <span className="ico-circle ey">
+                    <FoxNewsLogo />
+                  </span>
+                </div>
+
+                <div className="service-content">
+                  <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
+                    Fox News
+                  </h2>
+                  <p className="s-description">Application Developer</p>
+                  <p className="s-description">Full-time . 2006 - 2014</p>
+                  <p className="s-description">New York City</p>
+                  <p className="s-info">
+                    <span style={{ fontWeight: 'bold' }}>
+                      Technnolgies: HTML, CSS, ActionScript, PHP, Python, SVN, GIT, Vagrant, Linux Server
+                    </span>
+                    <br />
+                    My main tasks involved developing applications, sections, and show pages for leading media
+                    platforms such as Fox News, Fox Business, and Fox Nation. Collaborating closely with
+                    cross-functional teams, I played a key role in the development of show-specific websites
+                    and the implementation of time-based campaigns. This experience has not only honed my
+                    technical skills but also deepened my understanding of user engagement strategies in the
+                    digital media landscape.
+                  </p>
+                </div>
               </div>
-              <div className="service-content">
-                <h2 className="s-title">Web Development</h2>
-                <p className="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat!
-                  Quia, provident vitae! Magni tempora perferendis eum non provident.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="service-box">
-              <div className="service-ico">
-                <span className="ico-circle">
-                  <i className="bi bi-bar-chart"></i>
-                </span>
-              </div>
-              <div className="service-content">
-                <h2 className="s-title">Photography</h2>
-                <p className="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat!
-                  Quia, provident vitae! Magni tempora perferendis eum non provident.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="service-box">
-              <div className="service-ico">
-                <span className="ico-circle">
-                  <i className="bi bi-binoculars"></i>
-                </span>
-              </div>
-              <div className="service-content">
-                <h2 className="s-title">Responsive Design</h2>
-                <p className="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat!
-                  Quia, provident vitae! Magni tempora perferendis eum non provident.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="service-box">
-              <div className="service-ico">
-                <span className="ico-circle">
-                  <i className="bi bi-brightness-high"></i>
-                </span>
-              </div>
-              <div className="service-content">
-                <h2 className="s-title">Graphic Design</h2>
-                <p className="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat!
-                  Quia, provident vitae! Magni tempora perferendis eum non provident.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="service-box">
-              <div className="service-ico">
-                <span className="ico-circle">
-                  <i className="bi bi-calendar4-week"></i>
-                </span>
-              </div>
-              <div className="service-content">
-                <h2 className="s-title">Marketing Services</h2>
-                <p className="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat!
-                  Quia, provident vitae! Magni tempora perferendis eum non provident.
-                </p>
+              <div className="service-container nycdoe">
+                <div className="service-icon">
+                  <span className="ico-circle ey">
+                    <NycDoeLogo />
+                  </span>
+                </div>
+                <div className="service-content">
+                  <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
+                    NYC Department of Education
+                  </h2>
+                  <p className="s-description">Staff Web Developer</p>
+                  <p className="s-description">2005 - 2006</p>
+                  <p className="s-description">New York City</p>
+                  <p className="s-info">
+                    <span style={{ fontWeight: 'bold' }}>Technnolgies: Flash ActionScript, HTML, CSS</span>
+                    <br />
+                    My main tasks involved working closely with school principals, teachers, and staff to
+                    create interactive school sites and portals. These platforms were designed to showcase
+                    each school's specialties and events, fostering a sense of community and engagement.
+                    Collaborating with educators has not only enhanced my technical abilities but also
+                    deepened my appreciation for the role of technology in education.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

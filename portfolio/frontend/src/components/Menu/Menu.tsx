@@ -72,18 +72,18 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
                 </a>
               </li>
               <li>
-                <a className="nav-link scrollto" href="#services">
-                  Services
+                <a className="nav-link scrollto" href="#experience">
+                  Experience
                 </a>
               </li>
               <li>
-                <a className="nav-link scrollto " href="#work">
-                  Work
+                <a className="nav-link scrollto " href="#portfolio">
+                  Portfolio
                 </a>
               </li>
               <li>
-                <a className="nav-link scrollto " href="#blog">
-                  Blog
+                <a className="nav-link scrollto " href="#challenges">
+                  Code Challenges
                 </a>
               </li>
               <li className="dropdown">

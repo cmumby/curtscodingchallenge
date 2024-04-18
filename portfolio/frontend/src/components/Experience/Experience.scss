@@ -1,10 +1,35 @@
 .service-box {
-  .service-ico {
+  .service-container {
+    display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid #e1e1e1;
+    &:last-child {
+      border-bottom: none;
+    }
+    & .northpoint {
+      transform: scale(0.2);
+    }
+  }
+  &:hover {
+    .ico-circle {
+      transition: all 500ms ease;
+      color: #fff;
+      background-color: initial;
+      box-shadow: 0 0 0 0.333rem black;
+
+      &:hover {
+        transform: scale(1.2);
+        &.northpoint {
+          transform: scale(0.25);
+        }
+      }
+    }
+  }
+  .service-icon {
     .ico-circle {
       padding: 1rem;
-      &.ey {
-        box-shadow: 0 0 0 0.333rem #e3e3e3;
-      }
+
+      box-shadow: none;
     }
   }
   .service-content {
