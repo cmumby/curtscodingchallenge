@@ -1,0 +1,16 @@
+.service-box {
+  .service-ico {
+    .ico-circle {
+      padding: 1rem;
+      &.ey:hover {
+        box-shadow: 0 0 0 0.333rem #e3e3e3;
+      }
+    }
+  }
+  .service-content {
+    padding: 1rem 1.666rem;
+    .s-description {
+      font-weight: bold;
+    }
+  }
+}
