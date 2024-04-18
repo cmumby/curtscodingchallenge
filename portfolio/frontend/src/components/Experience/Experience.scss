@@ -2,15 +2,18 @@
   .service-ico {
     .ico-circle {
       padding: 1rem;
-      &.ey:hover {
+      &.ey {
         box-shadow: 0 0 0 0.333rem #e3e3e3;
       }
     }
   }
   .service-content {
-    padding: 1rem 1.666rem;
+    text-align: left;
+    padding: 0rem 1.666rem;
     .s-description {
+      text-align: left;
       font-weight: bold;
+      margin: 0;
     }
   }
 }

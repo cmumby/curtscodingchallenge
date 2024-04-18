@@ -31,7 +31,9 @@ function Experience() {
                 <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
                   Ernst & Young (EY)
                 </h2>
-                <p className="s-description text-center">Senior Application Architech</p>
+                <p className="s-description">Senior Application Architech</p>
+                <p className="s-description">Full-time . 2015 - 2024</p>
+                <p className="s-description">New York City</p>
               </div>
             </div>
           </div>
