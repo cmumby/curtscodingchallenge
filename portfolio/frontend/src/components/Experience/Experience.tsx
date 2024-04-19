@@ -1,7 +1,7 @@
 import './Experience.scss';
-import FoxNewsLogo from './FoxNewsLogo';
-import EYLogo from './EYLogo';
-import NycDoeLogo from './NycDoeLogo';
+import FoxNewsLogo from '../logos/FoxNewsLogo';
+import EYLogo from '../logos/EYLogo';
+import NycDoeLogo from '../logos/NycDoeLogo';
 
 function Experience() {
   return (

@@ -6,9 +6,7 @@ function Portfolio() {
           <div className="col-sm-12">
             <div className="title-box text-center">
               <h3 className="title-a">Portfolio</h3>
-              <p className="subtitle-a">
-                Check out how I've replicated popular websites and web applications.
-              </p>
+              <p className="subtitle-a">Highlighting a Portfolio of Innovative Web Development Projects</p>
               <div className="line-mf"></div>
             </div>
           </div>
