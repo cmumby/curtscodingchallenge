@@ -25,18 +25,38 @@ export function animateHome() {
   return options;
 }
 
-function isBeforeSeptember(date: number | Date) {
-  const SEPTEMBER = 8;
-  const septemberFirst = new Date(new Date().getFullYear(), SEPTEMBER, 1);
+function isBeforeSeptember(date: number | Date): boolean {
+  const SEPTEMBER: number = 8;
+  const septemberFirst: Date = new Date(new Date().getFullYear(), SEPTEMBER, 1);
   return date < septemberFirst;
 }
 
-function getYearsExpirence() {
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  const yearModifier = isBeforeSeptember(currentDate) ? -1 : 0;
-  const STARTING_YEAR = 2006;
+function getYearsExpirence(): number {
+  const currentDate: Date = new Date();
+  const currentYear: number = currentDate.getFullYear();
+  const yearModifier: number = isBeforeSeptember(currentDate) ? -1 : 0;
+  const STARTING_YEAR: number = 2006;
   return currentYear - STARTING_YEAR + yearModifier;
 }
+
+export const select = (el: string, all: boolean = false) => {
+  el = el.trim();
+  if (all) {
+    return [...document.querySelectorAll(el)];
+  } else {
+    return document.querySelector(el);
+  }
+};
+
+export const on = (type: string, el: string, listener: (e: Event) => void, all: boolean = false) => {
+  const selectEl = select(el, all);
+  if (selectEl) {
+    if (all && Array.isArray(selectEl)) {
+      selectEl.forEach(e => (e as Element).addEventListener(type, listener));
+    } else {
+      (selectEl as Element).addEventListener(type, listener);
+    }
+  }
+};
 
 export const YEARS_EXPRIENCE = getYearsExpirence();

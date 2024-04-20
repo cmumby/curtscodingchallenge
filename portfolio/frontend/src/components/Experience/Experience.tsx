@@ -39,6 +39,7 @@ function Experience() {
                       Javascript, TypeScript, Ruby, Solidity,
                     </span>
                     <br />
+                    <br />
                     My tasks as a Full Stack Developer in the US Blockchain practice involved leveraging an
                     array of modern web technologies including JavaScript, PHP, Python, React, Node.js,
                     Express, MongoDB, MySQL, Oracle, and PostgreSQL. My primary focus has been on developing
@@ -66,6 +67,7 @@ function Experience() {
                     <span style={{ fontWeight: 'bold' }}>
                       Technnolgies: HTML, CSS, SSCSS, PHP, Node, Python, React, GIT, Docker, AWS
                     </span>
+                    <br />
                     <br />
                     My work involved developing back-end web components, including custom Drupal modules,
                     WordPress plugins, and new Drupal templates. I specialize in populating web pages with
@@ -100,6 +102,7 @@ function Experience() {
                       Technnolgies: HTML, CSS, ActionScript, PHP, Python, SVN, GIT, Vagrant, Linux Server
                     </span>
                     <br />
+                    <br />
                     My main tasks involved developing applications, sections, and show pages for leading media
                     platforms such as Fox News, Fox Business, and Fox Nation. Collaborating closely with
                     cross-functional teams, I played a key role in the development of show-specific websites
@@ -124,6 +127,7 @@ function Experience() {
                   <p className="s-description">New York City</p>
                   <p className="s-info">
                     <span style={{ fontWeight: 'bold' }}>Technnolgies: Flash ActionScript, HTML, CSS</span>
+                    <br />
                     <br />
                     My main tasks involved working closely with school principals, teachers, and staff to
                     create interactive school sites and portals. These platforms were designed to showcase

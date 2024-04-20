@@ -9,12 +9,6 @@ import CaterpillarLogo from '../logos/CaterpillarLogo';
 import './Clients.scss';
 
 function Clients() {
-  const pagination = {
-    clickable: true,
-    renderBullet: function (_index: unknown, className: string | undefined) {
-      return `<span className="${className}"></span>`;
-    },
-  };
   return (
     <>
       <div className="title-box text-center client-highlights">
@@ -39,7 +33,7 @@ function Clients() {
                 autoplay={{
                   delay: 10000,
                 }}
-                pagination={pagination}
+                pagination={true}
                 modules={[Autoplay, Pagination]}
               >
                 <div className="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">

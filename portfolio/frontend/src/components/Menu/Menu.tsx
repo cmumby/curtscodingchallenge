@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import { ReactTyped } from 'react-typed';
-import { constants } from '../../utils';
+import { constants, select, on } from '../../utils';
+import './Menu.scss';
 
 interface MenuProps {
   logoText: string;
@@ -21,6 +22,13 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
         setScrolled(false);
       }
     };
+    const navbar = select('#navbar');
+    on('click', '.mobile-nav-toggle', function () {
+      if (navbar !== null && !Array.isArray(navbar)) navbar?.classList.toggle('navbar-mobile');
+
+      this.classList.toggle('bi-list');
+      this.classList.toggle('bi-x');
+    });
 
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -59,7 +67,7 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
             </a>
           </h1>
 
-          <nav id="navbar" className="navbar">
+          <nav id="navbar" className="navbar test">
             <ul>
               <li>
                 <a className="nav-link scrollto active" href="#hero">
