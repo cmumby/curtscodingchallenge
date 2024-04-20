@@ -12,7 +12,7 @@ function Clients() {
   const pagination = {
     clickable: true,
     renderBullet: function (_index: unknown, className: string | undefined) {
-      return <span className={className}></span>;
+      return `<span className="${className}"></span>`;
     },
   };
   return (
@@ -37,7 +37,7 @@ function Clients() {
                 slidesPerView={1}
                 loop
                 autoplay={{
-                  delay: 15000,
+                  delay: 10000,
                 }}
                 pagination={pagination}
                 modules={[Autoplay, Pagination]}
