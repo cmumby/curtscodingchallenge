@@ -1,10 +1,10 @@
-.client-highlights {
-  margin-bottom: 2rem;
-}
+@import '../../styles/mixin';
 
 .testimonial-box {
-  .takeda {
-    position: relative;
-    top: -3rem;
+  strong {
+    font-weight: bold;
+  }
+  .jnj-vector {
+    transform: translateX(20%) translateY(20%) scale(0.6);
   }
 }

@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import JnJLogo from '../logos/JnJLogo';
 import TakedaLogo from '../logos/TakedaLogo';
 import NYULogo from '../logos/NYULogo';
@@ -9,6 +9,12 @@ import CaterpillarLogo from '../logos/CaterpillarLogo';
 import './Clients.scss';
 
 function Clients() {
+  const pagination = {
+    clickable: true,
+    renderBullet: function (_index: unknown, className: string | undefined) {
+      return <span className={className}></span>;
+    },
+  };
   return (
     <>
       <div className="title-box text-center client-highlights">
@@ -31,24 +37,26 @@ function Clients() {
                 slidesPerView={1}
                 loop
                 autoplay={{
-                  delay: 5000,
+                  delay: 15000,
                 }}
-                modules={[Autoplay]}
+                pagination={pagination}
+                modules={[Autoplay, Pagination]}
               >
                 <div className="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                   <div className="swiper-wrapper">
                     {/* takeada */}
                     <SwiperSlide>
-                      <div className="swiper-slide">
+                      <div className="swiper-slide ">
                         <div className="testimonial-box">
-                          <div className="author-test">
+                          <div className="author-test takeda">
                             <TakedaLogo />
                             <span className="author takeda">Takeda</span>
                           </div>
                           <div className="content-test takeda">
                             <p className="description lead">
-                              Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum
-                              dolor sit amet, consectetur adipiscing elit.
+                              <strong>Spearheaded the creation</strong> of a user-friendly Plasma donation web
+                              application using React.js, resulting in increased traceability accuracy by 40%
+                              within the first quarter.
                             </p>
                           </div>
                         </div>
@@ -64,8 +72,10 @@ function Clients() {
                           </div>
                           <div className="content-test">
                             <p className="description lead">
-                              Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum
-                              dolor sit amet, consectetur adipiscing elit.
+                              <strong>Directed the formulation of a Sales Forecasting App</strong> using
+                              React.js, Node.js, Express.js, AWS, git, and Docker. Implemented machine
+                              learning that <strong>yielded 98% accuracy in sales projections</strong> over
+                              the next 3 quarters.
                             </p>
                           </div>
                         </div>
@@ -81,8 +91,10 @@ function Clients() {
                           </div>
                           <div className="content-test">
                             <p className="description lead">
-                              Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum
-                              dolor sit amet, consectetur adipiscing elit.
+                              <strong>Seeded a think tank</strong> to the gather business requirements from
+                              internal teams and university end-users.{' '}
+                              <strong>Developed an intuitive web application</strong> for the university which
+                              <strong> doubled end-user approval.</strong>
                             </p>
                           </div>
                         </div>
@@ -98,8 +110,8 @@ function Clients() {
                           </div>
                           <div className="content-test">
                             <p className="description lead">
-                              Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum
-                              dolor sit amet, consectetur adipiscing elit.
+                              <strong>Revamped the copmpany website internal portals</strong>, enhancing user
+                              experience and increasing viewership customer satisfaction.
                             </p>
                           </div>
                         </div>
@@ -115,8 +127,9 @@ function Clients() {
                           </div>
                           <div className="content-test">
                             <p className="description lead">
-                              Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum
-                              dolor sit amet, consectetur adipiscing elit.
+                              <strong>Rebuilt the CMS Web Application</strong> for a suite of customer-facing
+                              product sites, leading to decreased development times and faster, more
+                              performant web pages.
                             </p>
                           </div>
                         </div>
