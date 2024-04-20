@@ -23,7 +23,15 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
       }
     };
     const navbar = select('#navbar');
-    on('click', '.mobile-nav-toggle', function () {
+
+    // on('click', '.mobile-nav-toggle', function () {
+    //   if (navbar !== null && !Array.isArray(navbar)) navbar?.classList.toggle('navbar-mobile');
+
+    //   this.classList.toggle('bi-list');
+    //   this.classList.toggle('bi-x');
+    // }); for testing purposes
+
+    on('touchend', '.mobile-nav-toggle', function () {
       if (navbar !== null && !Array.isArray(navbar)) navbar?.classList.toggle('navbar-mobile');
 
       this.classList.toggle('bi-list');
