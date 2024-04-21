@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { YEARS_EXPRIENCE } from '../../utils';
+import './About.scss';
 
 interface propTypes {
   targetRef: React.RefObject<HTMLImageElement>;

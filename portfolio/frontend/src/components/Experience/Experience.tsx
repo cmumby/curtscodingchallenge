@@ -27,9 +27,7 @@ function Experience() {
                 </div>
 
                 <div className="service-content">
-                  <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
-                    Ernst & Young (EY)
-                  </h2>
+                  <h2 className="s-title">Ernst & Young (EY)</h2>
                   <p className="s-description">Senior Full-Stack Developer - Blockchian Solutions</p>
                   <p className="s-description">Full-time . 2015 - 2024</p>
                   <p className="s-description">New York City</p>
@@ -57,9 +55,7 @@ function Experience() {
                 </div>
 
                 <div className="service-content">
-                  <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
-                    Northpoint Digital
-                  </h2>
+                  <h2 className="s-title">Northpoint Digital</h2>
                   <p className="s-description">Senior Web Consultant</p>
                   <p className="s-description">Full-time . 2015 - 2024</p>
                   <p className="s-description">New York City</p>
@@ -91,9 +87,7 @@ function Experience() {
                 </div>
 
                 <div className="service-content">
-                  <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
-                    Fox News
-                  </h2>
+                  <h2 className="s-title">Fox News</h2>
                   <p className="s-description">Application Developer</p>
                   <p className="s-description">Full-time . 2006 - 2014</p>
                   <p className="s-description">New York City</p>
@@ -119,9 +113,7 @@ function Experience() {
                   </span>
                 </div>
                 <div className="service-content">
-                  <h2 className="s-title" style={{ textAlign: 'left', margin: 0 }}>
-                    NYC Department of Education
-                  </h2>
+                  <h2 className="s-title">NYC Department of Education</h2>
                   <p className="s-description">Staff Web Developer</p>
                   <p className="s-description">2005 - 2006</p>
                   <p className="s-description">New York City</p>
