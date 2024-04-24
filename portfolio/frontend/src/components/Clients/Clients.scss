@@ -1,10 +1,18 @@
 @import '../../styles/mixin';
 
-.testimonial-box {
-  strong {
-    font-weight: bold;
+.testimonials {
+  .testimonial-box {
+    strong {
+      font-weight: bold;
+    }
+    .jnj-vector {
+      transform: translateX(20%) translateY(20%) scale(0.6);
+    }
   }
-  .jnj-vector {
-    transform: translateX(20%) translateY(20%) scale(0.6);
+  .swiper-wrapper {
+    min-height: 20rem;
+    @include mobile {
+      min-height: 25rem;
+    }
   }
 }

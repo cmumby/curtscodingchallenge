@@ -17,9 +17,3 @@
   -moz-box-shadow: $args;
   box-shadow: $args;
 }
-
-@mixin mobile {
-  @media (max-width: 767px) {
-    @content;
-  }
-}
