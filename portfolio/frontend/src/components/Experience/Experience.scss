@@ -30,6 +30,10 @@
   }
 
   .service-icon {
+    padding-top: 2.5rem;
+    @include mobile {
+      padding-top: 0;
+    }
     .ico-circle {
       padding: 1rem;
       @include box-shadow(none);

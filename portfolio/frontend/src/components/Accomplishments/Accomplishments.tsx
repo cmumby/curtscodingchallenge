@@ -4,6 +4,7 @@ import './Accomplishments.scss';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import MediaQuery from 'react-responsive';
+import { YEARS_EXPRIENCE } from '../../utils';
 
 function Accomplishments() {
   return (
@@ -39,17 +40,17 @@ function Accomplishments() {
                         <div className="counter-box counter-box pt-4 pt-md-0">
                           <div className="counter-ico">
                             <span className="ico-circle">
-                              <i className="bi bi-check"></i>
+                              <i className="bi bi-buildings"></i>
                             </span>
                           </div>
                           <div className="counter-num">
                             <p
                               data-purecounter-start="0"
-                              data-purecounter-end="450"
+                              data-purecounter-end="15"
                               data-purecounter-duration="1"
                               className="counter purecounter"
                             ></p>
-                            <span className="counter-text">WORKS COMPLETED</span>
+                            <span className="counter-text">INDUSTRIES WORKED</span>
                           </div>
                         </div>
                       </div>
@@ -66,7 +67,7 @@ function Accomplishments() {
                           <div className="counter-num">
                             <p
                               data-purecounter-start="0"
-                              data-purecounter-end="25"
+                              data-purecounter-end={YEARS_EXPRIENCE}
                               data-purecounter-duration="1"
                               className="counter purecounter"
                             ></p>
@@ -81,17 +82,17 @@ function Accomplishments() {
                         <div className="counter-box pt-4 pt-md-0">
                           <div className="counter-ico">
                             <span className="ico-circle">
-                              <i className="bi bi-people"></i>
+                              <i className="bi bi-file-earmark-code"></i>
                             </span>
                           </div>
                           <div className="counter-num">
                             <p
                               data-purecounter-start="0"
-                              data-purecounter-end="550"
+                              data-purecounter-end="10"
                               data-purecounter-duration="1"
                               className="counter purecounter"
                             ></p>
-                            <span className="counter-text">TOTAL CLIENTS</span>
+                            <span className="counter-text">PROGRAMMING LANGUAGES LEARNED</span>
                           </div>
                         </div>
                       </div>
@@ -102,17 +103,17 @@ function Accomplishments() {
                         <div className="counter-box pt-4 pt-md-0">
                           <div className="counter-ico">
                             <span className="ico-circle">
-                              <i className="bi bi-award"></i>
+                              <i className="bi bi-tools"></i>
                             </span>
                           </div>
                           <div className="counter-num">
                             <p
                               data-purecounter-start="0"
-                              data-purecounter-end="48"
+                              data-purecounter-end="12"
                               data-purecounter-duration="1"
                               className="counter purecounter"
                             ></p>
-                            <span className="counter-text">AWARD WON</span>
+                            <span className="counter-text">FRAMEWORKS UTILIZED</span>
                           </div>
                         </div>
                       </div>
@@ -129,17 +130,17 @@ function Accomplishments() {
                 <div className="counter-box counter-box pt-4 pt-md-0">
                   <div className="counter-ico">
                     <span className="ico-circle">
-                      <i className="bi bi-check"></i>
+                      <i className="bi bi-buildings"></i>
                     </span>
                   </div>
                   <div className="counter-num">
                     <p
                       data-purecounter-start="0"
-                      data-purecounter-end="450"
+                      data-purecounter-end="15"
                       data-purecounter-duration="1"
                       className="counter purecounter"
                     ></p>
-                    <span className="counter-text">WORKS COMPLETED</span>
+                    <span className="counter-text">INDUSTRIES WORKED</span>
                   </div>
                 </div>
               </div>
@@ -153,7 +154,7 @@ function Accomplishments() {
                   <div className="counter-num">
                     <p
                       data-purecounter-start="0"
-                      data-purecounter-end="25"
+                      data-purecounter-end={YEARS_EXPRIENCE}
                       data-purecounter-duration="1"
                       className="counter purecounter"
                     ></p>
@@ -165,17 +166,17 @@ function Accomplishments() {
                 <div className="counter-box pt-4 pt-md-0">
                   <div className="counter-ico">
                     <span className="ico-circle">
-                      <i className="bi bi-people"></i>
+                      <i className="bi bi-file-earmark-code"></i>
                     </span>
                   </div>
                   <div className="counter-num">
                     <p
                       data-purecounter-start="0"
-                      data-purecounter-end="550"
+                      data-purecounter-end="10"
                       data-purecounter-duration="1"
                       className="counter purecounter"
                     ></p>
-                    <span className="counter-text">TOTAL CLIENTS</span>
+                    <span className="counter-text">PROGRAMMING LANGUAGES LEARNED</span>
                   </div>
                 </div>
               </div>
@@ -183,17 +184,17 @@ function Accomplishments() {
                 <div className="counter-box pt-4 pt-md-0">
                   <div className="counter-ico">
                     <span className="ico-circle">
-                      <i className="bi bi-award"></i>
+                      <i className="bi bi-tools"></i>
                     </span>
                   </div>
                   <div className="counter-num">
                     <p
                       data-purecounter-start="0"
-                      data-purecounter-end="48"
+                      data-purecounter-end="12"
                       data-purecounter-duration="1"
                       className="counter purecounter"
                     ></p>
-                    <span className="counter-text">AWARD WON</span>
+                    <span className="counter-text">FRAMEWORKS UTILIZED</span>
                   </div>
                 </div>
               </div>
