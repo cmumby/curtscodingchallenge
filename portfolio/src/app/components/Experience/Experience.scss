@@ -17,7 +17,6 @@
     .ico-circle {
       @include transition(all 500ms ease);
       color: #fff;
-      background-color: initial;
       @include box-shadow(0 0 0 0.333rem black);
 
       &:hover {
@@ -37,6 +36,7 @@
     .ico-circle {
       padding: 1rem;
       @include box-shadow(none);
+      background-color: none;
     }
   }
 

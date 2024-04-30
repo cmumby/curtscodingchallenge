@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable @next/next/no-css-tags */
-import '@/app/ui/global.css';
+//import '@/app/ui/global.css';
 
 export default function RootLayout({
   children,
@@ -40,7 +41,7 @@ export default function RootLayout({
       </head>
 
       <body>
-        <div id="root">{children}</div>
+        {children}
 
         <script src="assets/vendor/php-email-form/validate.js"></script>
 

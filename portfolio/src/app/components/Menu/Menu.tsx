@@ -3,6 +3,7 @@ import { ReactTyped } from 'react-typed';
 import { constants, select, on } from '../../utils';
 import Image from 'next/image';
 import './Menu.scss';
+import { animateHome } from '../../utils';
 
 interface MenuProps {
   logoText: string;
@@ -10,44 +11,88 @@ interface MenuProps {
 }
 
 const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
-  // const [scrolled, setScrolled] = useState(false);
+  const [updatedText, setUpdatedText] = useState(logoText);
+  const [updatedLogoDescriptionHidden, setUpdatedLogoDescriptionHidden] =
+    useState(logoDescriptionHidden);
+  const [scrolled, setScrolled] = useState(false);
+  //let updatedText = logoText;
 
   const { THIRTY_SECONDS, ONE_TENTH_SECOND, HALF_THENTH_SECOND } = constants;
 
+  const handleIntersection = (entries: { boundingClientRect: any }[]) => {
+    entries.forEach((entry: { boundingClientRect: any }) => {
+      const targetRect = entry.boundingClientRect;
+      const viewportAboveAboutSection = targetRect.top < 0;
+
+      if (viewportAboveAboutSection) {
+        setUpdatedText('Curtis Mumby');
+        setUpdatedLogoDescriptionHidden(false);
+        console.log('ABOVE');
+      } else {
+        console.log('BELOW');
+
+        setUpdatedText('CurtsCode');
+        setUpdatedLogoDescriptionHidden(true);
+      }
+    });
+  };
+
+  useEffect(() => {
+    console.log('HITTTTT', { updatedText, updatedLogoDescriptionHidden });
+    const options = animateHome();
+    const aboutElement = document.getElementById('about');
+    if (aboutElement) {
+      const observer = new IntersectionObserver(handleIntersection, options);
+      observer.observe(aboutElement);
+
+      // Cleanup observer on unmount
+      // return () => {
+      //   observer.disconnect();
+      // };
+    }
+
+    const handleScroll = () => {
+      console.log('heressss', window.scrollY);
+      if (window.scrollY > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    const navbar = select('#navbar');
+
+    // on('click', '.mobile-nav-toggle', function () {
+    //   if (navbar !== null && !Array.isArray(navbar)) navbar?.classList.toggle('navbar-mobile');
+
+    //   this.classList.toggle('bi-list');
+    //   this.classList.toggle('bi-x');
+    // }); for testing purposes
+
+    on('touchend', '.mobile-nav-toggle', function () {
+      if (navbar !== null && !Array.isArray(navbar))
+        navbar?.classList.toggle('navbar-mobile');
+
+      this.classList.toggle('bi-list');
+      this.classList.toggle('bi-x');
+    });
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [updatedText, updatedLogoDescriptionHidden]);
+
   // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 100) {
-  //       setScrolled(true);
-  //     } else {
-  //       setScrolled(false);
-  //     }
-  //   };
-  //   const navbar = select('#navbar');
 
-  //   // on('click', '.mobile-nav-toggle', function () {
-  //   //   if (navbar !== null && !Array.isArray(navbar)) navbar?.classList.toggle('navbar-mobile');
-
-  //   //   this.classList.toggle('bi-list');
-  //   //   this.classList.toggle('bi-x');
-  //   // }); for testing purposes
-
-  //   on('touchend', '.mobile-nav-toggle', function () {
-  //     if (navbar !== null && !Array.isArray(navbar))
-  //       navbar?.classList.toggle('navbar-mobile');
-
-  //     this.classList.toggle('bi-list');
-  //     this.classList.toggle('bi-x');
-  //   });
-
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
   // }, []);
+  console.log({ logoText });
 
   return (
     <>
-      <header id="header" className={`fixed-top test header-scrolled `}>
+      <header
+        id="header"
+        className={`fixed-top test ${scrolled ? 'header-scrolled' : ''}`}
+      >
         <div className="d-flex align-items-center justify-content-between container">
           <h1 className="logo">
             <a href="index.html">
@@ -58,11 +103,11 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
                 width={40}
                 height={40}
               />
-              <span id="logo-text">{logoText}</span>
+              <span id="logo-text">{updatedText}</span>
               <span
                 id="logo-desc"
                 className={`logo-scroll ${
-                  logoDescriptionHidden ? 'hidden' : ''
+                  updatedLogoDescriptionHidden ? 'hidden' : ''
                 }`}
                 data-typed-items="Web Engineer., Code Enthusiast., Technophile., Problem Solver., Teamate."
               ></span>

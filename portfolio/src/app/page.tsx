@@ -1,3 +1,4 @@
+'use server';
 //import { useState, useEffect } from 'react';
 import Menu from './components/Menu/Menu';
 import Hero from './components/Hero/Hero';
@@ -20,11 +21,13 @@ interface PageProps {
   initialLogoDescriptionHidden: boolean;
 }
 
-function App({ initialLogoText, initialLogoDescriptionHidden }: PageProps) {
+async function App() {
   // const [logoText, setLogoText] = useState('CurtsCode');
   // const [logoDescriptionHidden, setLogoDescriptionHidden] = useState(true);
+  const initialLogoText = 'CurtsCode';
+  const initialLogoDescriptionHidden = true;
 
-  function handleIntersection(entries: { boundingClientRect: any }[]) {
+  const handleIntersection = (entries: { boundingClientRect: any }[]) => {
     entries.forEach((entry: { boundingClientRect: any }) => {
       const targetRect = entry.boundingClientRect;
       const viewportAboveAboutSection = targetRect.top < 0;
@@ -37,7 +40,7 @@ function App({ initialLogoText, initialLogoDescriptionHidden }: PageProps) {
       //   setLogoDescriptionHidden(true);
       // }
     });
-  }
+  };
 
   //const targetRef = useRef(null);
 
@@ -46,15 +49,18 @@ function App({ initialLogoText, initialLogoDescriptionHidden }: PageProps) {
   //   const observer = new IntersectionObserver(handleIntersection, options);
   //   if (targetRef.current) observer.observe(targetRef.current);
   // }, []);
+  console.log({ initialLogoText });
 
   return (
     <>
-      <Menu
+      <IntesectionParent
         logoText={initialLogoText}
         logoDescriptionHidden={initialLogoDescriptionHidden}
       />
       <Hero />
       <Stage>
+        <About />
+
         {/* <IntesectionParent handleIntersection />
          <About targetRef={targetRef} /> */}
         <Experience />
@@ -67,20 +73,6 @@ function App({ initialLogoText, initialLogoDescriptionHidden }: PageProps) {
       <Footer />
     </>
   );
-}
-
-export async function getServerProps() {
-  // Calculate initial state
-  const initialLogoText = 'CurtsCode';
-  const initialLogoDescriptionHidden = true;
-
-  // Pass initial state as props
-  return {
-    props: {
-      initialLogoText,
-      initialLogoDescriptionHidden,
-    },
-  };
 }
 
 export default App;
