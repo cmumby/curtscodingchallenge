@@ -10,6 +10,13 @@
     }
   }
 
+  .s-title {
+    text-align: left !important;
+    @include mobile {
+      text-align: center !important;
+    }
+  }
+
   &:hover {
     .ico-circle {
       @include transition(all 500ms ease);
