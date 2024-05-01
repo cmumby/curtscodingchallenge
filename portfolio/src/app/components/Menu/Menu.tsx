@@ -52,7 +52,6 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
     }
 
     const handleScroll = () => {
-      console.log('heressss', window.scrollY);
       if (window.scrollY > 100) {
         setScrolled(true);
       } else {
@@ -110,7 +109,22 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
                   updatedLogoDescriptionHidden ? 'hidden' : ''
                 }`}
                 data-typed-items="Web Engineer., Code Enthusiast., Technophile., Problem Solver., Teamate."
-              ></span>
+              >
+                <ReactTyped
+                  strings={[
+                    'Web Engineer.',
+                    'Code Enthusiast.',
+                    'Technophile.',
+                    'Problem Solver.',
+                    `Teamate.`,
+                  ]}
+                  loop
+                  typeSpeed={ONE_TENTH_SECOND}
+                  backSpeed={HALF_THENTH_SECOND}
+                  backDelay={THIRTY_SECONDS}
+                  showCursor={false}
+                ></ReactTyped>
+              </span>
             </a>
           </h1>
 

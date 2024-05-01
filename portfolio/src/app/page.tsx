@@ -2,6 +2,7 @@
 //import { useState, useEffect } from 'react';
 import Menu from './components/Menu/Menu';
 import Hero from './components/Hero/Hero';
+import HeroContainer from './components/Hero/HeroContainer';
 import Stage from './components/Stage/Stage';
 import About from './components/About/About';
 import Experience from './components/Experience/Experience';
@@ -11,8 +12,7 @@ import Clients from './components/Clients/Clients';
 import Challenges from './components/Challenges/Challenges';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-import IntersectionObserverComponent from './components/IntersectionObserverComponent/IntersectionObserverComponent';
-import IntesectionParent from './components/IntersectionObserverComponent/IntersectionParent';
+import MenuContainer from './components/Menu/MenuContainer';
 
 //import { animateHome } from './utils';
 
@@ -53,22 +53,19 @@ async function App() {
 
   return (
     <>
-      <IntesectionParent
+      <MenuContainer
         logoText={initialLogoText}
         logoDescriptionHidden={initialLogoDescriptionHidden}
       />
-      <Hero />
+      <HeroContainer />
       <Stage>
         <About />
-
-        {/* <IntesectionParent handleIntersection />
-         <About targetRef={targetRef} /> */}
         <Experience />
         <Accomplishments />
         <Portfolio />
         <Clients />
         <Challenges />
-        <Contact />
+        {/* <Contact />*/}
       </Stage>
       <Footer />
     </>

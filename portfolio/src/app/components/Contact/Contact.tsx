@@ -17,7 +17,12 @@ function Contact() {
                       <h5 className="title-left">Message Me</h5>
                     </div>
                     <div>
-                      <form action="forms/contact.php" method="post" role="form" className="php-email-form">
+                      <form
+                        action="forms/contact.php"
+                        method="post"
+                        role="form"
+                        className="php-email-form"
+                      >
                         <div className="row">
                           <div className="col-md-12 mb-3">
                             <div className="form-group">
@@ -66,13 +71,18 @@ function Contact() {
                               ></textarea>
                             </div>
                           </div>
-                          <div className="col-md-12 text-center my-3">
+                          <div className="col-md-12 my-3 text-center">
                             <div className="loading">Loading</div>
                             <div className="error-message"></div>
-                            <div className="sent-message">Your message has been sent. Thank you!</div>
+                            <div className="sent-message">
+                              Your message has been sent. Thank you!
+                            </div>
                           </div>
                           <div className="col-md-12 text-center">
-                            <button type="submit" className="button button-a button-big button-rouded">
+                            <button
+                              type="submit"
+                              className="button button-a button-big button-rouded"
+                            >
                               Send Message
                             </button>
                           </div>
@@ -81,18 +91,21 @@ function Contact() {
                     </div>
                   </div>
                   <div className="col-md-6">
-                    <div className="title-box-2 pt-4 pt-md-0">
+                    <div className="title-box-2 pt-md-0 pt-4">
                       <h5 className="title-left">Get in Touch</h5>
                     </div>
                     <div className="more-info">
                       <p className="lead">
-                        I'd love to hear from you! Whether you have a project in mind, a question, or just
-                        want to connect, feel free to reach out using the form below. I'll get back to you as
-                        soon as possible. Looking forward to chatting!"
+                        I&aps;d love to hear from you! Whether you have a
+                        project in mind, a question, or just want to connect,
+                        feel free to reach out using the form below. I&aps;ll
+                        get back to you as soon as possible. Looking forward to
+                        chatting!
                       </p>
                       <ul className="list-ico">
                         <li>
-                          <span className="bi bi-geo-alt"></span>Located in NYC. Open to Remote / Relocation
+                          <span className="bi bi-geo-alt"></span>Located in NYC.
+                          Open to Remote / Relocation
                         </li>
                         <li>
                           <span className="bi bi-file-earmark-richtext"></span>
@@ -102,7 +115,9 @@ function Contact() {
                         </li>
                         <li>
                           <span className="bi bi-envelope"></span>{' '}
-                          <a href="mailto:curtis.mumby@gmail.com">curtis.mumby@gmail.com</a>
+                          <a href="mailto:curtis.mumby@gmail.com">
+                            curtis.mumby@gmail.com
+                          </a>
                         </li>
                       </ul>
                     </div>

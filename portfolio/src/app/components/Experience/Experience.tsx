@@ -2,16 +2,19 @@ import './Experience.scss';
 import FoxNewsLogo from '../logos/FoxNewsLogo';
 import EYLogo from '../logos/EYLogo';
 import NycDoeLogo from '../logos/NycDoeLogo';
+import Image from 'next/image';
 
 function Experience() {
   return (
-    <section id="experience" className="services-mf pt-5 route">
+    <section id="experience" className="services-mf route pt-5">
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
             <div className="title-box text-center">
               <h3 className="title-a">Experience</h3>
-              <p className="subtitle-a">Driving Innovation and Excellence in Web Development.</p>
+              <p className="subtitle-a">
+                Driving Innovation and Excellence in Web Development.
+              </p>
               <div className="line-mf"></div>
             </div>
           </div>
@@ -28,29 +31,40 @@ function Experience() {
 
                 <div className="service-content">
                   <h2 className="s-title">Ernst & Young (EY)</h2>
-                  <p className="s-description">Senior Full-Stack Developer - Blockchian Solutions</p>
+                  <p className="s-description">
+                    Senior Full-Stack Developer - Blockchian Solutions
+                  </p>
                   <p className="s-description">Full-time . 2015 - 2024</p>
                   <p className="s-description">New York City</p>
                   <p className="s-info">
                     <span style={{ fontWeight: 'bold' }}>
-                      Technnolgies: React, Redux Node, Python, Git, Agile, Docker, Aws, Azure, Agile,
-                      Javascript, TypeScript, Ruby, Solidity,
+                      Technnolgies: React, Redux Node, Python, Git, Agile,
+                      Docker, Aws, Azure, Agile, Javascript, TypeScript, Ruby,
+                      Solidity,
                     </span>
                     <br />
                     <br />
-                    My tasks as a Full Stack Developer in the US Blockchain practice involved leveraging an
-                    array of modern web technologies including JavaScript, PHP, Python, React, Node.js,
-                    Express, MongoDB, MySQL, Oracle, and PostgreSQL. My primary focus has been on developing
-                    web applications that operate on blockchain infrastructures. This involves building robust
-                    applications that utilize Web3.js, Solidity, and truffle/hardhat.js, ensuring seamless
-                    integration and functionality within the blockchain ecosystem.
+                    My tasks as a Full Stack Developer in the US Blockchain
+                    practice involved leveraging an array of modern web
+                    technologies including JavaScript, PHP, Python, React,
+                    Node.js, Express, MongoDB, MySQL, Oracle, and PostgreSQL. My
+                    primary focus has been on developing web applications that
+                    operate on blockchain infrastructures. This involves
+                    building robust applications that utilize Web3.js, Solidity,
+                    and truffle/hardhat.js, ensuring seamless integration and
+                    functionality within the blockchain ecosystem.
                   </p>
                 </div>
               </div>
               <div className="service-container northpint">
                 <div className="service-icon">
                   <span className="ico-circle northpoint">
-                    <img src="/assets/img/NorthPointDigitalLogo.png" />
+                    <Image
+                      alt="Northpoint Logo"
+                      width={120}
+                      height={17.8}
+                      src="/assets/img/NorthPointDigitalLogo.png"
+                    />
                   </span>
                 </div>
 
@@ -61,20 +75,26 @@ function Experience() {
                   <p className="s-description">New York City</p>
                   <p className="s-info">
                     <span style={{ fontWeight: 'bold' }}>
-                      Technnolgies: HTML, CSS, SSCSS, PHP, Node, Python, React, GIT, Docker, AWS
+                      Technnolgies: HTML, CSS, SSCSS, PHP, Node, Python, React,
+                      GIT, Docker, AWS
                     </span>
                     <br />
                     <br />
-                    My work involved developing back-end web components, including custom Drupal modules,
-                    WordPress plugins, and new Drupal templates. I specialize in populating web pages with
-                    data from various third-party content provider APIs and creating feeds to integrate
-                    Drupal/PHP content across multiple platforms. Additionally, I have expertise in
-                    maintaining functionality that streamlines common assets across all Drupal/PHP websites
-                    and web applications, such as headers, footers, styles, scripts, and metadata. I have
-                    integrated social network components from Facebook, Twitter, and other platforms and
-                    configured backend APIs for mobile apps. My skills include developing internal client
-                    applications using popular PHP MVC Frameworks like Laravel and Symfony. Technologies I
-                    work with include PHP, MySQL, SQLite, MongoDB, JavaScript, jQuery, Node.js, Python, HTML5,
+                    My work involved developing back-end web components,
+                    including custom Drupal modules, WordPress plugins, and new
+                    Drupal templates. I specialize in populating web pages with
+                    data from various third-party content provider APIs and
+                    creating feeds to integrate Drupal/PHP content across
+                    multiple platforms. Additionally, I have expertise in
+                    maintaining functionality that streamlines common assets
+                    across all Drupal/PHP websites and web applications, such as
+                    headers, footers, styles, scripts, and metadata. I have
+                    integrated social network components from Facebook, Twitter,
+                    and other platforms and configured backend APIs for mobile
+                    apps. My skills include developing internal client
+                    applications using popular PHP MVC Frameworks like Laravel
+                    and Symfony. Technologies I work with include PHP, MySQL,
+                    SQLite, MongoDB, JavaScript, jQuery, Node.js, Python, HTML5,
                     CSS3, Drupal (versions 6-8), and WordPress.
                   </p>
                 </div>
@@ -93,16 +113,19 @@ function Experience() {
                   <p className="s-description">New York City</p>
                   <p className="s-info">
                     <span style={{ fontWeight: 'bold' }}>
-                      Technnolgies: HTML, CSS, ActionScript, PHP, Python, SVN, GIT, Vagrant, Linux Server
+                      Technnolgies: HTML, CSS, ActionScript, PHP, Python, SVN,
+                      GIT, Vagrant, Linux Server
                     </span>
                     <br />
                     <br />
-                    My main tasks involved developing applications, sections, and show pages for leading media
-                    platforms such as Fox News, Fox Business, and Fox Nation. Collaborating closely with
-                    cross-functional teams, I played a key role in the development of show-specific websites
-                    and the implementation of time-based campaigns. This experience has not only honed my
-                    technical skills but also deepened my understanding of user engagement strategies in the
-                    digital media landscape.
+                    My main tasks involved developing applications, sections,
+                    and show pages for leading media platforms such as Fox News,
+                    Fox Business, and Fox Nation. Collaborating closely with
+                    cross-functional teams, I played a key role in the
+                    development of show-specific websites and the implementation
+                    of time-based campaigns. This experience has not only honed
+                    my technical skills but also deepened my understanding of
+                    user engagement strategies in the digital media landscape.
                   </p>
                 </div>
               </div>
@@ -118,14 +141,19 @@ function Experience() {
                   <p className="s-description">2005 - 2006</p>
                   <p className="s-description">New York City</p>
                   <p className="s-info">
-                    <span style={{ fontWeight: 'bold' }}>Technnolgies: Flash ActionScript, HTML, CSS</span>
+                    <span style={{ fontWeight: 'bold' }}>
+                      Technnolgies: Flash ActionScript, HTML, CSS
+                    </span>
                     <br />
                     <br />
-                    My main tasks involved working closely with school principals, teachers, and staff to
-                    create interactive school sites and portals. These platforms were designed to showcase
-                    each school's specialties and events, fostering a sense of community and engagement.
-                    Collaborating with educators has not only enhanced my technical abilities but also
-                    deepened my appreciation for the role of technology in education.
+                    My main tasks involved working closely with school
+                    principals, teachers, and staff to create interactive school
+                    sites and portals. These platforms were designed to showcase
+                    each school&apos;s specialties and events, fostering a sense
+                    of community and engagement. Collaborating with educators
+                    has not only enhanced my technical abilities but also
+                    deepened my appreciation for the role of technology in
+                    education.
                   </p>
                 </div>
               </div>

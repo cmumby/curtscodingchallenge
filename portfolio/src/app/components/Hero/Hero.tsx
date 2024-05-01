@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactTyped } from 'react-typed';
 import { constants, YEARS_EXPRIENCE } from '../../utils';
 
@@ -18,6 +17,19 @@ function Hero() {
           <div className="container">
             <h1 className="hero-title mb-4">Curtis Mumby</h1>
             <p className="hero-subtitle">
+              <ReactTyped
+                strings={[
+                  'Full Stack Web Architect',
+                  'JavaScript/TypeScript - Python - PHP',
+                  'React - Node - Git - AWS - Docker',
+                  'Postgres - Mongo - Oracle',
+                  `${YEARS_EXPRIENCE} Years Web Engineering Experience`,
+                  'Scroll For More Information',
+                ]}
+                typeSpeed={HALF_THENTH_SECOND}
+                backSpeed={QUARTER_THENTH_SECOND}
+                backDelay={THREE_SECONDS}
+              />
               <span
                 className="typed"
                 data-typed-items="Full Stack Web Architect, JavaScript/TypeScript - Python - PHP,React - Node - Git - AWS - Docker, Postgres - Mongo - Oracle, [YEARS] Years Web Deb Experience, Scroll For More Information"
