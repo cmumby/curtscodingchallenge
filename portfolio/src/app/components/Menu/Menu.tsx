@@ -27,37 +27,37 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
       if (viewportAboveAboutSection) {
         setUpdatedText('Curtis Mumby');
         setUpdatedLogoDescriptionHidden(false);
-        console.log('ABOVE');
+        setScrolled(true);
+        //console.log('ABOVE');
       } else {
-        console.log('BELOW');
+        // console.log('BELOW');
 
         setUpdatedText('CurtsCode');
         setUpdatedLogoDescriptionHidden(true);
+        setScrolled(false);
       }
     });
   };
 
   useEffect(() => {
-    console.log('HITTTTT', { updatedText, updatedLogoDescriptionHidden });
     const options = animateHome();
+    const initPureCounter = async () => {
+      const { default: PureCounter } = await import('@srexi/purecounterjs');
+      const test = new PureCounter();
+    };
+
+    initPureCounter();
     const aboutElement = document.getElementById('about');
     if (aboutElement) {
       const observer = new IntersectionObserver(handleIntersection, options);
       observer.observe(aboutElement);
 
       // Cleanup observer on unmount
-      // return () => {
-      //   observer.disconnect();
-      // };
+      return () => {
+        observer.disconnect();
+      };
     }
 
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
     const navbar = select('#navbar');
 
     // on('click', '.mobile-nav-toggle', function () {
@@ -67,24 +67,14 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
     //   this.classList.toggle('bi-x');
     // }); for testing purposes
 
-    on('touchend', '.mobile-nav-toggle', function () {
+    on('click', '.mobile-nav-toggle', function () {
       if (navbar !== null && !Array.isArray(navbar))
         navbar?.classList.toggle('navbar-mobile');
 
       this.classList.toggle('bi-list');
       this.classList.toggle('bi-x');
     });
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
   }, [updatedText, updatedLogoDescriptionHidden]);
-
-  // useEffect(() => {
-
-  // }, []);
-  console.log({ logoText });
 
   return (
     <>

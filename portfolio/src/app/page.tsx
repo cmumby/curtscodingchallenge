@@ -32,8 +32,6 @@ async function App() {
     });
   };
 
-  console.log({ initialLogoText });
-
   return (
     <>
       <MenuContainer

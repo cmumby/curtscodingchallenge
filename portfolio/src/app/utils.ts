@@ -1,4 +1,3 @@
-import PureCounter from '@srexi/purecounterjs';
 //import GLightbox from 'glightbox';
 
 export const constants = {
@@ -15,7 +14,7 @@ export function animateHome() {
   //   selector: '.portfolio-lightbox',
   // });
 
-  // new PureCounter();
+  //new PureCounter();
   const options = {
     root: null, // Use the viewport as the root
     rootMargin: '0px', // No margin around the viewport

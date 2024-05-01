@@ -26,9 +26,9 @@ function Accomplishments() {
                 spaceBetween={50}
                 slidesPerView={1}
                 loop
-                autoplay={{
-                  delay: 10000,
-                }}
+                // autoplay={{
+                //   delay: 10000,
+                // }}
                 pagination={true}
                 modules={[Autoplay, Pagination]}
               >
@@ -128,7 +128,7 @@ function Accomplishments() {
                     </SwiperSlide>
                     {/* johnson and johnson */}
 
-                    <div className="swiper-pagination">TEST</div>
+                    <div className="swiper-pagination"></div>
                   </div>
                 </div>
               </Swiper>
