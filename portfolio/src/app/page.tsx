@@ -10,7 +10,7 @@ import AccomplishmentsContainer from './components/Accomplishments/Accomplishmen
 import Portfolio from './components/Portfolio/Portfolio';
 import ClientsContainer from './components/Clients/ClientsContainer';
 import Challenges from './components/Challenges/Challenges';
-import Contact from './components/Contact/Contact';
+import ContactContainer from './components/Contact/ContactContainer';
 import Footer from './components/Footer/Footer';
 import MenuContainer from './components/Menu/MenuContainer';
 
@@ -46,7 +46,7 @@ async function App() {
         <Portfolio />
         <ClientsContainer />
         <Challenges />
-        {/* <Contact />*/}
+        <ContactContainer />
       </Stage>
       <Footer />
     </>

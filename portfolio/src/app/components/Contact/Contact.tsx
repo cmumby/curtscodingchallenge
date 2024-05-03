@@ -1,4 +1,49 @@
+import { useState } from 'react';
+
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [formStatus, setFormStatus] = useState({
+    loading: false,
+    error: null,
+    success: false,
+  });
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setFormStatus({ loading: true, error: null, success: false });
+    try {
+      // Your form submission logic here
+      // For example, you can use fetch to send the form data to a server
+      const response = await fetch('forms/contact.php', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.ok) {
+        setFormStatus({ loading: false, error: null, success: true });
+      } else {
+        throw new Error('Failed to submit form');
+      }
+    } catch (error: any) {
+      setFormStatus({ loading: false, error: error.message, success: false });
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -17,12 +62,7 @@ function Contact() {
                       <h5 className="title-left">Message Me</h5>
                     </div>
                     <div>
-                      <form
-                        action="forms/contact.php"
-                        method="post"
-                        role="form"
-                        className="php-email-form"
-                      >
+                      <form onSubmit={handleSubmit} className="php-email-form">
                         <div className="row">
                           <div className="col-md-12 mb-3">
                             <div className="form-group">
@@ -30,9 +70,10 @@ function Contact() {
                                 type="text"
                                 name="name"
                                 className="form-control"
-                                id="name"
                                 placeholder="Your Name"
                                 required
+                                value={formData.name}
+                                onChange={handleInputChange}
                               />
                             </div>
                           </div>
@@ -42,9 +83,10 @@ function Contact() {
                                 type="email"
                                 className="form-control"
                                 name="email"
-                                id="email"
                                 placeholder="Your Email"
                                 required
+                                value={formData.email}
+                                onChange={handleInputChange}
                               />
                             </div>
                           </div>
@@ -54,9 +96,10 @@ function Contact() {
                                 type="text"
                                 className="form-control"
                                 name="subject"
-                                id="subject"
                                 placeholder="Subject"
                                 required
+                                value={formData.subject}
+                                onChange={handleInputChange}
                               />
                             </div>
                           </div>
@@ -68,14 +111,19 @@ function Contact() {
                                 rows={5}
                                 placeholder="Message"
                                 required
+                                value={formData.message}
+                                onChange={handleInputChange}
                               ></textarea>
                             </div>
                           </div>
                           <div className="col-md-12 my-3 text-center">
                             <div className="loading">Loading</div>
-                            <div className="error-message"></div>
+                            <div className="error-message">
+                              {formStatus.error}
+                            </div>
                             <div className="sent-message">
-                              Your message has been sent. Thank you!
+                              {formStatus.success &&
+                                'Your message has been sent. Thank you!'}
                             </div>
                           </div>
                           <div className="col-md-12 text-center">
@@ -96,9 +144,9 @@ function Contact() {
                     </div>
                     <div className="more-info">
                       <p className="lead">
-                        I&aps;d love to hear from you! Whether you have a
+                        I&apos;d love to hear from you! Whether you have a
                         project in mind, a question, or just want to connect,
-                        feel free to reach out using the form below. I&aps;ll
+                        feel free to reach out using the form below. I&apos;ll
                         get back to you as soon as possible. Looking forward to
                         chatting!
                       </p>

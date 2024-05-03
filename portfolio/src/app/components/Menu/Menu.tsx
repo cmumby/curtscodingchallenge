@@ -31,7 +31,6 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
         //console.log('ABOVE');
       } else {
         // console.log('BELOW');
-
         setUpdatedText('CurtsCode');
         setUpdatedLogoDescriptionHidden(true);
         setScrolled(false);
@@ -41,12 +40,7 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
 
   useEffect(() => {
     const options = animateHome();
-    const initPureCounter = async () => {
-      const { default: PureCounter } = await import('@srexi/purecounterjs');
-      const test = new PureCounter();
-    };
 
-    initPureCounter();
     const aboutElement = document.getElementById('about');
     if (aboutElement) {
       const observer = new IntersectionObserver(handleIntersection, options);
