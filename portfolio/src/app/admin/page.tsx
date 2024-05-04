@@ -1,10 +1,10 @@
 import React from 'react';
+import AboutForm from '../components/AboutForm/AboutForm';
 
 function AdminPage() {
   return (
     <>
-      <h2>Admin Page</h2>
-      <p>This is the admin page.</p>
+      <AboutForm />
     </>
   );
 }

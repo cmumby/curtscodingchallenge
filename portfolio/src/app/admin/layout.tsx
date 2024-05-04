@@ -258,8 +258,8 @@ export default function AdminLayout({
           </div>
         </aside>
 
-        <div className="content-wrapper">
-          <div className="content-header">
+        <div className="content-wrapper" style={{ paddingTop: '1rem' }}>
+          {/* <div className="content-header">
             <div className="container-fluid">
               <div className="row mb-2">
                 <div className="col-sm-6">
@@ -275,7 +275,7 @@ export default function AdminLayout({
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <section className="content">
             <div className="container-fluid">{children}</div>
