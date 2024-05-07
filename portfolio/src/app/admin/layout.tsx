@@ -20,7 +20,15 @@ export default function AdminLayout({
   return (
     <>
       <div className="wrapper">
-        <nav className="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav
+          className="main-header navbar navbar-expand navbar-white navbar-light"
+          style={{
+            position: 'sticky',
+            top: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.05)',
+            backdropFilter: 'blur(12px)',
+          }}
+        >
           <ul className="navbar-nav">
             <li className="nav-item">
               <a
@@ -177,7 +185,10 @@ export default function AdminLayout({
           </ul>
         </nav>
 
-        <aside className="main-sidebar sidebar-dark-primary elevation-4">
+        <aside
+          className="main-sidebar sidebar-dark-primary elevation-4"
+          style={{ position: 'fixed' }}
+        >
           <a href="index3.html" className="brand-link">
             <span className="brand-text font-weight-light">
               CurtsCode Admin
@@ -186,28 +197,10 @@ export default function AdminLayout({
 
           <div className="sidebar">
             <div className="user-panel d-flex mb-3 mt-3 pb-3">
-              <div className="image"></div>
               <div className="info">
                 <a href="#" className="d-block">
-                  {' '}
-                  Lester Pierce{' '}
+                  Curtis Mumby
                 </a>
-              </div>
-            </div>
-
-            <div className="form-inline">
-              <div className="input-group" data-widget="sidebar-search">
-                <input
-                  className="form-control form-control-sidebar"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <div className="input-group-append">
-                  <button className="btn btn-sidebar">
-                    <i className="fas fa-search fa-fw"></i>
-                  </button>
-                </div>
               </div>
             </div>
 
@@ -218,15 +211,6 @@ export default function AdminLayout({
                 role="menu"
                 data-accordion="false"
               >
-                <li className="nav-item menu-open">
-                  <a href="#" className="nav-link active">
-                    <i className="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                      Dashboard
-                      <i className="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                </li>
                 <li className="nav-item">
                   <a href="pages/widgets.html" className="nav-link">
                     <i className="nav-icon fas fa-th"></i>

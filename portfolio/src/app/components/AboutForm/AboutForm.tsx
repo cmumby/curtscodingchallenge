@@ -1,30 +1,72 @@
 import { array, number } from 'prop-types';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { Editor } from '@tinymce/tinymce-react';
+import { TinyMCEEditor, SkillContent } from '../../types';
+
+interface FormSubmitEvent extends React.FormEvent<HTMLFormElement> {}
+interface ClickEvent extends React.MouseEvent<HTMLButtonElement> {}
 
 const AboutForm = () => {
-  let [numberOfSkills, setNumberOfSkills] = useState(1);
-  const skills = [];
+  const editorRef = useRef<TinyMCEEditor | null>(null);
+  const defaultSkillContents: SkillContent[] = [
+    {
+      name: `Placeholder 1`,
+      years: 10,
+    },
+    {
+      name: `Placeholder 2`,
+      years: 10,
+    },
+    {
+      name: `Placeholder 3`,
+      years: 10,
+    },
+    {
+      name: `Placeholder 4`,
+      years: 10,
+    },
+    {
+      name: `Placeholder 5`,
+      years: 10,
+    },
+    {
+      name: `Placeholder 6`,
+      years: 10,
+    },
+  ];
 
-  function handleSkillAmount(event: any) {
-    //alert('test');
-    event.preventDefault();
-    if (numberOfSkills < 6) {
+  let [numberOfSkills, setNumberOfSkills] = useState<number>(1);
+  let [skillContents, setSkillContents] =
+    useState<SkillContent[]>(defaultSkillContents);
+  const skills: JSX.Element[] = [];
+
+  const MAX_SKILLS: number = 6;
+
+  function handleSkillAmount(event: ClickEvent) {
+    if (numberOfSkills <= MAX_SKILLS - 1) {
       setNumberOfSkills((numberOfSkills += 1));
     }
-
-    return false;
+    event.preventDefault();
   }
 
-  function handleSkillRemoval(event: any) {
+  function handleSkillRemoval(event: ClickEvent) {
     event.preventDefault();
     if (numberOfSkills > 1) {
       setNumberOfSkills((numberOfSkills -= 1));
     }
+  }
 
-    return false;
+  function handleSubmit(event: FormSubmitEvent) {
+    event.preventDefault();
   }
 
   for (let i = 0; i < numberOfSkills; i++) {
+    const FIRST_SKILL = 0;
+    const LAST_SKILL = MAX_SKILLS - 1;
+    const DISABLE_ADD = numberOfSkills === MAX_SKILLS;
+    const DISABLE_REMOVE = numberOfSkills <= 1;
+    const DISABLE_MOVE_UP = i === FIRST_SKILL;
+    const DISABLE_MOVE_DOWN = i === LAST_SKILL;
     skills.push(
       <div className="row" style={{ marginBottom: '1rem' }}>
         <div className="col-sm-8">
@@ -34,6 +76,7 @@ const AboutForm = () => {
               type="text"
               className="form-control"
               placeholder="john.hancok@hire.me..."
+              value={skillContents[i].name}
             />
           </div>
         </div>
@@ -43,29 +86,53 @@ const AboutForm = () => {
             <input type="text" className="form-control" placeholder="5..." />
           </div>
         </div>
-        <div className=" col-sm-4">
-          {numberOfSkills < 6 && (
-            <button onClick={handleSkillAmount} className="btn btn-primary">
-              <i
-                className="nav-icon fas fa-plus"
-                style={{ marginRight: '1rem' }}
-              ></i>
-              Add Skill
-            </button>
-          )}
-          {numberOfSkills > 1 && (
-            <button
-              onClick={handleSkillRemoval}
-              className="btn btn-secondary"
-              style={{ margin: '0 1rem' }}
-            >
-              <i
-                className="nav-icon fas fa-trash"
-                style={{ marginRight: '1rem' }}
-              ></i>
-              Remove Skill{''}
-            </button>
-          )}
+        <div className=" col-sm-12">
+          <button
+            disabled={DISABLE_ADD}
+            onClick={handleSkillAmount}
+            className={`btn btn-primary`}
+          >
+            <i
+              className="nav-icon fas fa-plus"
+              style={{ marginRight: '1rem' }}
+            ></i>
+            Add Skill
+          </button>
+
+          <button
+            disabled={DISABLE_REMOVE}
+            onClick={handleSkillRemoval}
+            className={`btn btn-primary`}
+            style={{ margin: '0 1rem' }}
+          >
+            <i
+              className="nav-icon fas fa-trash"
+              style={{ marginRight: '1rem' }}
+            ></i>
+            Remove Skill{''}
+          </button>
+          <button
+            disabled={DISABLE_MOVE_UP}
+            onClick={handleSkillRemoval}
+            className={`btn btn-secondary`}
+            style={{ margin: '0 1rem' }}
+          >
+            <i
+              className="nav-icon fas fa-arrow-up"
+              //style={{ marginRight: '1rem' }}
+            ></i>
+          </button>
+          <button
+            disabled={DISABLE_MOVE_DOWN}
+            onClick={handleSkillRemoval}
+            className={`btn btn-secondary`}
+            style={{ margin: '0 1rem' }}
+          >
+            <i
+              className="nav-icon fas fa-arrow-down"
+              // style={{ marginRight: '1rem' }}
+            ></i>
+          </button>
         </div>
       </div>,
     );
@@ -78,13 +145,13 @@ const AboutForm = () => {
         Edit <strong>About Me</strong> section and <strong>Experience</strong>{' '}
         graph
       </p>
-      <div className="card card-success">
+      <div className="card card-info">
         <div className="card-header">
           <h3 className="card-title">About</h3>
         </div>
 
         <div className="card-body">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-sm-12">
                 <div className="form-group">
@@ -121,6 +188,18 @@ const AboutForm = () => {
                 </div>
               </div>
             </div>
+            <div className="row">
+              <div className="col-sm-12">
+                <div className="form-group">
+                  <label>Years of Expirence</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="10..."
+                  />
+                </div>
+              </div>
+            </div>
             <div
               id="skills"
               className=" row"
@@ -132,153 +211,43 @@ const AboutForm = () => {
               <div className="col-sm-12">
                 <div className="form-group">
                   <label>About</label>
-                  <textarea
-                    className="form-control"
-                    rows={3}
-                    placeholder="Hello! My name is John Hancok..."
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label className="col-form-label" htmlFor="inputSuccess">
-                <i className="fas fa-check"></i> Input with success
-              </label>
-              <input
-                type="text"
-                className="form-control is-valid"
-                id="inputSuccess"
-                placeholder="Enter ..."
-              />
-            </div>
-            <div className="form-group">
-              <label className="col-form-label" htmlFor="inputWarning">
-                <i className="far fa-bell"></i> Input with warning
-              </label>
-              <input
-                type="text"
-                className="form-control is-warning"
-                id="inputWarning"
-                placeholder="Enter ..."
-              />
-            </div>
-            <div className="form-group">
-              <label className="col-form-label" htmlFor="inputError">
-                <i className="far fa-times-circle"></i> Input with error
-              </label>
-              <input
-                type="text"
-                className="form-control is-invalid"
-                id="inputError"
-                placeholder="Enter ..."
-              />
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <div className="form-group">
-                  <div className="form-check">
-                    <input className="form-check-input" type="checkbox" />
-                    <label className="form-check-label">Checkbox</label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      checked
-                    />
-                    <label className="form-check-label">Checkbox checked</label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      disabled
-                    />
-                    <label className="form-check-label">
-                      Checkbox disabled
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="form-group">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="radio1"
-                    />
-                    <label className="form-check-label">Radio</label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="radio1"
-                      checked
-                    />
-                    <label className="form-check-label">Radio checked</label>
-                  </div>
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" disabled />
-                    <label className="form-check-label">Radio disabled</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <div className="form-group">
-                  <label>Select</label>
-                  <select className="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="form-group">
-                  <label>Select Disabled</label>
-                  <select className="form-control" disabled>
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-6">
-                <div className="form-group">
-                  <label>Select Multiple</label>
-                  <select multiple className="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="form-group">
-                  <label>Select Multiple Disabled</label>
-                  <select multiple className="form-control" disabled>
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
+                  <Editor
+                    apiKey="34wnvd1nhdnxv30pwsu0d0syqerzodcjicuf8hrgn7c7uymk"
+                    onInit={(_evt, editor) => (editorRef.current = editor)}
+                    initialValue="My Duties for the job included..."
+                    init={{
+                      height: 500,
+                      menubar: false,
+                      plugins: [
+                        'advlist',
+                        'autolink',
+                        'lists',
+                        'link',
+                        'image',
+                        'charmap',
+                        'preview',
+                        'anchor',
+                        'searchreplace',
+                        'visualblocks',
+                        'code',
+                        'fullscreen',
+                        'insertdatetime',
+                        'media',
+                        'table',
+                        'code',
+                        'help',
+                        'wordcount',
+                      ],
+                      toolbar:
+                        'undo redo | blocks | ' +
+                        'bold italic forecolor | ' +
+                        /* 'bold italic forecolor | alignleft aligncenter ' + */
+                        /* 'alignright alignjustify | bullist numlist outdent indent | ' + */
+                        'removeformat | help',
+                      content_style:
+                        'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+                    }}
+                  />
                 </div>
               </div>
             </div>
