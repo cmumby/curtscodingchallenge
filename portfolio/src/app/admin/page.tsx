@@ -1,12 +1,17 @@
 import React from 'react';
-import AboutForm from '../components/AboutForm/AboutForm';
+import dynamic from 'next/dynamic';
+//import AboutForm from '../components/AboutForm/AboutForm';
+
+const AboutFormContainer = dynamic(
+  () => import('../components/AboutForm/AboutFormContainer'),
+  {
+    loading: () => <p>Loading...</p>,
+    ssr: false,
+  },
+);
 
 function AdminPage() {
-  return (
-    <>
-      <AboutForm />
-    </>
-  );
+  return <AboutFormContainer />;
 }
 
 export default AdminPage;

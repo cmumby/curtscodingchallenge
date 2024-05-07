@@ -1,4 +1,76 @@
-const AccomplishmentsContainer = () => {
+import { array, number } from 'prop-types';
+import { useState } from 'react';
+
+const AboutForm = () => {
+  let [numberOfSkills, setNumberOfSkills] = useState(1);
+  const skills = [];
+
+  function handleSkillAmount(event: any) {
+    //alert('test');
+    event.preventDefault();
+    if (numberOfSkills < 6) {
+      setNumberOfSkills((numberOfSkills += 1));
+    }
+
+    return false;
+  }
+
+  function handleSkillRemoval(event: any) {
+    event.preventDefault();
+    if (numberOfSkills > 1) {
+      setNumberOfSkills((numberOfSkills -= 1));
+    }
+
+    return false;
+  }
+
+  for (let i = 0; i < numberOfSkills; i++) {
+    skills.push(
+      <div className="row" style={{ marginBottom: '1rem' }}>
+        <div className="col-sm-8">
+          <div className="form-group">
+            <label>Skill {i + 1}</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="john.hancok@hire.me..."
+            />
+          </div>
+        </div>
+        <div className="col-sm-4">
+          <div className="form-group">
+            <label>Total Years</label>
+            <input type="text" className="form-control" placeholder="5..." />
+          </div>
+        </div>
+        <div className=" col-sm-4">
+          {numberOfSkills < 6 && (
+            <button onClick={handleSkillAmount} className="btn btn-primary">
+              <i
+                className="nav-icon fas fa-plus"
+                style={{ marginRight: '1rem' }}
+              ></i>
+              Add Skill
+            </button>
+          )}
+          {numberOfSkills > 1 && (
+            <button
+              onClick={handleSkillRemoval}
+              className="btn btn-secondary"
+              style={{ margin: '0 1rem' }}
+            >
+              <i
+                className="nav-icon fas fa-trash"
+                style={{ marginRight: '1rem' }}
+              ></i>
+              Remove Skill{''}
+            </button>
+          )}
+        </div>
+      </div>,
+    );
+  }
+
   return (
     <>
       <h3>About Section</h3>
@@ -14,54 +86,63 @@ const AccomplishmentsContainer = () => {
         <div className="card-body">
           <form>
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-sm-12">
                 <div className="form-group">
-                  <label>Text</label>
+                  <label>Name</label>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Enter ..."
-                  />
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="form-group">
-                  <label>Text Disabled</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Enter ..."
-                    disabled
+                    placeholder="John Hancock..."
                   />
                 </div>
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-sm-12">
                 <div className="form-group">
-                  <label>Textarea</label>
-                  <textarea
+                  <label>Profile</label>
+                  <input
+                    type="text"
                     className="form-control"
-                    rows={3}
-                    placeholder="Enter ..."
-                  ></textarea>
+                    placeholder="Senior Engineer..."
+                  />
                 </div>
               </div>
-              <div className="col-sm-6">
+            </div>
+            <div className="row">
+              <div className="col-sm-12">
                 <div className="form-group">
-                  <label>Textarea Disabled</label>
+                  <label>Email</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="john.hancok@hire.me..."
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              id="skills"
+              className=" row"
+              style={{ margin: '0.5rem', padding: '0.5rem' }}
+            >
+              {skills}
+            </div>
+            <div className="row">
+              <div className="col-sm-12">
+                <div className="form-group">
+                  <label>About</label>
                   <textarea
                     className="form-control"
                     rows={3}
-                    placeholder="Enter ..."
-                    disabled
+                    placeholder="Hello! My name is John Hancok..."
                   ></textarea>
                 </div>
               </div>
             </div>
 
             <div className="form-group">
-              <label className="col-form-label" for="inputSuccess">
+              <label className="col-form-label" htmlFor="inputSuccess">
                 <i className="fas fa-check"></i> Input with success
               </label>
               <input
@@ -72,7 +153,7 @@ const AccomplishmentsContainer = () => {
               />
             </div>
             <div className="form-group">
-              <label className="col-form-label" for="inputWarning">
+              <label className="col-form-label" htmlFor="inputWarning">
                 <i className="far fa-bell"></i> Input with warning
               </label>
               <input
@@ -83,7 +164,7 @@ const AccomplishmentsContainer = () => {
               />
             </div>
             <div className="form-group">
-              <label className="col-form-label" for="inputError">
+              <label className="col-form-label" htmlFor="inputError">
                 <i className="far fa-times-circle"></i> Input with error
               </label>
               <input
@@ -203,9 +284,14 @@ const AccomplishmentsContainer = () => {
             </div>
           </form>
         </div>
+        <div className="card-footer">
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </div>
       </div>
     </>
   );
 };
 
-export default AccomplishmentsContainer;
+export default AboutForm;
