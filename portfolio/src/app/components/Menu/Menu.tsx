@@ -41,10 +41,12 @@ const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
   useEffect(() => {
     const options = animateHome();
 
-    const aboutElement = document.getElementById('about');
-    if (aboutElement) {
+    const heroDescriptionElement: HTMLElement = document.getElementById(
+      'hero-description',
+    ) as HTMLElement;
+    if (handleIntersection) {
       const observer = new IntersectionObserver(handleIntersection, options);
-      observer.observe(aboutElement);
+      observer.observe(heroDescriptionElement);
 
       // Cleanup observer on unmount
       return () => {

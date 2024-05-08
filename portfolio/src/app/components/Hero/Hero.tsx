@@ -31,6 +31,7 @@ function Hero() {
                 backDelay={THREE_SECONDS}
               />
               <span
+                id="hero-description"
                 className="typed"
                 data-typed-items="Full Stack Web Architect, JavaScript/TypeScript - Python - PHP,React - Node - Git - AWS - Docker, Postgres - Mongo - Oracle, [YEARS] Years Web Deb Experience, Scroll For More Information"
               ></span>

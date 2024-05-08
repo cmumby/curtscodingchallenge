@@ -1,12 +1,27 @@
-import { array, number } from 'prop-types';
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-import { TinyMCEEditor, SkillContent } from '../../types';
+import {
+  TinyMCEEditor,
+  SkillContent,
+  Direction,
+  Visibility,
+} from '../../types';
+import './AboutForm.scss';
 
 interface FormSubmitEvent extends React.FormEvent<HTMLFormElement> {}
 interface ClickEvent extends React.MouseEvent<HTMLButtonElement> {}
 
 const AboutForm = () => {
+  const skillVisibilitySet: Visibility[] = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
+  const [isVisible, setIsVisible] = useState(skillVisibilitySet);
+
   const editorRef = useRef<TinyMCEEditor | null>(null);
   const defaultSkillContents: SkillContent[] = [
     {
@@ -35,6 +50,13 @@ const AboutForm = () => {
     },
   ];
 
+  useEffect(() => {
+    // Delay setting isVisible to true to allow for the initial render
+    setTimeout(() => {
+      setIsVisible([true, false, false, false, false, false]);
+    }, 0);
+  }, []);
+
   let [numberOfSkills, setNumberOfSkills] = useState<number>(1);
   let [skillContents, setSkillContents] =
     useState<SkillContent[]>(defaultSkillContents);
@@ -42,12 +64,20 @@ const AboutForm = () => {
 
   const MAX_SKILLS: number = 6;
 
-  function handleSkillAmount(event: ClickEvent) {
+  const handleSkillAmount = (skillNumber: number) => (event: ClickEvent) => {
+    //fade in Skills
+    const newVisiblity: Visibility[] = [...isVisible];
+    newVisiblity[numberOfSkills] = true;
+
     if (numberOfSkills <= MAX_SKILLS - 1) {
       setNumberOfSkills((numberOfSkills += 1));
     }
+    setTimeout(() => {
+      setIsVisible(newVisiblity);
+    }, 10);
+
     event.preventDefault();
-  }
+  };
 
   function handleSkillRemoval(event: ClickEvent) {
     event.preventDefault();
@@ -60,15 +90,56 @@ const AboutForm = () => {
     event.preventDefault();
   }
 
+  const handleSKillNameChange =
+    (skillNumber: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newSkillContents: SkillContent[] = [...skillContents];
+      const { value } = event.target;
+      newSkillContents[skillNumber].name = value;
+      setSkillContents(newSkillContents);
+    };
+
+  const handleSKillYearsChange =
+    (skillNumber: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newSkillContents: SkillContent[] = [...skillContents];
+      const { value } = event.target;
+      newSkillContents[skillNumber].years = parseInt(value);
+      setSkillContents(newSkillContents);
+    };
+
+  const handleSKillPositionSwap = (
+    skillNumber: number,
+    direction: Direction,
+  ) => {
+    return (_event: React.MouseEvent<HTMLButtonElement>) => {
+      const newSkillContents: SkillContent[] = [...skillContents];
+      //const { value } = event.target;
+      if (direction === 'up') {
+        const swappedSkill: SkillContent = newSkillContents[skillNumber - 1];
+        newSkillContents[skillNumber - 1] = newSkillContents[skillNumber];
+        newSkillContents[skillNumber] = swappedSkill;
+      } else if (direction === 'down') {
+        const swappedSkill: SkillContent = newSkillContents[skillNumber + 1];
+        newSkillContents[skillNumber + 1] = newSkillContents[skillNumber];
+        newSkillContents[skillNumber] = swappedSkill;
+      }
+      setSkillContents(newSkillContents);
+    };
+  };
+
   for (let i = 0; i < numberOfSkills; i++) {
-    const FIRST_SKILL = 0;
-    const LAST_SKILL = MAX_SKILLS - 1;
-    const DISABLE_ADD = numberOfSkills === MAX_SKILLS;
-    const DISABLE_REMOVE = numberOfSkills <= 1;
-    const DISABLE_MOVE_UP = i === FIRST_SKILL;
-    const DISABLE_MOVE_DOWN = i === LAST_SKILL;
+    const FIRST_SKILL: number = 0;
+    const LAST_SKILL: number = MAX_SKILLS - 1;
+    const DISABLE_ADD: boolean = numberOfSkills === MAX_SKILLS;
+    const DISABLE_REMOVE: boolean = numberOfSkills <= 1;
+    const DISABLE_MOVE_UP: boolean = i === FIRST_SKILL;
+    const DISABLE_MOVE_DOWN: boolean = i === LAST_SKILL;
     skills.push(
-      <div className="row" style={{ marginBottom: '1rem' }}>
+      <div
+        className={`row fade-in ${isVisible[i] ? 'visible' : ''}`}
+        style={{
+          marginBottom: '1rem',
+        }}
+      >
         <div className="col-sm-8">
           <div className="form-group">
             <label>Skill {i + 1}</label>
@@ -77,19 +148,26 @@ const AboutForm = () => {
               className="form-control"
               placeholder="john.hancok@hire.me..."
               value={skillContents[i].name}
+              onChange={handleSKillNameChange(i)}
             />
           </div>
         </div>
         <div className="col-sm-4">
           <div className="form-group">
             <label>Total Years</label>
-            <input type="text" className="form-control" placeholder="5..." />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="5..."
+              value={skillContents[i].years}
+              onChange={handleSKillYearsChange(i)}
+            />
           </div>
         </div>
         <div className=" col-sm-12">
           <button
             disabled={DISABLE_ADD}
-            onClick={handleSkillAmount}
+            onClick={handleSkillAmount(i)}
             className={`btn btn-primary`}
           >
             <i
@@ -113,25 +191,19 @@ const AboutForm = () => {
           </button>
           <button
             disabled={DISABLE_MOVE_UP}
-            onClick={handleSkillRemoval}
+            onClick={handleSKillPositionSwap(i, 'up')}
             className={`btn btn-secondary`}
             style={{ margin: '0 1rem' }}
           >
-            <i
-              className="nav-icon fas fa-arrow-up"
-              //style={{ marginRight: '1rem' }}
-            ></i>
+            <i className="nav-icon fas fa-arrow-up"></i>
           </button>
           <button
             disabled={DISABLE_MOVE_DOWN}
-            onClick={handleSkillRemoval}
+            onClick={handleSKillPositionSwap(i, 'down')}
             className={`btn btn-secondary`}
             style={{ margin: '0 1rem' }}
           >
-            <i
-              className="nav-icon fas fa-arrow-down"
-              // style={{ marginRight: '1rem' }}
-            ></i>
+            <i className="nav-icon fas fa-arrow-down"></i>
           </button>
         </div>
       </div>,
