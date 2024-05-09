@@ -61,13 +61,13 @@ const AboutForm = () => {
   let [skillContents, setSkillContents] =
     useState<SkillContent[]>(defaultSkillContents);
   const skills: JSX.Element[] = [];
-
   const MAX_SKILLS: number = 6;
+  const newVisiblity: Visibility[] = [...isVisible];
 
-  const handleSkillAmount = (skillNumber: number) => (event: ClickEvent) => {
+  const handleSkillAddition = (skillNumber: number) => (event: ClickEvent) => {
     //fade in Skills
-    const newVisiblity: Visibility[] = [...isVisible];
-    newVisiblity[numberOfSkills] = true;
+    const NEWEST_SKILL: number = numberOfSkills;
+    newVisiblity[NEWEST_SKILL] = true;
 
     if (numberOfSkills <= MAX_SKILLS - 1) {
       setNumberOfSkills((numberOfSkills += 1));
@@ -79,11 +79,17 @@ const AboutForm = () => {
     event.preventDefault();
   };
 
+  //TODO: Refactor in a way that removes specific skill rather than most recent skill.
   function handleSkillRemoval(event: ClickEvent) {
-    event.preventDefault();
     if (numberOfSkills > 1) {
       setNumberOfSkills((numberOfSkills -= 1));
+      const NEWEST_SKILL: number = numberOfSkills;
+      newVisiblity[NEWEST_SKILL] = false;
+
+      setIsVisible(newVisiblity);
     }
+
+    event.preventDefault();
   }
 
   function handleSubmit(event: FormSubmitEvent) {
@@ -167,7 +173,7 @@ const AboutForm = () => {
         <div className=" col-sm-12">
           <button
             disabled={DISABLE_ADD}
-            onClick={handleSkillAmount(i)}
+            onClick={handleSkillAddition(i)}
             className={`btn btn-primary`}
           >
             <i
@@ -212,7 +218,7 @@ const AboutForm = () => {
 
   return (
     <>
-      <h3>About Section</h3>
+      <h3 id="about">About Section</h3>
       <p>
         Edit <strong>About Me</strong> section and <strong>Experience</strong>{' '}
         graph

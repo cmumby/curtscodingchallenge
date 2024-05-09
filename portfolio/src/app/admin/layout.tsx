@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable @next/next/no-css-tags */
 //import '@/app/ui/global.css';
+import Image from 'next/image';
+import Link from 'next/link';
 import '../../public/plugins/vendor/google-font.css';
 import '../../public/plugins/fontawesome-free/css/all.min.css';
 import '../../public/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css';
@@ -11,6 +13,7 @@ import '../../public/dist/css/adminlte.min.css';
 import '../../public/plugins/overlayScrollbars/css/OverlayScrollbars.css';
 import '../../public/plugins/daterangepicker/daterangepicker.css';
 import '../../public/plugins/summernote/summernote-bs4.min.css';
+import './layout.scss';
 
 export default function AdminLayout({
   children,
@@ -21,6 +24,7 @@ export default function AdminLayout({
     <>
       <div className="wrapper">
         <nav
+          id="header-admin"
           className="main-header navbar navbar-expand navbar-white navbar-light"
           style={{
             position: 'sticky',
@@ -199,6 +203,13 @@ export default function AdminLayout({
             <div className="user-panel d-flex mb-3 mt-3 pb-3">
               <div className="info">
                 <a href="#" className="d-block">
+                  <Image
+                    alt="face logo"
+                    className="face-logo"
+                    src="/assets/img/logo-me.png"
+                    width={40}
+                    height={40}
+                  />{' '}
                   Curtis Mumby
                 </a>
               </div>
@@ -212,26 +223,31 @@ export default function AdminLayout({
                 data-accordion="false"
               >
                 <li className="nav-item">
-                  <a href="pages/widgets.html" className="nav-link">
-                    <i className="nav-icon fas fa-th"></i>
+                  <a href="#about" className="nav-link">
+                    <i className="nav-icon fas fa-address-card"></i>
                     <p>About Section</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="pages/widgets.html" className="nav-link">
-                    <i className="nav-icon fas fa-th"></i>
+                  <Link
+                    id="test-link"
+                    href="#experience"
+                    className="nav-link scroll-to"
+                    //onClick={handleClick}
+                  >
+                    <i className="nav-icon fas fa-briefcase"></i>
                     <p>Experience Section</p>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <a href="pages/widgets.html" className="nav-link">
-                    <i className="nav-icon fas fa-th"></i>
+                    <i className="nav-icon fas fa-address-book"></i>
                     <p>Portfolio Section</p>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a href="pages/widgets.html" className="nav-link">
-                    <i className="nav-icon fas fa-th"></i>
+                    <i className="nav-icon fas fa-laptop-code"></i>
                     <p>Challenges Section</p>
                   </a>
                 </li>
