@@ -24,7 +24,7 @@ export default function AdminLayout({
     <>
       <div className="wrapper">
         <nav
-          id="header-admin"
+          id="header"
           className="main-header navbar navbar-expand navbar-white navbar-light"
           style={{
             position: 'sticky',
@@ -45,7 +45,7 @@ export default function AdminLayout({
               </a>
             </li>
             <li className="nav-item d-none d-sm-inline-block">
-              <a href="index3.html" className="nav-link">
+              <a href="/" className="nav-link">
                 {' '}
                 Home{' '}
               </a>

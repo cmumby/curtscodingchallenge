@@ -292,7 +292,7 @@ const AboutForm = () => {
                   <Editor
                     apiKey="34wnvd1nhdnxv30pwsu0d0syqerzodcjicuf8hrgn7c7uymk"
                     onInit={(_evt, editor) => (editorRef.current = editor)}
-                    initialValue="My Duties for the job included..."
+                    initialValue="Welcome To My Portfolio! My Name is..."
                     init={{
                       height: 500,
                       menubar: false,
