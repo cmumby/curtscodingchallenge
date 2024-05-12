@@ -26,11 +26,20 @@ const ExperienceFormContainer = dynamic(
   },
 );
 
+const PortfolioFormContainer = dynamic(
+  () => import('../components/PortfolioForm/PortfolioFormContainer'),
+  {
+    loading: () => <p>Loading...</p>,
+    ssr: false,
+  },
+);
+
 function AdminPage() {
   return (
     <>
       <AboutFormContainer />
       <ExperienceFormContainer />
+      <PortfolioFormContainer />
       <PlacholderFormContainer />
     </>
   );

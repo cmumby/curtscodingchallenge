@@ -1,4 +1,5 @@
 import { array, number } from 'prop-types';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const AboutForm = () => {

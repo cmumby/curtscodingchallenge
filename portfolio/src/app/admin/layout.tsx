@@ -240,7 +240,7 @@ export default function AdminLayout({
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="pages/widgets.html" className="nav-link">
+                  <a href="#portfolio" className="nav-link">
                     <i className="nav-icon fas fa-address-book"></i>
                     <p>Portfolio Section</p>
                   </a>
