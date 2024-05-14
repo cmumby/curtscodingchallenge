@@ -222,8 +222,8 @@ export default function AdminLayout({
 
         <footer className="main-footer">
           <strong>
-            Copyright &copy; 2014-2021
-            <a href="https://adminlte.io">AdminLTE.io</a>.
+            Copyright &copy; {new Date().getFullYear()} Curtis Mumby
+            <a href="https://adminlte.io">&nbsp;Powered by AdminLTE.io</a>.
           </strong>
           All rights reserved.
           <div className="d-none d-sm-inline-block float-right">

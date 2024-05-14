@@ -110,6 +110,11 @@ const PortfolioForm = () => {
               {/* Additional rows */}
             </tbody>
           </table>
+          <div className="card-footer">
+            <button type="submit" className="btn btn-primary">
+              Create New Article
+            </button>
+          </div>
         </div>
       </div>
     </>
