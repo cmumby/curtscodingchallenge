@@ -1,19 +1,27 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-//import AboutForm from '../components/AboutForm/AboutForm';
+import FormLoader from '../components/FormLoader/FormLoader';
+
+import { constants } from '../utils';
+
+const { TOTAL_LOADED } = constants;
 
 const AboutFormContainer = dynamic(
   () => import('../components/AboutForm/AboutFormContainer'),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => (
+      <FormLoader title="About" progress={Math.random() * TOTAL_LOADED} />
+    ),
     ssr: false,
   },
 );
 
 const PlacholderFormContainer = dynamic(
-  () => import('../components/PlacholderForm/PlacholderFormContainer'),
+  () => import('../components/PlaceholderForm/PlaceholderFormContainer'),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => (
+      <FormLoader title="Placeholder" progress={Math.random() * TOTAL_LOADED} />
+    ),
     ssr: false,
   },
 );
@@ -21,7 +29,9 @@ const PlacholderFormContainer = dynamic(
 const ExperienceFormContainer = dynamic(
   () => import('../components/ExperienceForm/ExperienceFormContainer'),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => (
+      <FormLoader title="Experience" progress={Math.random() * TOTAL_LOADED} />
+    ),
     ssr: false,
   },
 );
@@ -29,7 +39,22 @@ const ExperienceFormContainer = dynamic(
 const PortfolioFormContainer = dynamic(
   () => import('../components/PortfolioForm/PortfolioFormContainer'),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => (
+      <FormLoader title="Portfolio" progress={Math.random() * TOTAL_LOADED} />
+    ),
+    ssr: false,
+  },
+);
+
+const ChallengesFormContainer = dynamic(
+  () => import('../components/ChallengesForm/ChallengesFormContainer'),
+  {
+    loading: () => (
+      <FormLoader
+        title="Challenges Form"
+        progress={Math.random() * TOTAL_LOADED}
+      />
+    ),
     ssr: false,
   },
 );
@@ -40,7 +65,8 @@ function AdminPage() {
       <AboutFormContainer />
       <ExperienceFormContainer />
       <PortfolioFormContainer />
-      <PlacholderFormContainer />
+      <ChallengesFormContainer />
+      {/* <PlacholderFormContainer /> */}
     </>
   );
 }

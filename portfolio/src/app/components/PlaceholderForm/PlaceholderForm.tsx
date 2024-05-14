@@ -2,7 +2,7 @@ import { array, number } from 'prop-types';
 import Link from 'next/link';
 import { useState } from 'react';
 
-const AboutForm = () => {
+const PlaceholderForm = () => {
   let [numberOfSkills, setNumberOfSkills] = useState(1);
   const skills = [];
   const MAX_SKILLS = 6;
@@ -79,6 +79,20 @@ const AboutForm = () => {
 
   return (
     <>
+      {/*  <div className="col-sm-12">
+        <div className="card card-info" style={{ minHeight: '20rem' }}>
+          <div className="card-header">
+            <h3 className="card-title">xxxx</h3>
+          </div>
+          <div className="card-body">Loading xxxxx contents...</div>
+
+          <div className="overlay">
+            <i className="fas fa-2x fa-sync-alt fa-spin"></i>
+            <br />
+            <span style={{ clear: 'both' }}>Loading xxxxx contents...</span>
+          </div>
+        </div>
+      </div> */}
       <div className="card card-info">
         <div className="card-header">
           <h3 className="card-title">Placholder for now</h3>
@@ -239,4 +253,4 @@ const AboutForm = () => {
   );
 };
 
-export default AboutForm;
+export default PlaceholderForm;

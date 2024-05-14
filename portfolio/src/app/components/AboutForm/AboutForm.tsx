@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
+import { v4 as uuidv4 } from 'uuid';
 import {
   TinyMCEEditor,
   SkillContent,
@@ -141,6 +142,7 @@ const AboutForm = () => {
     const DISABLE_MOVE_DOWN: boolean = i === LAST_SKILL;
     skills.push(
       <div
+        key={uuidv4()}
         className={`row fade-in ${isVisible[i] ? 'visible' : ''}`}
         style={{
           marginBottom: '1rem',
@@ -294,7 +296,7 @@ const AboutForm = () => {
                     onInit={(_evt, editor) => (editorRef.current = editor)}
                     initialValue="Welcome To My Portfolio! My Name is..."
                     init={{
-                      height: 500,
+                      height: 300,
                       menubar: false,
                       plugins: [
                         'advlist',

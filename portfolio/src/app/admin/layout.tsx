@@ -22,7 +22,7 @@ export default function AdminLayout({
 }) {
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper" suppressHydrationWarning={true}>
         <nav
           id="header"
           className="main-header navbar navbar-expand navbar-white navbar-light"
@@ -68,69 +68,6 @@ export default function AdminLayout({
               >
                 <i className="fas fa-search"></i>
               </a>
-            </li>
-
-            <li className="nav-item dropdown">
-              <a className="nav-link" data-toggle="dropdown" href="#">
-                <i className="far fa-comments"></i>
-                <span className="badge badge-danger navbar-badge">3</span>
-              </a>
-              <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="#" className="dropdown-item">
-                  <div className="media">
-                    <div className="media-body">
-                      <h3 className="dropdown-item-title">
-                        Brad Diesel
-                        <span className="text-danger float-right text-sm">
-                          <i className="fas fa-star"></i>
-                        </span>
-                      </h3>
-                      <p className="text-sm">Call me whenever you can...</p>
-                      <p className="text-muted text-sm">
-                        <i className="far fa-clock mr-1"></i> 4 Hours Ago
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <a href="#" className="dropdown-item">
-                  <div className="media">
-                    <div className="media-body">
-                      <h3 className="dropdown-item-title">
-                        John Pierce
-                        <span className="text-muted float-right text-sm">
-                          <i className="fas fa-star"></i>
-                        </span>
-                      </h3>
-                      <p className="text-sm">I got your message bro</p>
-                      <p className="text-muted text-sm">
-                        <i className="far fa-clock mr-1"></i> 4 Hours Ago
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <a href="#" className="dropdown-item">
-                  <div className="media">
-                    <div className="media-body">
-                      <h3 className="dropdown-item-title">
-                        Nora Silvester
-                        <span className="text-warning float-right text-sm">
-                          <i className="fas fa-star"></i>
-                        </span>
-                      </h3>
-                      <p className="text-sm">The subject goes here</p>
-                      <p className="text-muted text-sm">
-                        <i className="far fa-clock mr-1"></i> 4 Hours Ago
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <a href="#" className="dropdown-item dropdown-footer">
-                  See All Messages
-                </a>
-              </div>
             </li>
 
             <li className="nav-item dropdown">
@@ -246,7 +183,7 @@ export default function AdminLayout({
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="pages/widgets.html" className="nav-link">
+                  <a href="#challenges" className="nav-link">
                     <i className="nav-icon fas fa-laptop-code"></i>
                     <p>Challenges Section</p>
                   </a>
@@ -256,7 +193,10 @@ export default function AdminLayout({
           </div>
         </aside>
 
-        <div className="content-wrapper" style={{ paddingTop: '1rem' }}>
+        <div
+          className="content-wrapper"
+          // style={{ paddingTop: '1rem', minHeight: 238 }}
+        >
           {/* <div className="content-header">
             <div className="container-fluid">
               <div className="row mb-2">
@@ -298,9 +238,9 @@ export default function AdminLayout({
 
       <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 
+      {/* 
       <script src="dist/js/adminlte.js"></script>
-
-      {/* <script src="dist/js/demo.js"></script> 
+      <script src="dist/js/demo.js"></script> 
         <script src="dist/js/pages/dashboard.js"></script>
       */}
     </>

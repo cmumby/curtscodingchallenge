@@ -2,6 +2,7 @@ import { array, number } from 'prop-types';
 import { useState, useRef, RefObject } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { TinyMCEEditor, Direction, ExperienceContent } from '../../types';
+import { v4 as uuidv4 } from 'uuid';
 import {
   FormSubmitEvent,
   ClickEvent,
@@ -95,10 +96,8 @@ const ExperienceForm = () => {
       const newExperienceContents: ExperienceContent[] = [
         ...experienceContents,
       ];
-      console.log('JLKLLJL:JL:L:KL:K');
       if (editorRef.current) {
         const newContent = editorRef.current.getContent();
-        console.log(newContent);
         newExperienceContents[i].description = newContent;
         setExperienceContents(newExperienceContents);
       }
@@ -117,6 +116,7 @@ const ExperienceForm = () => {
     const DISABLE_MOVE_DOWN: boolean = i === LAST_EMPLOYER;
     skills.push(
       <div
+        key={uuidv4()}
         className="row"
         style={{
           paddingBottom: '1rem',
@@ -239,7 +239,7 @@ const ExperienceForm = () => {
               onChange={handleEditorChange(i)}
               value={experienceContents[i].description}
               init={{
-                height: 300,
+                height: 200,
                 menubar: false,
                 plugins: [
                   'advlist',

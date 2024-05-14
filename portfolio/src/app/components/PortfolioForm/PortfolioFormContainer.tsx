@@ -2,8 +2,8 @@
 
 import PortfolioForm from './PortfolioForm';
 
-const PlacholderFormContainer = () => {
+const PortfolioFormContainer = () => {
   return <PortfolioForm />;
 };
 
-export default PlacholderFormContainer;
+export default PortfolioFormContainer;

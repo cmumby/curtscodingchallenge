@@ -7,7 +7,8 @@ export const constants = {
   THREE_TENTH_SECOND: 300,
   THREE_SECONDS: 3000,
   THIRTY_SECONDS: 30000,
-};
+  TOTAL_LOADED: 100,
+} as const;
 
 export function animateHome() {
   // GLightbox({

@@ -4,11 +4,7 @@ import { constants, select, on } from '../../utils';
 import Image from 'next/image';
 import './Menu.scss';
 import { animateHome } from '../../utils';
-
-interface MenuProps {
-  logoText: string;
-  logoDescriptionHidden: boolean;
-}
+import { MenuProps } from '../../interfaces';
 
 const Menu = ({ logoText, logoDescriptionHidden }: MenuProps) => {
   const [updatedText, setUpdatedText] = useState(logoText);
