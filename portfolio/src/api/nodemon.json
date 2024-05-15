@@ -1,5 +1,5 @@
 {
-  "execMap": {
-    "ts": "ts-node"
-  }
+  "watch": ["app"],
+  "ext": "ts",
+  "exec": "ts-node ./app/index.ts"
 }
