@@ -12,4 +12,4 @@ const about = async (res: any, query, dbname) => {
   }
 };
 
-module.exports = about;
+export default about;

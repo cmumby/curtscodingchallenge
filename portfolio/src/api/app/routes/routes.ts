@@ -1,8 +1,9 @@
 import express from 'express';
 const router = express.Router();
 
-const test = require('../services/test');
-const about = require('../services/about');
+import test from '../services/test';
+import about from '../services/about';
+import experience from '../services/experience';
 
 // Define routes
 router.get('/', (req, res) => {
@@ -17,6 +18,11 @@ router.route('/test').get((req, res) => {
 router.route('/about').get((req, res) => {
   const { query } = req;
   about(res, null, null);
+});
+
+router.route('/experience').get((req, res) => {
+  const { query } = req;
+  experience(res, null, null);
 });
 
 export default router;

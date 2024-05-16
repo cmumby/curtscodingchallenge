@@ -10,6 +10,36 @@
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "extends": [
+      "airbnb",
+      "airbnb/hooks",
+      "prettier"
+    ],
+    "rules": {
+      "no-console": "off",
+      "no-underscore-dangle": "off",
+      "no-unused-vars": "warn",
+      "import/extensions": "off",
+      "prettier/prettier": [
+        "warn"
+      ],
+      "react-hooks/exhaustive-deps": "off",
+      "react/jsx-filename-extension": [
+        0
+      ],
+      "react/prop-types": "warn"
+    },
+    "ignorePatterns": [
+      "src/__test__/*"
+    ]
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
@@ -22,7 +52,12 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.12",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
     "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
     "sequelize-cli": "^6.6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"

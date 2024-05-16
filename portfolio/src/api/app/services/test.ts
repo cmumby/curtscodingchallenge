@@ -7,4 +7,4 @@ const test = (res: any, query, dbname) => {
   res.json(testObj);
 };
 
-module.exports = test;
+export default test;
