@@ -32,6 +32,7 @@ interface ExperienceAttributes {
   location: string;
   technologies: string;
   description: string;
+  logo: string;
 }
 
 // Optional attributes for `id` and `createdAt` & `updatedAt`
@@ -52,6 +53,7 @@ class Experience
   public location!: string;
   public technologies!: string;
   public description!: string;
+  public logo!: string;
 }
 
 // Initialize the model
@@ -93,6 +95,10 @@ Experience.init(
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
+    },
+    logo: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {
