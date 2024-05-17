@@ -4,6 +4,7 @@ const router = express.Router();
 import test from '../services/test';
 import about from '../services/about';
 import experience from '../services/experience';
+import article from '../services/article';
 
 // Define routes
 router.get('/', (req, res) => {
@@ -23,6 +24,11 @@ router.route('/about').get((req, res) => {
 router.route('/experience').get((req, res) => {
   const { query } = req;
   experience(res, null, null);
+});
+
+router.route('/article').get((req, res) => {
+  const { query } = req;
+  article(res, null, null);
 });
 
 export default router;

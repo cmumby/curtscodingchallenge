@@ -1,3 +1,4 @@
+//TODO: ADD an upload for SVG logos
 import { array, number } from 'prop-types';
 import { useState, useRef, RefObject } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
