@@ -31,4 +31,9 @@ router.route('/article').get((req, res) => {
   article(res, null, null);
 });
 
+router.route('/article/:id').get((req, res) => {
+  const { query } = req;
+  article(res, null, null);
+});
+
 export default router;
