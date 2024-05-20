@@ -1,0 +1,7 @@
+@import '../../styles/mixin';
+
+.about-img {
+  @include mobile {
+    text-align: center;
+  }
+}

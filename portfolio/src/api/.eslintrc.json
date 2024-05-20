@@ -1,0 +1,15 @@
+{
+  "env": {
+    "browser": true
+  },
+  "plugins": ["prettier"],
+  "extends": ["prettier"],
+  "rules": {
+    "no-console": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": "warn",
+
+    "prettier/prettier": ["warn"]
+  },
+  "ignorePatterns": ["src/__test__/*"]
+}
