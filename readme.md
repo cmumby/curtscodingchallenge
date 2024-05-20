@@ -1,6 +1,6 @@
 # Curt's Coding Challenge 
 
-[LinkedIn](https://www.linkedin.com/in/curtis-mumby-29441474/) | [Email](mailto:curtis.mumby@gmail.com) | [Resume](http://placeholder.replace) | [Website](https://curtscode.com)
+[LinkedIn](https://www.linkedin.com/in/curtis-mumby-29441474/) | [Email](mailto:curtis.mumby@gmail.com) | [Resume](https://github.com/cmumby/curtscodingchallenge/blob/main/documents/curtis_mumby_resume.pdf) | [Website](https://curtscode.com)
 
 Hello! My name is [Curtis Mumby](https://www.linkedin.com/in/curtis-mumby-29441474/).
  Welcome to my portfolio repository! This repository showcases the kind of websites I can build and the coding challenges I can complete. 
@@ -20,13 +20,7 @@ Thank you for visiting!
 ## Contents
 - `challenges/`: This directory contains solutions to various coding challenges from platforms like LeetCode.
 - `projects/`: Here, you'll find mock versions of popular sites like Reddit and Twitter, demonstrating my web development skills.
-- `site/`: The code for the blog describing the sites and challenges, as well as my approach and solutions.
-
-
-
-- `challenges/`: (Add brief description)
-- `projects/`: (Add brief description)
-- `site/`: (Add brief description)
+- `protfolio/`: The code for the blog describing the sites and challenges, as well as my approach and solutions.
 
 
 
