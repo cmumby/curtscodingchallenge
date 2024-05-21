@@ -1,0 +1,12 @@
+@import '../../styles/mixin';
+
+#header {
+  .logo {
+    @include mobile {
+      font-size: 1rem;
+      #logo-desc {
+        font-size: 0.888rem;
+      }
+    }
+  }
+}

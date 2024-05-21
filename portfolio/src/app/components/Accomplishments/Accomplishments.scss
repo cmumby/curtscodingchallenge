@@ -1,0 +1,9 @@
+@import '../../styles/mixin';
+
+#acheivements-slider {
+  @include mobile {
+    .counter-box {
+      min-height: 14rem;
+    }
+  }
+}

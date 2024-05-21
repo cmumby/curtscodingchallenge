@@ -1,0 +1,82 @@
+@import '../../styles/mixin';
+
+.service-box {
+  .service-container {
+    display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid #e1e1e1;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .s-title {
+    text-align: left !important;
+    @include mobile {
+      text-align: center !important;
+    }
+  }
+
+  &:hover {
+    .ico-circle {
+      @include transition(all 500ms ease);
+      color: #fff;
+      @include box-shadow(0 0 0 0.333rem black);
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .service-icon {
+    padding-top: 2.5rem;
+    @include mobile {
+      padding-top: 0;
+    }
+    .ico-circle {
+      padding: 1rem;
+      @include box-shadow(none);
+      background-color: none;
+    }
+  }
+
+  .service-content {
+    text-align: left;
+    padding: 0rem 1.666rem;
+    .service-title {
+      text-align: left;
+      margin: 0;
+    }
+    .s-description {
+      text-align: left;
+      font-weight: bold;
+      margin: 0;
+    }
+    .s-info {
+      display: block;
+      span:nth-child(1) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  @include mobile {
+    padding: 0;
+
+    .service-container {
+      display: block;
+      padding: 0;
+      row {
+        padding: 0;
+      }
+    }
+
+    .service-content {
+      padding: 1.333rem;
+      .service-title {
+        text-align: center;
+      }
+    }
+  }
+}
