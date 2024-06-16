@@ -1,0 +1,155 @@
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.2); /* Default shadow color */
+  --table-color-even: rgb(230, 230, 230);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shadow-color: rgba(
+      255,
+      255,
+      255,
+      0.2
+    ); /* Light shadow color for dark mode */
+    --table-color-even: rgb(46, 46, 46);
+  }
+}
+.card {
+  overflow: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  padding: 0;
+  min-height: 448.75px;
+  min-width: 948.48px;
+}
+.styled-table {
+  margin: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-style: hidden;
+
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+}
+
+.styled-table thead tr {
+  background-color: #009879 !important;
+  border-radius: 10px;
+  color: #ffffff;
+  text-align: left;
+}
+.styled-table th {
+  cursor: pointer;
+}
+.styled-table thead th:first-child {
+  text-transform: uppercase;
+}
+
+.styled-table th::first-letter {
+  text-transform: capitalize;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: var(--table-color-even);
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+.table-input {
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 24px;
+  --field-padding: 12px;
+}
+
+.table-input input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  color: #222;
+  padding: 12px;
+  border-radius: 3px;
+
+  font-size: 14px;
+  padding: var(--field-padding);
+  border-top: 20px solid transparent;
+}
+
+.table-input input + .placeholder {
+  top: -10px;
+  font-size: 10px;
+  color: #222;
+}
+
+.table-input .error-message {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 12px;
+  background: #d30909;
+  color: #fff;
+  height: 24px;
+}
+.table-input .error-message:empty {
+  opacity: 0;
+}
+
+.table-input::after {
+  content: attr(aria-label);
+}
+
+.table-input .placeholder {
+  position: absolute;
+  left: 12px;
+  bottom: 50%;
+  top: 22px;
+  transform: translateY(-50%);
+  width: calc(100% - 24px);
+  color: #aaa;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  left: var(--field-padding);
+  width: calc(100% - (var(--field-padding) * 2));
+  transition:
+    top 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+.table-input
+  input:not(:placeholder-shown)
+  + .placeholder
+  .table-input
+  input:focus
+  + .placeholder {
+  top: -10px;
+  font-size: 10px;
+  color: #222;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

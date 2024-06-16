@@ -1,0 +1,28 @@
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.2); /* Default shadow color */
+  --table-color-even: rgb(230, 230, 230);
+}
+.post h1 {
+  text-transform: capitalize;
+}
+.post article {
+  font-family: source-serif-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
+  text-align: left;
+  padding: 0 6rem;
+  text-transform:;
+  font-size: 1.666rem;
+}
+
+.post article::first-letter {
+  text-transform: capitalize;
+  font-size: 200%;
+}
+
+.card {
+  overflow: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  padding: 0;
+  min-height: 448.75px;
+  min-width: 948.48px;
+}

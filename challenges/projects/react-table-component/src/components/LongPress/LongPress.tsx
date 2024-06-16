@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from 'react';
 
 const LongPress = ({ onLongPress, children, delay = 500 }) => {
   const [longPressTriggered, setLongPressTriggered] = useState(false);
