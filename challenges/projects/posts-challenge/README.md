@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+# AdMarketPlace Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hello! This is my submission for the AdMarketPlace
+front end challenge.
 
-Currently, two official plugins are available:
+## Requirements:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [x] Utilize Typescript
+- [x] on performance
+- [x] Add unit tests wherever possible.
+- [x] Try your best to create beautiful UI components.
 
-## Expanding the ESLint configuration
+### View1:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This is the index page. When this page is loaded, it should populate a list of posts from
+<https://jsonplaceholder.typicode.com/posts>
 
-- Configure the top-level `parserOptions` property like this:
+- [x] Users should be able to select a post from the dropdown.
+- [x] When a user selects a post from the dropdown, The user should be routed to View2
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### View2:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [x] In this view, We should display the posts title, body and the comments of the selected
+      post. The comments can be retrieved from
+      <https://jsonplaceholder.typicode.com/comments?postId=[postId]>
+- [x] We should also let users add comments. When a comment is posted, A POST request
+      should be sent to <https://jsonplaceholder.typicode.com/comments>
+- [x] After a successful POST request, the comment should be appended to the list of
+      comments. (NOTE: This POST request is not persistent)
+
+### View3:
+
+- [x] When a user navigates to View2 where the post does not exist or the api does not return
+      any data, show an error message along with a link to navigate to the home page.
+
+### View4:
+
+- [x] When a user tries to navigate to any path that does not exist, show a 404 message
+      along with a link to navigate back to home.
