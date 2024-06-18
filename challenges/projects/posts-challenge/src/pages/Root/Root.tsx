@@ -6,7 +6,6 @@ import { Post, Option } from '../../types';
 import DropDownSelector from '../../components/DropDownSelector/DropDownSelector';
 import { fetchData } from '../../utils';
 
-// takes the posts payload and converts it into labels and options for the dropdown
 const getDropdownOptions = (posts: Post[]): Option[] => {
   const options: Option[] = [];
   posts.forEach(post => {
@@ -19,7 +18,6 @@ function Root() {
   const [dropdownOptions, setDropdownOptions] = useState<Option[]>([]);
   useEffect(() => {
     const saveData = async () => {
-      // featches data and saves it locally in state
       const results: Post[] = await fetchData('https://jsonplaceholder.typicode.com/posts');
       setDropdownOptions(getDropdownOptions(results));
     };

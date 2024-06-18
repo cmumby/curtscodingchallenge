@@ -29,10 +29,9 @@ function Post(): JSX.Element {
         setNotFound(true);
         setLoading(false);
       }
-    }, 3000); // 3 seconds
+    }, 3000);
 
     const saveData = async () => {
-      // Fetches data and saves it locally in state
       try {
         const results: CommentType[] = await fetchData(
           `https://jsonplaceholder.typicode.com/comments?postId=${postIdNumber}`,
@@ -43,7 +42,7 @@ function Post(): JSX.Element {
             ...prevState,
             comments: {
               ...prevState.comments,
-              [id]: results, // Update the comments for the specific postId
+              [id]: results,
             },
           }));
         }

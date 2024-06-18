@@ -12,8 +12,6 @@ import Post from './pages/Posts/Post';
 import NotFound from './pages/NotFound/NotFound';
 import { fetchData } from './utils';
 
-// takes the posts payload and converts it into labels and options for the dropdown
-
 function App() {
   const context = useContext(DataContext);
 
@@ -24,7 +22,6 @@ function App() {
   const { state, setState } = context;
   useEffect(() => {
     const saveData = async () => {
-      // featches data and saves it locally in state
       const results: PostType[] = await fetchData('https://jsonplaceholder.typicode.com/posts');
       const newState = { ...state, posts: results, comments: [] };
       if (Object.prototype.hasOwnProperty.call(state, 'posts') && state.posts.length < 1) setState(newState);
