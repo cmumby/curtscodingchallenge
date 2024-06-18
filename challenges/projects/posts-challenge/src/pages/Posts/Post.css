@@ -1,0 +1,37 @@
+.post h1 {
+  text-transform: capitalize;
+}
+.post article {
+  font-family: source-serif-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
+  text-align: left;
+  padding: 0 6rem;
+  font-size: 1.666rem;
+}
+
+.post article::first-letter {
+  text-transform: capitalize;
+  font-size: 200%;
+}
+
+@media only screen and (max-width: 576px) {
+  .post article {
+    padding: 1rem;
+  }
+  .post h1 {
+    margin: 0.5rem;
+    word-wrap: break-word;
+  }
+
+  .post h2 {
+    margin: 1rem 0;
+  }
+
+  .post h3 {
+    font-size: 1.5rem;
+    word-wrap: break-word;
+  }
+
+  .post p {
+    font-size: 1.5rem;
+  }
+}

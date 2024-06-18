@@ -2,12 +2,14 @@ import './DropDownSelector.css';
 import { DropDownSelectorProps } from '../../interfaces';
 import uniqid from 'uniqid';
 import { useState, useEffect, useRef, ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Custom Dropdown Selector that will look an function the same on all browsers
 const DropDownSelector = ({ options }: DropDownSelectorProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [selectedValue, setSelectedValue] = useState<string | number>('');
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const handleActiveToggle = () => {
     setIsActive(!isActive);
@@ -26,8 +28,7 @@ const DropDownSelector = ({ options }: DropDownSelectorProps) => {
 
   const dropdownOptions: ReactNode = options.map(item => (
     <li key={uniqid()} role="option" data-value={item.value} onClick={handleOptionSelect(item.value)}>
-      <input type="radio" id={item.value as string | undefined} name="social-account" />
-      <label htmlFor="github">{item.label}</label>
+      {item.label}
     </li>
   ));
 
@@ -44,6 +45,12 @@ const DropDownSelector = ({ options }: DropDownSelectorProps) => {
     };
   }, [isActive]);
 
+  useEffect(() => {
+    if (selectedValue !== '') {
+      navigate(`/posts/${selectedValue}`);
+    }
+  }, [selectedValue, navigate]);
+
   const getLabelByValue = (value: string): string | undefined => {
     const item = options.find(item => item.value === value);
     return item ? item.label : undefined;
@@ -52,15 +59,7 @@ const DropDownSelector = ({ options }: DropDownSelectorProps) => {
   const buttonLabel = selectedValue !== '' ? getLabelByValue(selectedValue as string) : 'Select a Post';
   return (
     <div className={`custom-select ${isActive ? 'active' : ''}`} ref={dropdownRef} data-value={selectedValue}>
-      <button
-        className="select-button"
-        role="combobox"
-        aria-labelledby="select button"
-        aria-haspopup="listbox"
-        aria-expanded={isActive}
-        aria-controls="select-dropdown"
-        onClick={handleActiveToggle}
-      >
+      <button className="select-button" role="combobox" onClick={handleActiveToggle}>
         <span className="selected-value">{buttonLabel}</span>
         <span className="arrow"></span>
       </button>

@@ -1,0 +1,11 @@
+.not-found {
+  font-family: var(--default-font-family);
+  font-size: 1.333rem;
+}
+.not-found .message {
+  color: #dc3545;
+
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}

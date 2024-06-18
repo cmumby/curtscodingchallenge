@@ -13,11 +13,24 @@
 
   --article-font-family: source-serif-pro, Georgia, Cambria, ' Times New Roman ', Times, serif;
   --default-font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --seperator-color: #213547;
+  --shadow-color: rgba(0, 0, 0, 0.2); /* Default shadow color */
+  --table-color-even: rgb(230, 230, 230);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --seperator-color: #f2f2f2;
+  }
+}
+
+html {
+  font-size: 16px;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #007bff;
   text-decoration: inherit;
 }
 a:hover {
@@ -41,25 +54,7 @@ h2 {
 
 h2 {
   font-size: 2rem;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  margin: 0 0 1rem 0;
 }
 
 @media (prefers-color-scheme: light) {

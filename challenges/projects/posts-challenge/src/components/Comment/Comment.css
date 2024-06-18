@@ -4,11 +4,12 @@
   position: relative;
   bottom: 0;
   left: 50%;
-  width: 80%; /* Adjust this value to control the length of the line */
-  height: 2px; /* Adjust this value to control the thickness of the line */
-  background-color: white; /* Adjust this value to control the color of the line */
+  width: 80%;
+  height: 2px;
+  background-color: var(--seperator-color);
   transform: translateX(-50%);
 }
+
 .comment {
   text-align: left;
   font-family: var(--default-font-family);
@@ -28,4 +29,10 @@
 
 .comment > .content > .body-container > .body::after {
   content: '.';
+}
+
+@media only screen and (max-width: 576px) {
+  .comment {
+    padding: 0 1rem;
+  }
 }

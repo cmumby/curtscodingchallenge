@@ -1,22 +1,16 @@
-import React, { createContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
-import { Post } from './types';
-
-interface DataContextType {
-  state: Post[];
-  setState: Dispatch<SetStateAction<Post[]>>;
-}
+import React, { createContext, useState } from 'react';
+import { PostContex, DataContextType } from './interfaces';
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
-interface DataProviderProps {
-  children: ReactNode;
-}
-
 // Create the provider component
-export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
-  const [state, setState] = useState<Post[]>([]);
-
-  return <DataContext.Provider value={{ state, setState }}>{children}</DataContext.Provider>;
+export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [state, setState] = useState<PostContex>({ posts: [], comments: {} });
+  const stateFunctions: DataContextType = {
+    state,
+    setState,
+  };
+  return <DataContext.Provider value={stateFunctions}>{children}</DataContext.Provider>;
 };
 
 export default DataContext;

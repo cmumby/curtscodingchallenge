@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 type Option = {
   label: string;
   value: string | number;
@@ -11,10 +13,22 @@ export type Post = {
 };
 
 export type Comment = {
-  body: string;
-  email: string;
-  id: number;
-  name: string;
-  userId: number;
-  postId: number;
+  body: string | null;
+  email: string | null;
+  id: number | null;
+  name: string | null;
+  userId: number | null;
+  postId: number | null;
+};
+
+export type CommentPost = {
+  name: string | null;
+  email: string | null;
+  body: string | null;
+};
+
+export type PostContex = {
+  posts: Post[];
+  comments: Comment[];
+  children: ReactNode;
 };
