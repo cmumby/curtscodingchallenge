@@ -19,3 +19,11 @@ ul li {
     animation: logo-spin infinite 20s linear;
   }
 }
+
+.card {
+  overflow: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  padding: 1rem 0.333rem;
+  min-width: 100%;
+}
