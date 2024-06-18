@@ -1,18 +1,21 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useContext } from 'react';
 import './CommentPostForm.css';
 import { postData } from '../../utils';
 import DataContext from '../../DataContext';
 import { Comment, CommentPost } from '../../types';
 import { PostContex as PostContexInterface } from '../../interfaces';
-const { VITE_USER_ID: USER_ID } = import.meta.env; // creating a user id since this won't have real users or a login process
 import { useParams } from 'react-router-dom';
 
-const CommentPostForm = (): JSX.Element => {
+interface CommentPostFormProps {
+  postInfo: PostContexInterface;
+}
+
+const CommentPostForm = ({ postInfo }: CommentPostFormProps): JSX.Element => {
+  const USER_ID: number = 1; // creating a user id since this won't have real users or a login process
   const { postId } = useParams<{ postId: string }>();
   const id: number = postId as unknown as number;
   const context = useContext(DataContext);
-  const { state, setState } = context || {};
+  const { setState } = context || {};
   const initCommentPost: CommentPost = {
     name: null,
     email: null,
@@ -22,12 +25,17 @@ const CommentPostForm = (): JSX.Element => {
   const [commentFormData, setComentFormData] = useState<CommentPost>(initCommentPost);
   const handleSubmit = async (event: React.FormEvent): Promise<void> => {
     event?.preventDefault();
-    const newComment: Comment = { ...commentFormData, id: null, postId: id, userId: USER_ID as number };
+    const newComment: Comment = {
+      ...commentFormData,
+      id: null,
+      postId: id,
+      userId: USER_ID as unknown as number,
+    };
     const response = await postData('https://jsonplaceholder.typicode.com/comments', newComment);
-    const newState: PostContexInterface = { ...state } as PostContexInterface;
+    const newState: PostContexInterface = { ...postInfo } as PostContexInterface;
     newState?.comments[id].push(response);
     if (context && setState !== undefined) {
-      setState(newState as any);
+      setState(newState as PostContexInterface);
     }
   };
   const handleFormUpdate = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,6 +45,7 @@ const CommentPostForm = (): JSX.Element => {
     setComentFormData(commentPost);
   };
   const { name, email, body } = commentFormData;
+
   return (
     <div className="comment-post-form">
       <div className="card">
@@ -47,7 +56,7 @@ const CommentPostForm = (): JSX.Element => {
               className="input-text"
               type="text"
               name="name"
-              value={name as string}
+              defaultValue={(name as string) ?? ''}
               placeholder="Your Name..."
               onChange={handleFormUpdate}
             />
@@ -55,7 +64,7 @@ const CommentPostForm = (): JSX.Element => {
               className="input-text"
               type="text"
               name="email"
-              value={email as string}
+              defaultValue={(email as string) ?? ''}
               placeholder="Email@address.enter..."
               onChange={handleFormUpdate}
             />
@@ -63,10 +72,12 @@ const CommentPostForm = (): JSX.Element => {
           <div className="commentor-info input">
             <textarea
               className="input-textarea"
-              name="body"
+              role="textbox"
+              name={'body'}
+              data-testid="comment-body"
               rows={4}
               cols={50}
-              value={body as string}
+              value={(body as string) ?? ''}
               onChange={handleFormUpdate}
             />
             <button className="btn" type="button" onClick={handleSubmit}>

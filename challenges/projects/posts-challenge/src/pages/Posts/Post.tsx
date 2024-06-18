@@ -3,6 +3,8 @@
 import { useState, useEffect, useContext } from 'react';
 import './Post.css';
 import { Post as PostType, Comment as CommentType } from '../../types';
+import { PostContex as PostContexInterface } from '../../interfaces';
+
 import { useParams } from 'react-router-dom';
 import DataContext from '../../DataContext';
 import Comment from '../../components/Comment/Comment';
@@ -59,8 +61,8 @@ function Post(): JSX.Element {
       saveData();
     }
 
-    return () => clearTimeout(timeoutId); // Cleanup timeout if component unmounts
-  }, [id, state, postIdNumber, setState]);
+    return () => clearTimeout(timeoutId);
+  }, [id, postIdNumber, setState]);
 
   useEffect(() => {
     if (post) {
@@ -94,7 +96,16 @@ function Post(): JSX.Element {
       <h2>Comments ({relatedComments.length})</h2>
       <div className="seperator" />
       <section className="comments">{relatedComments}</section>
-      <CommentPostForm />
+      <CommentPostForm
+        postInfo={
+          {
+            ...state,
+            comments: {
+              [id]: comments,
+            },
+          } as PostContexInterface
+        }
+      />
     </div>
   );
 }

@@ -33,7 +33,7 @@ const DropDownSelector = ({ options }: DropDownSelectorProps) => {
   ));
 
   useEffect(() => {
-    //binds mouse clicks to events that handle clicks outside of the selection box
+    // adding events that will make it act like a native dropdown. accouinting for clicks out side of the component
     if (isActive) {
       document.addEventListener('mousedown', handleActiveToggleOutside);
     } else {

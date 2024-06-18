@@ -30,7 +30,7 @@ function App() {
       if (Object.prototype.hasOwnProperty.call(state, 'posts') && state.posts.length < 1) setState(newState);
     };
     saveData();
-  }, [state]);
+  }, []);
 
   return (
     <BrowserRouter>

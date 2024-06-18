@@ -1,5 +1,6 @@
 #root {
   max-width: 1280px;
+  margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
@@ -13,11 +14,8 @@ ul li {
   line-height: 1.666;
 }
 
-.card {
-  overflow: auto;
-  border-radius: 6px;
-  box-shadow: 0 4px 20px var(--shadow-color);
-  padding: 1rem;
-
-  min-width: 100%;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
