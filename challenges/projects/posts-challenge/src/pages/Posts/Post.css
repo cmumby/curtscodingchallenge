@@ -1,6 +1,11 @@
 .post h1 {
   text-transform: capitalize;
 }
+
+.post h2.comment-title {
+  margin-top: 1rem;
+}
+
 .post article {
   font-family: source-serif-pro, Georgia, Cambria, 'Times New Roman', Times, serif;
   text-align: left;

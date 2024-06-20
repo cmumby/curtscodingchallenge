@@ -92,7 +92,7 @@ function Post(): JSX.Element {
       <main className="details">
         <article>{body}</article>
       </main>
-      <h2>Comments ({relatedComments.length})</h2>
+      <h2 className="comment-title">Comments ({relatedComments.length})</h2>
       <div className="seperator" />
       <section className="comments">{relatedComments}</section>
       <CommentPostForm
