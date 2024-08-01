@@ -1,11 +1,36 @@
 {
-  "name": "cm-twitter-clone-backend",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "Backend Application for Twitter Clone",
-  "main": "src/index.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "format": "prettier --write 'src/**/*.{js,ts,jsx,tsx}'",
+    "dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts"
   },
-  "author": "Curtis Mumby",
-  "license": "ISC"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "lodash": "^4.17.21",
+    "sequelize": "^6.37.3"
+  }
 }

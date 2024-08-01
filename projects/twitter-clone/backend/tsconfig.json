@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "strict": true
+  },
+  "include": ["src/**/*"]
+}

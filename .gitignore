@@ -1,0 +1,4 @@
+**/node_modules
+**/.env
+**/.next
+./challenges/projects/post-challenge/.env
