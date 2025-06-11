@@ -1,75 +1,57 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import ClienList from '@/components/ClientList';
+import ClientDetail from '../ClientDetail';
+import { useClientContext } from '@/context/ClientContext';
+import type { Client } from '@/types/Client';
 
+export default function ClientPanel() {
+  const [clients, setClients] = useState<Client[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const { currentPage, featuredPerson } = useClientContext();
 
-export default async function ClientPanel() {
-  const res = await fetch('http://localhost:3001/clients?page=1');
-  if (!res.ok) { return <div>Error loading clients</div>; }
-  const json = await res.json();
-  const data = json.data;
-  const featuredPerson = data[1]
+  useEffect(() => {
+    const fetchClients = async () => {
+      try {
+        const res = await fetch(`http://localhost:3001/clients?page=${currentPage}`);
+        console.log('Fetching clients from API', { res });
+        if (!res.ok) {
+          setError(true);
+          return;
+        }
+        const json = await res.json();
+        setClients(json.data);
+      } catch (err) {
+        setError(true);
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchClients();
+  }, [currentPage]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading clients {JSON.stringify(error)}</div>;
+
+  useEffect(() => { }, [])
+
+  useEffect(() -> {
+
+  }, [])
 
   return (
+
     <section className="flex w-full h-full">
       <div className="w-1/4 bg-gray-100 p-4">
-        <ClienList clients={data} />
+        <ClienList clients={clients} totalPages={10} />
       </div>
-      <div className="w-3/4 text-center bg-white p-4">
-        <h2 className="text-black font-bold">Policy Details: {featuredPerson.firstName} {featuredPerson.lastName}</h2>
-        <div className="odd:bg-white even:bg-gray-100">
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 p-4">
-            <dt className="font-medium text-gray-600">First</dt>
-            <dd className="text-gray-900">{featuredPerson.firstName}</dd>
-          </dl>
-        </div>
-        <div className="odd:bg-white even:bg-gray-100">
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 p-4">
-            <dt className="font-medium text-gray-600">Last</dt>
-            <dd className="text-gray-900">{featuredPerson.lastName}</dd>
-          </dl>
-        </div>
-        <div className="odd:bg-white even:bg-gray-100">
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 p-4">
-            <dt className="font-medium text-gray-600">Email</dt>
-            <dd className="text-gray-900"><a href="mailto:bob.robertson@example.com">{featuredPerson.email}</a></dd>
-          </dl>
-        </div>
-        <div className="odd:bg-white even:bg-gray-100">
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 p-4">
-            <dt className="font-medium text-gray-600">Phone</dt>
-            <dd className="text-gray-900"><a href="mailto:bob.robertson@example.com">{featuredPerson.phone}</a></dd>
-          </dl>
-        </div>
-        <div className="odd:bg-white even:bg-gray-100">
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 p-4">
-            <dt className="font-medium text-gray-600">Birthdate</dt>
-            <dd className="text-gray-900"><a href="mailto:bob.robertson@example.com">{featuredPerson.birthDate}</a></dd>
-          </dl>
-        </div>
-        <div className="odd:bg-white even:bg-gray-100">
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 p-4">
-            <dt className="font-medium text-gray-600">Policy Number</dt>
-            <dd className="text-gray-900"><a href="mailto:bob.robertson@example.com">{featuredPerson.policyNumber}</a></dd>
-          </dl>
-        </div>
-        <div className="odd:bg-white even:bg-gray-100">
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 p-4">
-            <dt className="font-medium text-gray-600">Coverage Amount</dt>
-            <dd className="text-gray-900"><a href="mailto:bob.robertson@example.com">{featuredPerson.coverageAmount}</a></dd>
-          </dl>
-        </div>
-        <div className="odd:bg-white even:bg-gray-100">
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 p-4">
-            <dt className="font-medium text-gray-600">Permium</dt>
-            <dd className="text-gray-900"><a href="mailto:bob.robertson@example.com">{featuredPerson.premium}</a></dd>
-          </dl>
-        </div>
-        <div className="odd:bg-white even:bg-gray-100">
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 p-4">
-            <dt className="font-medium text-gray-600">Address</dt>
-            <dd className="text-gray-900"><a href="mailto:bob.robertson@example.com">{featuredPerson.address}</a></dd>
-          </dl>
-        </div>
-
+      <div className="w-3/4 text-left bg-white p-4">
+        <h2>test</h2>
+        <ClientDetail featuredPerson={featuredPerson || clients[0]} />
       </div>
     </section>
   );

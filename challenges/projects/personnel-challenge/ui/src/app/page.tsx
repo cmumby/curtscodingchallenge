@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import ClientPanel from '@/components/ClientPanel';
+import { ClientProvider, useClientContext } from '@/context/ClientContext';
+
 
 export default function Home() {
   return (
@@ -13,8 +15,10 @@ export default function Home() {
           height={38}
           priority
         />
+        <ClientProvider>
+          <ClientPanel />
+        </ClientProvider>
 
-        <ClientPanel />
 
         <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2 tracking-[-.01em]">
